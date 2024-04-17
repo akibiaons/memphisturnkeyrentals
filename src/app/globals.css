@@ -2,32 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Below is the navbar css for the hamburger menu */
+.hamburger-menu {
+  width: 2rem;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.line {
+  display: block;
+  width: 100%;
+  height: 0.09rem;
+  background-color: #bfbfbf;
+  transition: transform 0.3s ease;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* When the 'open' class is added to 'hamburger-menu', apply these transformations */
+.hamburger-menu.open .line1 {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.hamburger-menu.open .line2 {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
