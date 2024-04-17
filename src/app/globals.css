@@ -16,7 +16,7 @@
   display: block;
   width: 100%;
   height: 0.09rem;
-  background-color: #bfbfbf;
+  background-color: #930909;
   transition: transform 0.3s ease;
 }
 
@@ -27,4 +27,11 @@
 
 .hamburger-menu.open .line2 {
   transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 400px) {
+  /* Styles will go here like this shadow-inner for smaller mobile screens */
+  .shadow-inner {
+    box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
+  }
 }
