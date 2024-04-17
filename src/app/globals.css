@@ -35,3 +35,13 @@
     box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
   }
 }
+
+/* Text stroke for the hero section */
+.text-stroke {
+  -webkit-text-stroke: 0.5px black; /* Adjusted width */
+  color: white; /* text color */
+}
+
+.text-shadow {
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+}

@@ -75,6 +75,10 @@ export default function Navbar({}: Props) {
           >
             Our Projects
           </a>
+          {/* Contact button for desktop */}
+          <div className="border-2 rounded-lg px-2 bg-[#073363]">
+            <p>(619) 866-7776</p>
+          </div>
         </div>
       </div>
       {/*  */}
