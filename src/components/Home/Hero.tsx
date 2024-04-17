@@ -30,6 +30,9 @@ export default function Hero({ title, description, imageUrl }: Props) {
         <p className="text-stroke text-shadow text-white text-xl mt-4">
           {description}
         </p>
+        <button className="rounded-lg px-2 bg-[#073363] mt-6 p-2">
+          <p className="text-white font-extralight">View properties</p>
+        </button>
       </div>
     </div>
   );

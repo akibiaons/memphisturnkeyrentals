@@ -43,7 +43,7 @@ export default function Navbar({}: Props) {
         <div
           className={`${
             isOpen ? "flex items-center z-50" : "hidden lg:flex"
-          } lg:items-center lg:flex-row flex-col absolute lg:relative top-full lg:top-auto left-0 w-full lg:w-auto bg-white/90 shadow-inner lg:shadow-none lg:bg-transparent text-[#bfbfbf] pt-4 lg:pt-0 pb-6 lg:pb-0 `}
+          } lg:items-center lg:flex-row flex-col absolute lg:relative top-full lg:top-auto left-0 w-full lg:w-auto bg-white shadow-inner lg:shadow-none lg:bg-transparent text-[#bfbfbf] pt-4 lg:pt-0 pb-6 lg:pb-0 `}
         >
           <a
             href="#"
