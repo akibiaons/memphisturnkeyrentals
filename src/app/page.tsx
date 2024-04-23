@@ -22,7 +22,10 @@ export default function Home() {
       {/* End of section one */}
       {/* Start of section two */}
       <div className="relative bg-[#6A6A6A] flex flex-col min-h-screen lg:p-32">
-        <SectionTwo />
+        <SectionTwo
+          name="Daniel Moreno"
+          contactInfo="strongerinvestments@mtr.com"
+        />
       </div>
       <div className="relative bg-[#6A6A6A] flex flex-col min-h-screen lg:p-32">
         <SectionThree />

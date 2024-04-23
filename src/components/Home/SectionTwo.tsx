@@ -1,9 +1,12 @@
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
+type Props = {
+  name: string;
+  contactInfo: string;
+};
 
-export default function SectionTwo({}: Props) {
+export default function SectionTwo({ name, contactInfo }: Props) {
   return (
     <div>
       {/*  */}
@@ -21,17 +24,25 @@ export default function SectionTwo({}: Props) {
           you win we win too!
         </p>
       </div>
-      {/*  */}
       <div className="rounded-xl w-[80%] mx-auto mt-10">
-        {/* the photo!!  */}
-        <div className="about_image__hW1fB">
+        {/* the photo!! and overlay  */}
+        <div className="relative">
           <Image
             width={300}
             height={300}
-            className="rounded-2xl lg:w-[90%]"
+            className="rounded-t-2xl lg:w-[90%]"
             src="https://res.cloudinary.com/dfgr7tov1/image/upload/v1713913243/Screenshot_2024-04-23_at_4.00.26_PM_z95dyr.png"
             alt="AboutPlaceholder"
           />
+          <div className="absolute rounded-t-2xl inset-0 bg-black bg-opacity-10"></div>
+
+          {/* Overlay content */}
+          <div className="z-10 w-full h-full flex flex-col justify-center items-center text-center bg-black">
+            <h1 className="text-white text-4xl lg:text-7xl font-bold">
+              {name}
+            </h1>
+            <p className="text-white text-lg lg:text-4xl mt-4">{contactInfo}</p>
+          </div>
         </div>
       </div>
     </div>
