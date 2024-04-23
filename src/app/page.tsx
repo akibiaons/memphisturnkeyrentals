@@ -1,5 +1,7 @@
 import Hero from "@/components/Home/Hero";
 import SectionOne from "@/components/Home/SectionOne";
+import SectionThree from "@/components/Home/SectionThree";
+import SectionTwo from "@/components/Home/SectionTwo";
 import Image from "next/image";
 
 export default function Home() {
@@ -18,6 +20,13 @@ export default function Home() {
         <SectionOne />
       </div>
       {/* End of section one */}
+      {/* Start of section two */}
+      <div className="relative bg-[#6A6A6A] flex flex-col min-h-screen lg:p-32">
+        <SectionTwo />
+      </div>
+      <div className="relative bg-[#6A6A6A] flex flex-col min-h-screen lg:p-32">
+        <SectionThree />
+      </div>
     </div>
   );
 }
