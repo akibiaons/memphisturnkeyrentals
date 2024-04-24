@@ -4,7 +4,7 @@ import React from "react";
 import useScrollTriggerAnimation from "@/hooks/useScrollTriggerAnimation";
 
 export default function StickySlideComponent() {
-  //  AnimationRef declaration
+  // AnimationRef declaration
   const animationRef = useScrollTriggerAnimation();
 
   return (

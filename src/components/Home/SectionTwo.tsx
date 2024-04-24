@@ -9,7 +9,6 @@ type Props = {
 export default function SectionTwo({ name, contactInfo }: Props) {
   return (
     <div>
-      {/*  */}
       <div className="flex flex-col text-center mt-6">
         <p className="text-black mb-6 font-semibold uppercase text-sm">
           About us

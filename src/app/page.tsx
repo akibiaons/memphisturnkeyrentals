@@ -1,7 +1,10 @@
 import Hero from "@/components/Home/Hero";
 import SectionOne from "@/components/Home/SectionOne";
-import SectionThree from "@/components/Home/SectionThree";
 import SectionTwo from "@/components/Home/SectionTwo";
+import SectionThree from "@/components/Home/SectionThree";
+import SectionFour from "@/components/Home/SectionFour";
+
+// Other component import
 import Image from "next/image";
 
 export default function Home() {
@@ -29,6 +32,9 @@ export default function Home() {
       </div>
       <div className="relative flex flex-col min-h-screen lg:p-32">
         <SectionThree />
+      </div>
+      <div className="relative flex flex-col min-h-screen lg:p-32">
+        <SectionFour />
       </div>
     </div>
   );

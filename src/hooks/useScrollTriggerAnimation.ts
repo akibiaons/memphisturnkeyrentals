@@ -19,15 +19,15 @@ const useScrollTriggerAnimation = () => {
             trigger: element,
             start: "top center",
             end: "bottom center",
-            scrub: true,
-            markers: true,
+            scrub: false,
+            markers: false,
             // other scrolltrigger options...
           },
         })
         .fromTo(
           element,
-          { y: 100, opacity: 2 },
-          { y: 0, opacity: 1, duration: 5 }
+          { y: 20, opacity: 0.7 },
+          { y: 0, opacity: 1, duration: 2 }
         );
     }
   }, []);
