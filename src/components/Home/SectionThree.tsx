@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import { MdAccountCircle } from "react-icons/md";
 
 type Props = {};
 
@@ -18,7 +20,13 @@ export default function SectionThree({}: Props) {
           estate rental portfolio in the #1 rated cashflowing market in America
         </p>
       </div>
-      {/*  */}
+      {/* CTA for account creation card */}
+      <div className="text-center">
+        <p>Create your investor profile</p>
+        <span className="flex justify-center">
+          <MdAccountCircle className="w-16 h-20" />
+        </span>
+      </div>
     </div>
   );
 }
