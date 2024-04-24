@@ -16,20 +16,22 @@ export default function Home() {
         />
       </div>
       {/* Section one below */}
-      <div className="relative bg-[#6A6A6A] flex flex-col min-h-screen lg:p-32">
+      <div className="relative flex flex-col min-h-screen lg:p-32">
         <SectionOne />
       </div>
       {/* End of section one */}
       {/* Start of section two */}
-      <div className="relative bg-[#6A6A6A] flex flex-col min-h-screen lg:p-32">
+      <div className="relative flex flex-col min-h-screen lg:p-32 bg-[#6A6A6A]">
         <SectionTwo
           name="Daniel Moreno"
           contactInfo="strongerinvestments@mtr.com"
         />
       </div>
-      <div className="relative bg-[#6A6A6A] flex flex-col min-h-screen lg:p-32">
+      <div className="relative flex flex-col min-h-screen lg:p-32">
         <SectionThree />
       </div>
     </div>
   );
 }
+
+// bg-[#6A6A6A] to the left is the og background color

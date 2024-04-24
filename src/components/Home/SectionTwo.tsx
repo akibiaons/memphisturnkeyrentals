@@ -11,13 +11,13 @@ export default function SectionTwo({ name, contactInfo }: Props) {
     <div>
       {/*  */}
       <div className="flex flex-col text-center mt-6">
-        <p className="text-white mb-6 font-semibold uppercase text-sm">
+        <p className="text-black mb-6 font-semibold uppercase text-sm">
           About us
         </p>
-        <h2 className="text-4xl font-semibold text-white mb-6 lg:text-6xl">
+        <h2 className="text-4xl font-semibold text-black mb-6 lg:text-6xl">
           Our Team
         </h2>
-        <p className="text-white mb-4 text-sm lg:text-lg w-[95%] mx-auto">
+        <p className="text-black mb-4 text-sm lg:text-lg w-[95%] mx-auto">
           With x years of experience in the Memphis market, we bring a high ROI
           with a value add investing mindset and strategy. Our win win approach
           with investors ensures that we all get a peice of the cake, so when
@@ -37,11 +37,13 @@ export default function SectionTwo({ name, contactInfo }: Props) {
           <div className="absolute rounded-t-2xl inset-0 bg-black bg-opacity-10"></div>
 
           {/* Overlay content */}
-          <div className="z-10 w-full h-full flex flex-col justify-center items-center text-center bg-black">
-            <h1 className="text-white text-4xl lg:text-7xl font-bold">
+          <div className="z-10 w-full h-full flex flex-col justify-center items-start bg-black">
+            <h1 className="text-white text-xl lg:text-4xl font-bold mt-4 ml-2 underline decoration-[#930909]">
               {name}
             </h1>
-            <p className="text-white text-lg lg:text-4xl mt-4">{contactInfo}</p>
+            <p className="text-white text-sm lg:text-xl mt-4 mb-4 ml-2 underline decoration-[#930909]">
+              {contactInfo}
+            </p>
           </div>
         </div>
       </div>
