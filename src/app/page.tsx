@@ -1,8 +1,8 @@
-import Hero from "@/components/Home/Hero";
-import SectionOne from "@/components/Home/SectionOne";
-import SectionTwo from "@/components/Home/SectionTwo";
-import SectionThree from "@/components/Home/SectionThree";
-import SectionFour from "@/components/Home/SectionFour";
+import Hero from "@/components/HomeComponents/Hero";
+import SectionOne from "@/components/HomeComponents/SectionOne";
+import SectionTwo from "@/components/HomeComponents/SectionTwo";
+import SectionThree from "@/components/HomeComponents/SectionThree";
+import SectionFour from "@/components/HomeComponents/SectionFour";
 
 // Other component import
 import Image from "next/image";

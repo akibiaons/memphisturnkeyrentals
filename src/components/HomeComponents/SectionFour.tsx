@@ -1,4 +1,5 @@
 import React from "react";
+import { BuildToRentCard } from "@/components/AceUI/BuiltToRentCard";
 
 type Props = {};
 
@@ -13,6 +14,9 @@ export default function SectionFour({}: Props) {
           Built to rent
         </h2>
         <p className="text-black mb-4 text-sm lg:text-lg w-[95%] mx-auto"></p>
+      </div>
+      <div>
+        <BuildToRentCard />
       </div>
     </div>
   );
