@@ -1,7 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import { MdAccountCircle } from "react-icons/md";
-import { IoIosCall } from "react-icons/io";
+import Chart from "@/components/HomeComponents/Chart";
 
 type Props = {};
 
@@ -20,23 +18,21 @@ export default function SectionThree({}: Props) {
         </p>
       </div>
       {/* CTA for account creation card */}
-      <div className="text-center border-2 w-[90%] mx-auto p-4 boxOne">
-        <p className="text-xl font-bold">Create an investor profile</p>
-        <span className="flex justify-center">
-          <MdAccountCircle className="w-16 h-20" />
-        </span>
-        <button className="bg-[#930909] rounded-lg px-4 mt-6 mb-6 border-2">
-          Create an account
-        </button>
+      <div className="flex justify-center items-center align-middle">
+        <div className="text-center w-[90%] mx-auto p-4">
+          <button className="rounded-lg px-2 bg-[#073363] mt-6 p-2">
+            <p className="text-white font-extralight">Create a profile</p>
+          </button>
+        </div>
+        {/* Button divider */}
+        <div className="text-center w-[90%] mx-auto p-4">
+          <button className="rounded-lg px-2 mt-6 p-2 border-2 border-double border-[#073363]">
+            <p className="text-black font-extralight">Hop on a call!</p>
+          </button>
+        </div>
       </div>
-      <div className="text-center border-2 w-[90%] mx-auto mt-8 p-4 boxOne">
-        <p className="text-xl font-bold">Hop on a call with us!</p>
-        <span className="flex justify-center">
-          <IoIosCall className="w-16 h-20" />
-        </span>
-        <button className="bg-[#930909] rounded-lg px-4 mt-6 mb-6  border-2">
-          Call now!
-        </button>
+      <div>
+        <Chart />
       </div>
     </div>
   );

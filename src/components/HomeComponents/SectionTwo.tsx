@@ -37,10 +37,10 @@ export default function SectionTwo({ name, contactInfo }: Props) {
 
           {/* Overlay content */}
           <div className="z-10 w-full h-full flex flex-col justify-center items-start bg-black">
-            <h1 className="text-white text-xl lg:text-4xl font-bold mt-4 ml-2 underline decoration-[#930909]">
+            <h1 className="text-white text-xl lg:text-4xl font-bold mt-4 ml-2 underline decoration-[#073363] decoration-4">
               {name}
             </h1>
-            <p className="text-white text-sm lg:text-xl mt-4 mb-4 ml-2 underline decoration-[#930909]">
+            <p className="text-white text-sm lg:text-xl mt-4 mb-4 ml-2 ">
               {contactInfo}
             </p>
           </div>
