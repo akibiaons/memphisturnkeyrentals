@@ -3,6 +3,7 @@ import SectionOne from "@/components/HomeComponents/SectionOne";
 import SectionTwo from "@/components/HomeComponents/SectionTwo";
 import SectionThree from "@/components/HomeComponents/SectionThree";
 import SectionFour from "@/components/HomeComponents/SectionFour";
+import ProjectCarousel from "@/components/HomeComponents/carousel/ProjectCarousel";
 
 // Other component import
 import Image from "next/image";
@@ -33,8 +34,9 @@ export default function Home() {
       <div className="relative flex flex-col min-h-screen lg:p-32">
         <SectionThree />
       </div>
-      <div className="relative flex flex-col min-h-screen lg:p-32">
+      <div className="relative flex flex-col min-h-screen lg:p-32 overflow-x-hidden">
         <SectionFour />
+        <ProjectCarousel />
       </div>
     </div>
   );
