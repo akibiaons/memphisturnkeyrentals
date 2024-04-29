@@ -1,109 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
 
-/* Below is the navbar css for the hamburger menu */
-.hamburger-menu {
-  width: 2rem;
-  height: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  cursor: pointer;
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
 
-.line {
-  display: block;
-  width: 100%;
-  height: 0.09rem;
-  background-color: #930909;
-  transition: transform 0.3s ease;
-}
-
-/* When the 'open' class is added to 'hamburger-menu', apply these transformations */
-.hamburger-menu.open .line1 {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger-menu.open .line2 {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-@media (max-width: 400px) {
-  /* Styles will go here like this shadow-inner for smaller mobile screens */
-  .shadow-inner {
-    box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
   }
 }
 
-/* Text stroke for the hero section */
-.text-stroke {
-  -webkit-text-stroke: 0.5px black; /* Adjusted width */
-  color: white; /* text color */
-}
-
-.text-shadow {
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
-}
-
-/* Boxes for Section One explainers*/
-.parentBox {
-  display: flex;
-  gap: 2rem;
-  /* justify-content: center; */
-  /* align-items: center; */
-  flex-direction: column;
-}
-.boxOne {
-  color: white;
-  background-color: #6a6a6a;
-  border: solid 2px black;
-  border-radius: 10px;
-}
-
-.boxTwo {
-  color: white;
-  background-color: #6a6a6a;
-  border: solid 2px black;
-  border-radius: 10px;
-}
-
-.boxThree {
-  color: white;
-  background-color: #6a6a6a;
-  border: solid 2px black;
-  border-radius: 10px;
-}
-
-.slick-dots li button:before {
-  font-size: 16px; /* Increasing the font size makes the dots larger */
-  color: gray; /* Setting the color to white for better visibility */
-  opacity: 0.5; /* Increase slightly if dots are disappearing into the background */
-}
-
-.slick-dots li.slick-active button:before {
-  opacity: 1; /* Fully opaque when active */
-}
-
-/* Custom arrow styles  for the carousel in CSS*/
-.custom-arrow {
-  z-index: 1; /* Ensure arrows are above other content */
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  border-radius: 50%; /* Circular arrows */
-  width: 20px; /* Size of the arrows */
-  height: 20px; /* Size of the arrows */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: gray; /* Arrow color */
-}
-
-.custom-next-arrow {
-  right: 20px; /* Position from the right */
-}
-
-.custom-prev-arrow {
-  left: 20px; /* Position from the left */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
