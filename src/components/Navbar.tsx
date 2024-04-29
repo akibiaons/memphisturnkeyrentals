@@ -1,8 +1,27 @@
 "use client";
 
+import { FaWhatsapp } from "react-icons/fa";
+
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Mail, MessageSquareMore, PhoneCall } from "lucide-react";
 
 type Props = {};
 
@@ -76,9 +95,37 @@ export default function Navbar({}: Props) {
             Our Projects
           </a>
           {/* Contact button for desktop */}
-          <div className="border-2 rounded-lg px-2 bg-[#073363]">
-            <p>(619) 866-7776</p>
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button>Contact</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Contact Us</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <MessageSquareMore className="mr-2 h-4 w-4" />
+                  <span>Message</span>
+                  {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Mail className="mr-2 h-4 w-4" />
+                  <span>Email</span>
+                  {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <PhoneCall className="mr-2 h-4 w-4" />
+                  <span>Phone</span>
+                  {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <FaWhatsapp className="mr-2 h-4 w-4" />
+                  <span>WhatsApp</span>
+                  {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
       {/*  */}
