@@ -11,7 +11,7 @@ export default function StickySlideComponent() {
     <div>
       {/* Below is boxes parent div and above is the component div  */}
       <div className="parentBox mt-[-2rem]" ref={animationRef}>
-        <div className="boxOne">
+        <div>
           {/* SVG Icon here  */}
           <h2 className="text-center font-bold text-xl mb-6 mt-4">
             Inspected Property
@@ -22,7 +22,7 @@ export default function StickySlideComponent() {
             there are no quick suprises, so you can rent them out ASAP.
           </p>
         </div>
-        <div className="boxTwo">
+        <div>
           {/* SVG Icon here  */}
           <h2 className="text-center font-bold text-xl mb-6 mt-4">
             Build to Rent Value
@@ -32,7 +32,7 @@ export default function StickySlideComponent() {
             built to rent are at a value of $149,928
           </p>
         </div>
-        <div className="boxThree">
+        <div>
           {/* SVG Icon here  */}
           <h2 className="text-center font-bold text-xl mb-6 mt-4">
             Stable Income
