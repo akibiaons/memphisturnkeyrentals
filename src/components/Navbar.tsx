@@ -30,13 +30,7 @@ export default function Navbar({}: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
-      className={`${
-        isOpen
-          ? "left-10 bg-[#141415] mt-2 w-[90%] rounded-t-xl lg:mx-auto lg:container lg:left-0 lg:right-0 lg:w-[90%]"
-          : "left-10 bg-[#141415] mt-2 w-[90%] rounded-xl lg:mx-auto lg:container lg:left-0 lg:right-0 lg:w-[90%]"
-      }`}
-    >
+    <div>
       {/*  */}
       <div className="bg-white flex justify-between items-center lg:w-[100%]">
         <div>
@@ -52,7 +46,7 @@ export default function Navbar({}: Props) {
           </Link>
         </div>
         <div
-          className={`hamburger-menu ${isOpen ? "open" : "lg:hidden"}`}
+          className={`hamburger-menu ${isOpen ? "open" : "md:hidden"}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <span className="line line1"></span>
@@ -61,7 +55,7 @@ export default function Navbar({}: Props) {
         {/* Navigation links and such */}
         <div
           className={`${
-            isOpen ? "flex items-center z-50" : "hidden lg:flex"
+            isOpen ? "flex items-center z-50" : "hidden md:flex"
           } lg:items-center lg:flex-row flex-col absolute lg:relative top-full lg:top-auto left-0 w-full lg:w-auto bg-white shadow-inner lg:shadow-none lg:bg-transparent text-[#bfbfbf] pt-4 lg:pt-0 pb-6 lg:pb-0 `}
         >
           <a
@@ -94,7 +88,7 @@ export default function Navbar({}: Props) {
           >
             Our Projects
           </a>
-          {/* Contact button for desktop */}
+          {/* Contact Button/SHADCN for desktop */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button>Contact</Button>
@@ -128,7 +122,6 @@ export default function Navbar({}: Props) {
           </DropdownMenu>
         </div>
       </div>
-      {/*  */}
     </div>
   );
 }
