@@ -74,8 +74,12 @@ const options = {
       min: 140000,
       max: 240000,
       ticks: {
-        callback: function (value: number) {
-          return "$" + value / 1000 + "k";
+        callback: function (
+          value: number | string,
+          index: number,
+          values: any[]
+        ) {
+          return "$" + Number(value) / 1000 + "k";
         },
         stepSize: 50000, // Increment steps by $50k
       },
