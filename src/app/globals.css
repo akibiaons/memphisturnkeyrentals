@@ -64,3 +64,27 @@
   border: solid 2px white;
   border-radius: 10px;
 }
+
+.hero-bg {
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.6) 8%,
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("https://res.cloudinary.com/dfgr7tov1/image/upload/v1713393089/biggerHero_vvduaq.jpg");
+  background-repeat: no-repeat; /* Prevents background from repeating */
+  background-size: cover; /* Makes the image scale to cover the element */
+  background-position: center; /* Centers the background image */
+}
+
+/* hide scrollbar */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
