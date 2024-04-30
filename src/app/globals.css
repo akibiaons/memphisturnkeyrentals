@@ -57,3 +57,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.boxOne {
+  color: white;
+  background-color: white;
+  border: solid 2px white;
+  border-radius: 10px;
+}
