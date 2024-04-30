@@ -77,3 +77,14 @@
   background-size: cover; /* Makes the image scale to cover the element */
   background-position: center; /* Centers the background image */
 }
+
+/* hide scrollbar */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
