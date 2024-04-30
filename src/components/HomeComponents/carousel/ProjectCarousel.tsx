@@ -1,6 +1,6 @@
 // ShadCn component
 import * as React from "react";
-
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,18 +10,45 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+type ProjectCardProps = {
+  imageSrc: string;
+  address: string;
+};
+
+const projectData: ProjectCardProps[] = [
+  {
+    imageSrc:
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1714246022/Screenshot_2024-04-27_at_12.26.56_PM_sdpx6h.png",
+    address: "123 Main St, Memphis",
+  },
+  {
+    imageSrc:
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1714246022/Screenshot_2024-04-27_at_12.26.56_PM_sdpx6h.png",
+    address: "456 Elm St, Memphis",
+  },
+  {
+    imageSrc:
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1714246022/Screenshot_2024-04-27_at_12.26.56_PM_sdpx6h.png",
+    address: "789 Oak St, Memphis",
+  },
+];
+
 export function ProjectCarousel() {
   return (
     <Carousel className="w-[100%] mx-auto">
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {projectData.map((item, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
+            <div className="relative p-1">
+              <Image
+                src={item.imageSrc}
+                alt={`Image ${index}`}
+                width={500}
+                height={500}
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <span className="text-white text-xl">{item.address}</span>
+              </div>
             </div>
           </CarouselItem>
         ))}
