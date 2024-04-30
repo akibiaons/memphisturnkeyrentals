@@ -26,9 +26,7 @@ export default function RootLayout({
           <Navbar />
         </div>
         <div>{children}</div>
-        <div className="relative">
-          <Footer />
-        </div>
+        <div className="relative">{/* <Footer /> */}</div>
       </body>
     </html>
   );
