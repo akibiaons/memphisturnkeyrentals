@@ -40,7 +40,7 @@ export default function Hero({ title, description, imageUrl }: Props) {
               {description}
             </Highlight>
             <div>
-              <Button className="  bg-blue-500">Hello</Button>
+              <Button className="  bg-blue-500">Property Listings</Button>
             </div>
           </motion.h1>
         </HeroHighlight>
