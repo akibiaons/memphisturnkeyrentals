@@ -1,5 +1,10 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { Button } from "../ui/button";
+import { motion } from "framer-motion";
+import { HeroHighlight, Highlight } from "../ui/hero-highlight";
 
 type Props = {
   title: string;
@@ -9,30 +14,36 @@ type Props = {
 
 export default function Hero({ title, description, imageUrl }: Props) {
   return (
-    <div className="relative h-[600px] lg:h-[742px] w-full overflow-hidden">
-      <Image
-        src={
-          "https://res.cloudinary.com/dfgr7tov1/image/upload/v1713393089/biggerHero_vvduaq.jpg"
-        }
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        alt="Background"
-        className="z-0"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div className="relative h-[600px] lg:h-[742px] w-full overflow-hidden ">
+      <div className="hero-bg mx-auto   h-screen object-fit">
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <HeroHighlight>
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: [20, -5, 0],
+            }}
+            transition={{
+              duration: 0.5,
+              ease: [0.4, 0.0, 0.2, 1],
+            }}
+            className="text-2xl  px-4 md:text-4xl lg:text-5xl font-bold text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto
+             "
+          >
+            <div className="">{title}</div>
 
-      {/* Overlay content */}
-      <div className=" absolute z-10 w-full h-full flex flex-col justify-center items-center text-center">
-        <h1 className="text-stroke text-shadow text-white text-4xl lg:text-7xl font-bold">
-          {title}
-        </h1>
-        <p className="text-stroke text-shadow text-white text-lg lg:text-4xl mt-4">
-          {description}
-        </p>
-        <button className="rounded-lg px-2 bg-[#073363] mt-6 p-2">
-          <p className="text-white font-extralight">View properties</p>
-        </button>
+            <Highlight className="text-neutral-200 text-3xl">
+              {description}
+            </Highlight>
+            <div>
+              <Button className="  bg-blue-500">Hello</Button>
+            </div>
+          </motion.h1>
+        </HeroHighlight>
       </div>
     </div>
   );
