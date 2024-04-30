@@ -1,4 +1,5 @@
 import React from "react";
+import { ProjectCarousel } from "@/components/HomeComponents/carousel/ProjectCarousel";
 
 type Props = {};
 
@@ -12,7 +13,10 @@ export default function SectionFour({}: Props) {
         <h2 className="text-4xl font-semibold text-black mb-6 lg:text-6xl">
           Built to rent
         </h2>
-        {/* <p className="text-black mb-4 text-sm lg:text-lg w-[95%] mx-auto"></p> */}
+        {/* Carousel component */}
+        <div>
+          <ProjectCarousel />
+        </div>
       </div>
     </div>
   );
