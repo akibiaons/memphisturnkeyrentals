@@ -6,7 +6,7 @@ type Props = {};
 
 export default function SectionThree({}: Props) {
   return (
-    <div>
+    <div className="bg-dot-black/[0.2] ">
       <div className="flex flex-col text-center my-12 ">
         <p className="text-black mb-6 font-semibold uppercase text-sm">
           THE NUMBERS
@@ -15,7 +15,7 @@ export default function SectionThree({}: Props) {
           What do they mean Mason?
         </h2>
       </div>
-      <div>
+      <div className="">
         <Chart />
       </div>
     </div>

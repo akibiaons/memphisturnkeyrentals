@@ -17,12 +17,12 @@ export default function Home() {
       </div>
       {/* Section one below */}
       <div className="max-w-7xl mx-auto max-h-screen">
-        <div className="relative flex flex-col my-16 lg:px-8 px-0 mx-auto ">
+        <div className="relative flex flex-col my-16 lg:px-8  ">
           <SectionOne />
           <Separator />
         </div>
         {/* End of section one */}
-        <div className="relative flex flex-col my-16 mx-auto px-4">
+        <div className="relative flex flex-col my-16  px-4">
           <SectionThree />
         </div>
 
@@ -30,7 +30,7 @@ export default function Home() {
         <div className="relative flex flex-col my-16 px-4">
           <SectionTwo />
         </div>
-        <div className="relative flex flex-col  lg:p-32 overflow-x-hidden">
+        <div className="relative flex flex-col my-16 px-4 ">
           <SectionFour />
         </div>
       </div>
