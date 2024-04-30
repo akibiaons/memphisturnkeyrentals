@@ -7,12 +7,10 @@ import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "../ui/hero-highlight";
 
 type Props = {
-  title: string;
-  description: string;
   imageUrl: string;
 };
 
-export default function Hero({ title, description, imageUrl }: Props) {
+export default function Hero({ imageUrl }: Props) {
   return (
     <div className="relative h-[600px] lg:h-[742px] w-full overflow-hidden ">
       <div className="hero-bg mx-auto   h-screen object-fit">
@@ -31,15 +29,17 @@ export default function Hero({ title, description, imageUrl }: Props) {
               duration: 0.5,
               ease: [0.4, 0.0, 0.2, 1],
             }}
-            className="text-2xl  px-4 md:text-4xl lg:text-6xl font-bold text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto
+            className=" px-4 font-bold text-white max-w-4xl  text-center mx-auto
              "
           >
-            <div className="">{title}</div>
+            <div className="text-4xl md:text-6xl lg:text-6xl mb-4">
+              Turnkey Rentals in Memphis
+            </div>
 
-            <Highlight className="text-neutral-200 text-3xl">
-              {description}
+            <Highlight className="text-neutral-200 text-2xl md:text-3xl">
+              Secure your stakes, Memphis awaits
             </Highlight>
-            <div>
+            <div className="mt-4">
               <Button className="  bg-blue-500">Property Listings</Button>
             </div>
           </motion.h1>
