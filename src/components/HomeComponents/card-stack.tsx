@@ -34,7 +34,7 @@ const CARDS = [
   {
     id: 0,
     name: "Manu Arora",
-    designation: "First Time Home Owner",
+    designation: "First Time investor",
     content: (
       <p>
         I could not believe it,{" "}
