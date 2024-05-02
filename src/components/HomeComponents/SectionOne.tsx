@@ -20,12 +20,27 @@ export default function SectionOne({}: Props) {
         <p className="text-black mb-6 font-semibold uppercase text-sm">
           For Investors
         </p>
-        <h2 className="text-4xl px-1 lg:px-0 font-semibold text-black mb-6 lg:text-6xl">
-          How we make you money
-        </h2>
+        <div className="">
+          <h2 className="text-4xl px-1 lg:px-0 font-semibold text-black mb-6 lg:text-6xl">
+            How we make you money
+          </h2>
+          <h4 className="text-left w-10/12 mx-auto tracking-wide font-medium leading-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, animi
+            rem! Nam ratione minus, earum iste, error, iure natus debitis eum
+            voluptates harum vero accusantium.
+          </h4>
+        </div>
       </div>
       <div className="flex flex-col gap-12 lg:gap-0 lg:grid grid-cols-5 grid-rows-1 my-12">
-        <div className="col-span-2 row-span-1 px-4">
+        <div className="col-span-2 row-span-1 px-4 ">
+          <div className="flex flex-col">
+            <h4 className="mt-8 text-center font-semibold text-3xl">
+              What some people have to say
+            </h4>
+            <div className="md:col-start-1 mb-12 content-start">
+              <CardStackDemo />
+            </div>
+          </div>
           <div className="">
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
@@ -53,14 +68,6 @@ export default function SectionOne({}: Props) {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-          </div>
-          <div className="flex flex-col">
-            <h4 className="mt-8 text-center font-semibold text-3xl">
-              What some people have to say
-            </h4>
-            <div className="md:col-start-1  content-start">
-              <CardStackDemo />
-            </div>
           </div>
         </div>
         <div className="col-start-3 col-span-3 mx-8 justify-center flex flex-col space-x-4 space-y-2">

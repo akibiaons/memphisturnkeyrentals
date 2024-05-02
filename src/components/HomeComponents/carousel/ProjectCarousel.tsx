@@ -36,15 +36,15 @@ const projectData: ProjectCardProps[] = [
 export function ProjectCarousel() {
   return (
     <Carousel
-      className="w-full "
+      className="w-full"
       opts={{
         loop: true,
       }}
     >
-      <CarouselContent>
+      <CarouselContent className="my-8">
         {projectData.map((item, index) => (
           <CarouselItem key={index}>
-            <div className="h-[40rem] relative flex flex-row  justify-center items-center">
+            <div className="relative flex flex-row justify-center items-center">
               <DirectionAwareHover imageUrl={item.imageSrc}>
                 <div className=" bg-opacity-50 flex justify-center items-center">
                   <p className="font-bold text-xl">{item.address}</p>
@@ -54,10 +54,8 @@ export function ProjectCarousel() {
           </CarouselItem>
         ))}
         {/* For some reason these cause problems inside of small screens (max overflow) */}
-        {/* <div className="hidden md:block">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div> */}
+        <CarouselPrevious />
+        <CarouselNext />
       </CarouselContent>
     </Carousel>
   );

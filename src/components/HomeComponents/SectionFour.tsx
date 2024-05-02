@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ProjectCarousel } from "@/components/HomeComponents/carousel/ProjectCarousel";
+import { BentoTwoGridHome } from "./carousel/bento";
 
 type Props = {};
 
@@ -16,7 +17,8 @@ export default function SectionFour({}: Props) {
         </h2>
         {/* Carousel component */}
         <div className="w-full">
-          <ProjectCarousel />
+          {/* <ProjectCarousel /> */}
+          <BentoTwoGridHome />
         </div>
       </div>
     </div>

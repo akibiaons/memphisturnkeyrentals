@@ -37,7 +37,7 @@ const CARDS = [
     designation: "First Time Home Owner",
     content: (
       <p>
-        I couldn't believe it,{" "}
+        I couldnt believe it,{" "}
         <Highlight>I made my first passive income</Highlight> with Turnkey
         Memphis, I thought owning property would cost me.
       </p>
