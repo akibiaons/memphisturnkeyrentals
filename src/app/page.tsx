@@ -17,13 +17,16 @@ export default function Home() {
       </div>
       {/* Section one below */}
       <div className="max-w-7xl mx-auto max-h-screen">
-        <div className="relative flex flex-col my-16 lg:px-8  ">
+        <div className="relative flex flex-col my-16 px-8  ">
           <SectionOne />
           <Separator />
         </div>
         {/* End of section one */}
         <div className="relative flex flex-col my-16  px-4">
-          <SectionThree />
+          <div className="mb-12">
+            <SectionThree className="" />
+          </div>
+          <Separator />
         </div>
 
         {/* Start of section two */}
