@@ -58,13 +58,6 @@
   }
 }
 
-.boxOne {
-  color: white;
-  background-color: white;
-  border: solid 2px white;
-  border-radius: 10px;
-}
-
 .hero-bg {
   background-image: linear-gradient(
       to top,
