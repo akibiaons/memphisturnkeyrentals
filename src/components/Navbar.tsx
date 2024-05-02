@@ -48,39 +48,46 @@ const DashboardNav = () => {
                 <span className="sr-only">Acme Inc</span>
               </Link>
               <Link
-                href="#"
+                href="/buy"
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
                 <Home className="h-5 w-5" />
-                Dashboard
+                Buy
               </Link>
               <Link
-                href="#"
+                href="/sell"
                 className="flex items-center gap-4 px-2.5 text-foreground"
               >
                 <ShoppingCart className="h-5 w-5" />
-                Orders
+                Sell
               </Link>
               <Link
-                href="#"
+                href="/build-to-rent"
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
                 <Package className="h-5 w-5" />
-                Products
+                Build to Rent
               </Link>
               <Link
                 href="#"
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
                 <Users2 className="h-5 w-5" />
-                Customers
+                Manage
               </Link>
               <Link
-                href="#"
+                href="/projects"
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
                 <LineChart className="h-5 w-5" />
-                Settings
+                Projects
+              </Link>
+              <Link
+                href="/contact"
+                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              >
+                <LineChart className="h-5 w-5" />
+                Contact
               </Link>
             </nav>
           </SheetContent>
