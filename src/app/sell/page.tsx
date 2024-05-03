@@ -1,12 +1,11 @@
 import React from "react";
+import SellHero from "@/components/PageComponents/SellHero";
 
-type Props = {};
-
-export default function page({}: Props) {
+export default function page() {
   return (
     <div>
       {/* For users to sell their properties to MTR, not as much features mostly frontend */}
-      <h1>The sell page</h1>
+      <SellHero imageUrl="https://res.cloudinary.com/dfgr7tov1/image/upload/v1713393089/biggerHero_vvduaq.jpg" />
     </div>
   );
 }
