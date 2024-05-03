@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { CardStackDemo } from "../HomeComponents/card-stack";
 import { AnimatedTooltipPreview } from "../HomeComponents/team";
+import { Separator } from "../ui/separator";
 
 import { SellForm } from "./sell-form";
 
@@ -26,17 +27,9 @@ export default function SellSectionOne() {
           </h2>
         </div>
       </div>
-      <div className="flex flex-col gap-12 lg:gap-0 lg:grid grid-cols-5 grid-rows-1 my-12">
-        <div className="col-span-2 row-span-1 px-4 ">
-          <div className="flex flex-col">
-            {/* <h4 className="mt-8 text-center font-semibold text-3xl">
-              What some people have to say
-            </h4> */}
-            {/* <div className="md:col-start-1 mb-12 content-start">
-              <CardStackDemo />
-            </div> */}
-          </div>
-          <div className="">
+      <div className="flex flex-col mx-auto">
+        <div className="col-span-2 row-span-1 px-4">
+          <div className="mb-12">
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>1. Contact us</AccordionTrigger>
@@ -65,7 +58,9 @@ export default function SellSectionOne() {
               </AccordionItem>
             </Accordion>
           </div>
-          <SellForm />
+          <div className="border-4 border-gray-300 rounded-xl p-2 bg-gray-200 font-light">
+            <SellForm />
+          </div>
         </div>
       </div>
     </div>

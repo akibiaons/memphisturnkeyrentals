@@ -52,9 +52,7 @@ export function SellForm() {
               <FormControl>
                 <Input placeholder="Arcadius son of Francis" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>First and last name</FormDescription>
               <FormMessage />
             </FormItem>
           )}
