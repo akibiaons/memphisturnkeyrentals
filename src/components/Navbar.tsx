@@ -10,7 +10,7 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import { Mail, MessageSquareMore, PhoneCall } from "lucide-react";
 
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import {
   Apple,
   CircleUser,
@@ -27,10 +27,11 @@ import {
 import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
+
 const DashboardNav = () => {
   return (
     <div className="flex flex-col sm:gap-4">
-      <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border-red-500 border-b bg-background px-4 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
+      <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-4 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
         <Sheet>
           <SheetTrigger asChild>
             <Button size="sm" variant="outline" className="md:hidden">
@@ -40,55 +41,62 @@ const DashboardNav = () => {
           </SheetTrigger>
           <SheetContent side="left" className="sm:max-w-xs">
             <nav className="grid gap-6 text-lg font-medium">
-              <Link
-                href="#"
-                className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
-              >
-                <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
-                <span className="sr-only">Acme Inc</span>
-              </Link>
-              <Link
-                href="/buy"
-                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              >
-                <Home className="h-5 w-5" />
-                Buy
-              </Link>
-              <Link
-                href="/sell"
-                className="flex items-center gap-4 px-2.5 text-foreground"
-              >
-                <ShoppingCart className="h-5 w-5" />
-                Sell
-              </Link>
-              <Link
-                href="/build-to-rent"
-                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              >
-                <Package className="h-5 w-5" />
-                Build to Rent
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              >
-                <Users2 className="h-5 w-5" />
-                Manage
-              </Link>
-              <Link
-                href="/projects"
-                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              >
-                <LineChart className="h-5 w-5" />
-                Projects
-              </Link>
-              <Link
-                href="/contact"
-                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              >
-                <LineChart className="h-5 w-5" />
-                Contact
-              </Link>
+
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="/"
+                    className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                  >
+                    <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
+                    <span className="sr-only">Acme Inc</span>
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  >
+                    <LineChart className="h-5 w-5" />
+                    Settings
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  >
+                    <Users2 className="h-5 w-5" />
+                    Customers
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  >
+                    <Package className="h-5 w-5" />
+                    Products
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-foreground"
+                  >
+                    <ShoppingCart className="h-5 w-5" />
+                    Orders
+                  </Link>
+                </Button>
+              </SheetClose>
             </nav>
           </SheetContent>
         </Sheet>
