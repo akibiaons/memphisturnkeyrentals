@@ -1,11 +1,13 @@
 import React from "react";
+
 import { ProjectCarousel } from "@/components/HomeComponents/carousel/ProjectCarousel";
+import { BentoTwoGridHome } from "./carousel/bento";
 
 type Props = {};
 
 export default function SectionFour({}: Props) {
   return (
-    <div>
+    <div className="w-full mx-auto">
       <div className="flex flex-col text-center">
         <p className="text-black mb-6 font-semibold uppercase text-sm">
           Our Recent Projects
@@ -14,8 +16,9 @@ export default function SectionFour({}: Props) {
           Built to rent
         </h2>
         {/* Carousel component */}
-        <div>
-          <ProjectCarousel />
+        <div className="w-full">
+          {/* <ProjectCarousel /> */}
+          <BentoTwoGridHome />
         </div>
       </div>
     </div>

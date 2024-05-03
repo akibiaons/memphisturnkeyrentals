@@ -99,7 +99,7 @@ const options = {
 const Chart: React.FC = () => {
   return (
     <>
-      <Line data={data} options={options} />
+      <Line data={data} options={options} className="" />
     </>
   );
 };

@@ -1,49 +1,92 @@
 import Image from "next/image";
 import React from "react";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  Blocks,
+  CreditCard,
+  HeartHandshake,
+  Send,
+  Speech,
+  User,
+  Users,
+} from "lucide-react";
+import { Progress } from "../ui/progress";
 
-type Props = {
-  name: string;
-  contactInfo: string;
-};
-
-export default function SectionTwo({ name, contactInfo }: Props) {
+export default function SectionTwo() {
   return (
     <div>
-      <div className="flex flex-col text-center mt-6">
-        <p className="text-black mb-6 font-semibold uppercase text-sm">
-          About us
-        </p>
-        <h2 className="text-4xl font-semibold text-black mb-6 lg:text-6xl">
-          Our Team
-        </h2>
-        <p className="text-black mb-4 text-sm lg:text-lg w-[95%] mx-auto">
-          With x years of experience in the Memphis market, we bring a high ROI
-          with a value add investing mindset and strategy. Our win win approach
-          with investors ensures that we all get a peice of the cake, so when
-          you win we win too!
-        </p>
-      </div>
-      <div className="rounded-xl w-[80%] mx-auto mt-10">
-        {/* the photo!! and overlay  */}
-        <div className="relative">
-          <Image
-            width={300}
-            height={300}
-            className="rounded-t-2xl lg:w-[90%]"
-            src="https://res.cloudinary.com/dfgr7tov1/image/upload/v1713913243/Screenshot_2024-04-23_at_4.00.26_PM_z95dyr.png"
-            alt="AboutPlaceholder"
-          />
-          <div className="absolute rounded-t-2xl inset-0 bg-black bg-opacity-10"></div>
-
-          {/* Overlay content */}
-          <div className="z-10 w-full h-full flex flex-col justify-center items-start bg-black">
-            <h1 className="text-white text-xl lg:text-4xl font-bold mt-4 ml-2 underline decoration-[#073363] decoration-4">
-              {name}
-            </h1>
-            <p className="text-white text-sm lg:text-xl mt-4 mb-4 ml-2 ">
-              {contactInfo}
-            </p>
-          </div>
+      <div>
+        <div className="flex flex-col text-center my-12 ">
+          <p className="text-black mb-6 font-semibold uppercase text-sm">
+            GET STARTED
+          </p>
+          <h2 className="text-4xl font-semibold text-black mb-2 lg:text-6xl">
+            Here are a few ways to workin with us!
+          </h2>
+        </div>
+        <div className="flex flex-col md:flex-row gap-8 justify-between items-center mx-auto">
+          <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="">Investor Profile</CardTitle>
+              <User className="h-7 w-7 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm  text-neutral-500">
+                Answer a few short questions to activate a customized dashboard
+                and property recommendations based on your investor profile.
+              </p>
+            </CardContent>
+            <CardFooter className="">
+              <Button>Create an Investor Profile</Button>
+            </CardFooter>
+          </Card>
+          <Card className="min-w-[300px] max-w-[350px]  min-h-[250px] flex flex-col justify-between">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className=""> Consultation</CardTitle>
+              <Speech className="h-7 w-7 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm  text-neutral-500">
+                Speak with an expert on the subject. Receive a complimentary
+                strategy session or to answer any questions you may have.
+              </p>
+            </CardContent>
+            <CardFooter className="">
+              <Button>Create an Investor Profile</Button>
+            </CardFooter>
+          </Card>
+          <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="">DIY</CardTitle>
+              <Blocks className="h-7 w-7 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm  text-neutral-500">
+                We give you the building blocks, and you build it out from
+                there. We will handle the rest from here.
+              </p>
+            </CardContent>
+            <CardFooter className="">
+              <Button>Create an Investor Profile</Button>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </div>
