@@ -50,7 +50,7 @@ export function SellForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="Arcadius son of Francis" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.
@@ -66,9 +66,9 @@ export function SellForm() {
             <FormItem>
               <FormLabel>Phone</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="6198667776" {...field} />
               </FormControl>
-              <FormDescription>Phone number 6193390549</FormDescription>
+              <FormDescription>Phone number</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -81,7 +81,7 @@ export function SellForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="arcadius@gmail.com" {...field} />
               </FormControl>
               <FormDescription>Your main email address.</FormDescription>
               <FormMessage />
