@@ -11,9 +11,9 @@ import {
 import { CardStackDemo } from "../HomeComponents/card-stack";
 import { AnimatedTooltipPreview } from "../HomeComponents/team";
 
-type Props = {};
+import { SellForm } from "./sell-form";
 
-export default function SellSectionOne({}: Props) {
+export default function SellSectionOne() {
   return (
     <div className="">
       <div className="flex flex-col text-center my-6 ">
@@ -65,6 +65,7 @@ export default function SellSectionOne({}: Props) {
               </AccordionItem>
             </Accordion>
           </div>
+          <SellForm />
         </div>
       </div>
     </div>
