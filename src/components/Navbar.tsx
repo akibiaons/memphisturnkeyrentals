@@ -41,6 +41,7 @@ const DashboardNav = () => {
           </SheetTrigger>
           <SheetContent side="left" className="sm:max-w-xs">
             <nav className="grid gap-6 text-lg font-medium">
+
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
@@ -121,34 +122,34 @@ const DashboardNav = () => {
             className={` lg:items-center lg:flex-row flex-col absolute lg:relative top-full lg:top-auto left-0 w-full lg:w-auto bg-white shadow-inner lg:shadow-none lg:bg-transparent text-[#bfbfbf] pt-4 lg:pt-0 pb-6 lg:pb-0 hidden md:flex `}
           >
             <a
-              href="#"
+              href="/buy"
               className="mx-4 my-2  lg:hover:bg-transparent text-black "
             >
               Buy
             </a>
             <a
-              href="#"
+              href="/sell"
               className="mx-4 my-2  lg:hover:bg-transparent text-black "
             >
               Sell
             </a>
             <a
-              href="#"
+              href="/manage"
               className="mx-4 my-2  lg:hover:bg-transparent text-black "
             >
               Manage
             </a>
             <a
-              href="#"
+              href="/build-to-rent"
               className="mx-4 my-2  lg:hover:bg-transparent text-black "
             >
               Built to Rent
             </a>
             <a
-              href="#"
+              href="/projects"
               className="mx-4 my-2  lg:hover:bg-transparent text-black "
             >
-              Our Projects
+              Projects
             </a>
             {/* Contact Button/SHADCN for desktop */}
             <DropdownMenu>

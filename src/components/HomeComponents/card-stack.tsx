@@ -34,10 +34,12 @@ const CARDS = [
   {
     id: 0,
     name: "Manu Arora",
-    designation: "First Time Home Owner",
+    designation: "First Time investor",
     content: (
       <p>
-        I couldnt believe it,{" "}
+
+        I could not believe it,{" "}
+
         <Highlight>I made my first passive income</Highlight> with Turnkey
         Memphis, I thought owning property would cost me.
       </p>
