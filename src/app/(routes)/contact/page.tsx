@@ -1,5 +1,7 @@
 "use client";
 import Hero from "@/components/contact-components/Hero";
+import { ContactForm } from "@/components/contact-components/form/contact-form";
+import { Separator } from "@/components/ui/separator";
 import dynamic from "next/dynamic";
 import React, { useMemo } from "react";
 
@@ -85,6 +87,22 @@ export default function ConctactPage() {
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <Separator />
+          <section className="my-20 mx-auto px-3">
+            <div className="max-w-5xl mx-auto text-center mb-8">
+              <h2 className="text-4xl lg:text-6xl font-semibold">
+                Get a hold of us
+              </h2>
+              <p>
+                Select an inquiry type, leave your basic contact info, and well
+                get back to you.
+              </p>
+            </div>
+            <ContactForm />
+          </section>
+          <Separator />
         </div>
         <div>
           <section className="bg-neutral-800">
