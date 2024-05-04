@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-export default function page({}: Props) {
+export default function page() {
   return (
     <div>
       {/* Buy page for individuals buying from MTR, this will be feature intensive asf */}
