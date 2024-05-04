@@ -10,7 +10,14 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { FaWhatsapp } from "react-icons/fa";
-import { Mail, MessageSquareMore, PhoneCall } from "lucide-react";
+import {
+  Coins,
+  Mail,
+  MessageSquareMore,
+  PhoneCall,
+  Receipt,
+  SquareGanttChart,
+} from "lucide-react";
 
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import {
@@ -119,35 +126,60 @@ const DashboardNav = () => {
             <span className="line line2"></span>
           </div>
           {/* Navigation links and such */}
-          <div className="items-center flex-row w-full justify-end text-[#bfbfbf] hidden lg:flex">
-            <a
-              href="/buy"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
-              Buy
-            </a>
-            <a
-              href="/sell"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
-              Sell
-            </a>
-            <a
-              href="/manage"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
-              Manage
-            </a>
-            <a
-              href="/build-to-rent"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
+          <div className="items-center flex-row space-x-8 w-full justify-end text-[#bfbfbf] hidden lg:flex">
+            <div className="">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <p className="text-neutral-700 cursor-pointer">Listings</p>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuLabel>Buy or sell a listing</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <Link href="/buy">
+                      <DropdownMenuItem className="flex flex-row items-center w-full">
+                        <Coins className="mr-2 h-4 w-4" />
+                        <span>Buy</span>
+                        {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                      </DropdownMenuItem>
+                    </Link>
+
+                    <Link href="sell">
+                      <DropdownMenuItem className="flex flex-row items-center w-full">
+                        <Receipt className="mr-2 h-4 w-4" />
+                        <span>Sell</span>
+                        {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
+                      </DropdownMenuItem>
+                    </Link>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <div className="">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <p className="text-neutral-700 cursor-pointer">Manage</p>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuLabel>Manage listings</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <Link href="/">
+                      <DropdownMenuItem className="flex flex-row items-center w-full">
+                        <SquareGanttChart className="mr-2 h-4 w-4" />
+                        <span>Manage</span>
+                        {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                      </DropdownMenuItem>
+                    </Link>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
+            <a href="/build-to-rent" className=" text-black ">
               Built to Rent
             </a>
-            <a
-              href="/projects"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
+            <a href="/projects" className=" text-black ">
               Projects
             </a>
             {/* Contact Button/SHADCN for desktop */}
