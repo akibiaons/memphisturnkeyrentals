@@ -2,6 +2,12 @@
 import { z } from "zod";
 import { registerUserService } from "@/app/data/services/auth-service";
 
+// import cookies
+import { cookies } from "next/headers";
+
+// Redirect to sell page upon succsefful registration
+import { redirect } from "next/navigation";
+
 const schemaRegister = z.object({
   username: z.string().min(3).max(20, {
     message: "Username must be between 3 and 20 characters",
@@ -13,6 +19,14 @@ const schemaRegister = z.object({
     message: "Please enter a valid email address",
   }),
 });
+
+const config = {
+  maxAge: 60 * 60 * 24 * 7, // 1 week
+  path: "/",
+  domain: process.env.HOST ?? "localhost",
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+};
 
 export async function registerUserAction(prevState: any, formData: FormData) {
   console.log("Hello From Register User Action");
@@ -52,7 +66,6 @@ export async function registerUserAction(prevState: any, formData: FormData) {
     };
   }
 
-  console.log("#############");
-  console.log("User Registered Successfully", responseData.jwt);
-  console.log("#############");
+  cookies().set("jwt", responseData.jwt, config);
+  redirect("/buy");
 }
