@@ -36,7 +36,7 @@ const DashboardNav = () => {
       <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-4 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
         <Sheet>
           <SheetTrigger asChild>
-            <Button size="sm" variant="outline" className="md:hidden">
+            <Button size="sm" variant="outline" className="lg:hidden">
               <PanelLeft className="h-5 w-5" />
               <span className="sr-only">Toggle Menu</span>
             </Button>
@@ -101,7 +101,7 @@ const DashboardNav = () => {
             </nav>
           </SheetContent>
         </Sheet>
-        <div className="bg-white flex justify-between items-center w-full mx-10">
+        <div className="bg-white flex justify-center items-center w-full ">
           <div>
             <Link href="/">
               <Image
@@ -119,9 +119,7 @@ const DashboardNav = () => {
             <span className="line line2"></span>
           </div>
           {/* Navigation links and such */}
-          <div
-            className={` lg:items-center lg:flex-row flex-col absolute lg:relative top-full lg:top-auto left-0 w-full lg:w-auto bg-white shadow-inner lg:shadow-none lg:bg-transparent text-[#bfbfbf] pt-4 lg:pt-0 pb-6 lg:pb-0 hidden md:flex `}
-          >
+          <div className="items-center flex-row w-full justify-end text-[#bfbfbf] hidden lg:flex">
             <a
               href="/buy"
               className="mx-4 my-2  lg:hover:bg-transparent text-black "
