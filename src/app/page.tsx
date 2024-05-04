@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       {/* Section one below */}
       <div className="max-w-7xl mx-auto ">
-        <div className=" flex flex-col my-16 px-8  ">
+        <div className=" flex flex-col my-16 px-2  ">
           <SectionOne />
           <Separator />
         </div>
