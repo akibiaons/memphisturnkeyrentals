@@ -8,9 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CardStackDemo } from "../HomeComponents/card-stack";
-import { AnimatedTooltipPreview } from "../HomeComponents/team";
-import { Separator } from "../ui/separator";
 
 import { SellForm } from "./sell-form";
 

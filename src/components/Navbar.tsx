@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -41,7 +43,6 @@ const DashboardNav = () => {
           </SheetTrigger>
           <SheetContent side="left" className="sm:max-w-xs">
             <nav className="grid gap-6 text-lg font-medium">
-
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
