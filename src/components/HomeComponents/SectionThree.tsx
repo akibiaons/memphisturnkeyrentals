@@ -4,7 +4,7 @@ import { Separator } from "../ui/separator";
 
 export default function SectionThree({ ...props }) {
   return (
-    <div className="bg-dot-black/[0.2] pb-12 px-12">
+    <div className="bg-dot-black/[0.2] md:pb-12 md:px-12">
       <div className="flex flex-col text-center my-12 ">
         <p className="text-black mb-6 font-semibold uppercase text-sm">
           THE NUMBERS

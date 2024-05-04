@@ -41,7 +41,7 @@ export default function SectionTwo() {
             Here are a few ways to workin with us!
           </h2>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 justify-between items-center mx-auto">
+        <div className="flex flex-col flex-1 lg:flex-row gap-8 justify-between items-center mx-auto">
           <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="">Investor Profile</CardTitle>

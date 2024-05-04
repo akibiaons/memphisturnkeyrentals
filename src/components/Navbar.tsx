@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +10,14 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { FaWhatsapp } from "react-icons/fa";
-import { Mail, MessageSquareMore, PhoneCall } from "lucide-react";
+import {
+  Coins,
+  Mail,
+  MessageSquareMore,
+  PhoneCall,
+  Receipt,
+  SquareGanttChart,
+} from "lucide-react";
 
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import {
@@ -34,14 +43,13 @@ const DashboardNav = () => {
       <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-4 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
         <Sheet>
           <SheetTrigger asChild>
-            <Button size="sm" variant="outline" className="md:hidden">
+            <Button size="sm" variant="outline" className="lg:hidden">
               <PanelLeft className="h-5 w-5" />
               <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="sm:max-w-xs">
             <nav className="grid gap-6 text-lg font-medium">
-
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
@@ -100,7 +108,7 @@ const DashboardNav = () => {
             </nav>
           </SheetContent>
         </Sheet>
-        <div className="bg-white flex justify-between items-center w-full mx-10">
+        <div className="bg-white flex justify-center items-center w-full ">
           <div>
             <Link href="/">
               <Image
@@ -118,37 +126,60 @@ const DashboardNav = () => {
             <span className="line line2"></span>
           </div>
           {/* Navigation links and such */}
-          <div
-            className={` lg:items-center lg:flex-row flex-col absolute lg:relative top-full lg:top-auto left-0 w-full lg:w-auto bg-white shadow-inner lg:shadow-none lg:bg-transparent text-[#bfbfbf] pt-4 lg:pt-0 pb-6 lg:pb-0 hidden md:flex `}
-          >
-            <a
-              href="/buy"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
-              Buy
-            </a>
-            <a
-              href="/sell"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
-              Sell
-            </a>
-            <a
-              href="/manage"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
-              Manage
-            </a>
-            <a
-              href="/build-to-rent"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
+          <div className="items-center flex-row space-x-8 w-full justify-end text-[#bfbfbf] hidden lg:flex">
+            <div className="">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <p className="text-neutral-700 cursor-pointer">Listings</p>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuLabel>Buy or sell a listing</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <Link href="/buy">
+                      <DropdownMenuItem className="flex flex-row items-center w-full">
+                        <Coins className="mr-2 h-4 w-4" />
+                        <span>Buy</span>
+                        {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                      </DropdownMenuItem>
+                    </Link>
+
+                    <Link href="sell">
+                      <DropdownMenuItem className="flex flex-row items-center w-full">
+                        <Receipt className="mr-2 h-4 w-4" />
+                        <span>Sell</span>
+                        {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
+                      </DropdownMenuItem>
+                    </Link>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <div className="">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <p className="text-neutral-700 cursor-pointer">Manage</p>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuLabel>Manage listings</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <Link href="/">
+                      <DropdownMenuItem className="flex flex-row items-center w-full">
+                        <SquareGanttChart className="mr-2 h-4 w-4" />
+                        <span>Manage</span>
+                        {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                      </DropdownMenuItem>
+                    </Link>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
+            <a href="/build-to-rent" className=" text-black ">
               Built to Rent
             </a>
-            <a
-              href="/projects"
-              className="mx-4 my-2  lg:hover:bg-transparent text-black "
-            >
+            <a href="/projects" className=" text-black ">
               Projects
             </a>
             {/* Contact Button/SHADCN for desktop */}

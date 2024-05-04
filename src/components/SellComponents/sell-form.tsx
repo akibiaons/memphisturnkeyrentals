@@ -42,17 +42,21 @@ export function SellForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-5 max-w-3xl mx-auto py-8"
+      >
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
+              <FormDescription>First and last name</FormDescription>
+
               <FormControl>
                 <Input placeholder="Arcadius son of Francis" {...field} />
               </FormControl>
-              <FormDescription>First and last name</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -63,10 +67,10 @@ export function SellForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Phone</FormLabel>
+              <FormDescription>Ten Digit Phone Number (US)</FormDescription>
               <FormControl>
                 <Input placeholder="6198667776" {...field} />
               </FormControl>
-              <FormDescription>Phone number</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -78,16 +82,19 @@ export function SellForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
+              <FormDescription>Your main email address.</FormDescription>
+
               <FormControl>
                 <Input placeholder="arcadius@gmail.com" {...field} />
               </FormControl>
-              <FormDescription>Your main email address.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit" size="lg" className="w-full">
+          Submit
+        </Button>
       </form>
     </Form>
   );
