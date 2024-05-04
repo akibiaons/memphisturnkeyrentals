@@ -16,11 +16,18 @@ import { Input } from "@/components/ui/input";
 
 // import userActions
 import { registerUserAction } from "@/app/data/actions/auth-actions";
+
+// Strapi errors message import
+import { StrapiErrors } from "@/components/custom/StrapiErrors";
+
 // React hook state for the form
 import { useFormState } from "react-dom";
 
 // Zod errors
 import { ZodErrors } from "@/components/custom/ZodErrors";
+
+// Our new sign up spinner component
+import { SubmitButton } from "@/components/custom/SubmitButton";
 
 const INITIAL_STATE = {
   data: null,
@@ -79,7 +86,12 @@ export function SignupForm() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
-            <button className="w-full">Sign Up</button>
+            <SubmitButton
+              className="w-full"
+              text="Sign Up"
+              loadingText="Loading"
+            />
+            <StrapiErrors error={formState?.strapiErrors} />
           </CardFooter>
         </Card>
         <div className="mt-4 text-center text-sm">
