@@ -10,6 +10,8 @@ import {
   BadgeDollarSign,
   CalendarFold,
   Home,
+  MoveDown,
+  MoveUp,
   NotebookTabs,
   Speech,
   UsersRound,
@@ -65,20 +67,88 @@ export function ProductListing() {
                 everyday with this exceptional timepiece.
               </p>
             </div>
-            <div className="grid gap-2">
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold">$399</span>
-                <div className="flex items-center gap-0.5">
-                  <StarIcon className="h-5 w-5 fill-primary" />
-                  <StarIcon className="h-5 w-5 fill-primary" />
-                  <StarIcon className="h-5 w-5 fill-primary" />
-                  <StarIcon className="h-5 w-5 fill-muted stroke-muted-foreground" />
-                  <StarIcon className="h-5 w-5 fill-muted stroke-muted-foreground" />
+            <div className="grid space-y-4">
+              <div className="flex flex-row items-center gap-2">
+                <div className="h-3 w-3 bg-green-600 rounded-full"></div>
+                <p className="text-md">For Rent</p>
+              </div>
+              <div className=" flex flex-row">
+                <h2 className="text-xl font-bold">
+                  <span>$</span>
+                  <span>3,000</span>
+                  <span>/month</span>
+                </h2>
+                <div className="ml-4 flex flex-row ">
+                  <div className="text-green-700 flex flex-row items-center">
+                    <MoveUp className="h-5" />
+                    <div>
+                      <p className="flex flex-row items-center">
+                        <span className="font-semibold">$</span>
+                        <span className="font-semibold mr-1 text-xl">200</span>
+                        <span className="font-medium text-md">(14%)</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-red-700 flex flex-row items-center">
+                    <MoveDown className="h-5" />
+                    <div>
+                      <p className="flex flex-row items-center">
+                        <span className="font-semibold">$</span>
+                        <span className="font-semibold mr-1 text-xl">200</span>
+                        <span className="font-medium text-md">(14%)</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <Button className="w-full" size="lg">
-                Buy Now
-              </Button>
+              <div>
+                <div className="flex flex-row items-center gap-5">
+                  <div>
+                    <p>
+                      <span className="font-bold mr-1">2</span>
+                      <span className="font-normal">Bed</span>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <span className="font-bold mr-1">1</span>
+                      <span className="font-normal">Bath</span>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <span className="font-bold mr-1">900</span>
+                      <span className="font-normal">Sqft</span>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <span className="font-bold mr-1">1,096</span>
+                      <span className="font-normal">Sqft Lot</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <p className="text-sm hover:underline cursor-pointer tracking-wide">
+                    1463 Essex St Unit 6, San Diego, CA 92103
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div></div>
+                </div>
+              </div>
+              <div className="flex flex-row gap-4">
+                <Button className="w-full" size="lg">
+                  Ask a question
+                </Button>
+                <Button className="w-full" size="lg" variant="outline">
+                  Share this home
+                </Button>
+              </div>
             </div>
           </div>
         </div>
