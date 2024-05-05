@@ -1,4 +1,4 @@
-import { Github, Twitter } from "lucide-react";
+import { Github, Instagram, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import { Input } from "./ui/input";
@@ -39,7 +39,7 @@ const Footer = () => {
               </div>
               <Separator orientation="vertical" />
               <div className="flex flex-row justify-between items-center space-x-2">
-                <Github />
+                <Instagram />
               </div>
             </div>
           </div>
