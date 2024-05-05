@@ -29,6 +29,11 @@
     "framer-motion": "^11.1.7",
     "gsap": "^3.12.5",
     "leaflet": "^1.9.4",
+<<<<<<< HEAD
+=======
+    "leaflet-defaulticon-compatibility": "^0.1.2",
+    "leaflet-geosearch": "^3.11.1",
+>>>>>>> origin/main
     "lucide-react": "^0.376.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.1",

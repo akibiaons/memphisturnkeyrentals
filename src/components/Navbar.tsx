@@ -12,6 +12,7 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import {
   Coins,
+  ExternalLink,
   Mail,
   MessageSquareMore,
   PhoneCall,
@@ -164,7 +165,7 @@ const DashboardNav = () => {
                   <DropdownMenuLabel>Manage listings</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
-                    <Link href="/">
+                    <Link href="/manage">
                       <DropdownMenuItem className="flex flex-row items-center w-full">
                         <SquareGanttChart className="mr-2 h-4 w-4" />
                         <span>Manage</span>
@@ -211,6 +212,14 @@ const DashboardNav = () => {
                     <span>WhatsApp</span>
                     {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <Link href="/contact">
+                    <DropdownMenuItem>
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      <span>Contact Page</span>
+                      {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
+                    </DropdownMenuItem>
+                  </Link>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
