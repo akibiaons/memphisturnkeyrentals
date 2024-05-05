@@ -8,18 +8,14 @@ export function CanvasRevealEffectDemo() {
   return (
     <>
       <div className="py-20 flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-black w-full gap-4 mx-auto px-8 content-center text-center align-center">
-        <Card
-          title="Fill out the form or reach out via our form below"
-          icon={<AceternityIcon />}
-        >
+        <Card title="Fill out the form." icon={<AceternityIcon />}>
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-emerald-900"
           />
         </Card>
         <Card
-          title="Our team will send you a free Market Analysis that will give
-                  you an in-depth look into the value of your property."
+          title="We will send you a free Market Analysis and provide in-depth data about the property."
           icon={<AceternityIcon />}
         >
           <CanvasRevealEffect
@@ -35,9 +31,7 @@ export function CanvasRevealEffectDemo() {
           <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
         </Card>
         <Card
-          title="Memphis Turnkey has a large database of investors who are
-                  looking to grow your portfolio, you choose to list the
-                  property with out team and we find a buyer."
+          title="We provide you with the best investor or buyer."
           icon={<AceternityIcon />}
         >
           <CanvasRevealEffect
@@ -46,7 +40,7 @@ export function CanvasRevealEffectDemo() {
             colors={[[125, 211, 252]]}
           />
         </Card>
-        <Card title="Sell your property" icon={<AceternityIcon />}>
+        <Card title="Sell your property.z" icon={<AceternityIcon />}>
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-sky-600"
@@ -91,7 +85,7 @@ const Card = ({
         )}
       </AnimatePresence>
 
-      <div className="relative z-20">
+      <div className="relative flex flex-col justify-between z-20">
         <p className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
           {icon}
         </p>

@@ -21,9 +21,9 @@ export function ProductListing() {
   return (
     <>
       <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container grid gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
+        <div className=" md:grid md:gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
           <div className="grid gap-4">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="flex flex-row mb-12 md:grid grid-cols-3 gap-4">
               <button className="rounded-lg border border-gray-200 transition-colors hover:border-gray-900 dark:border-gray-800 dark:hover:border-gray-50">
                 <img
                   alt="Watch Thumbnail"
@@ -56,7 +56,7 @@ export function ProductListing() {
               </button>
             </div>
           </div>
-          <div className="grid gap-4">
+          <div className="flex flex-col md:grid md:gap-4">
             <div>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Precision Timepiece: The Elegant Chronograph
@@ -78,7 +78,7 @@ export function ProductListing() {
                   <span>3,000</span>
                   <span>/month</span>
                 </h2>
-                <div className="ml-4 flex flex-row ">
+                <div className="ml-4 items-center flex flex-col md:flex-row ">
                   <div className="text-green-700 flex flex-row items-center">
                     <MoveUp className="h-5" />
                     <div>
@@ -122,7 +122,7 @@ export function ProductListing() {
                     </p>
                   </div>
                   <div>
-                    <p>
+                    <p className="flex flex-col sm:flex-row">
                       <span className="font-bold mr-1">1,096</span>
                       <span className="font-normal">Sqft Lot</span>
                     </p>
@@ -141,7 +141,7 @@ export function ProductListing() {
                   <div></div>
                 </div>
               </div>
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-col w-full md:flex-row md:gap-4">
                 <Button className="w-full" size="lg">
                   Ask a question
                 </Button>
