@@ -145,7 +145,7 @@ const DashboardNav = () => {
                       </DropdownMenuItem>
                     </Link>
 
-                    <Link href="sell">
+                    <Link href="/sell">
                       <DropdownMenuItem className="flex flex-row items-center w-full">
                         <Receipt className="mr-2 h-4 w-4" />
                         <span>Sell</span>
@@ -223,6 +223,27 @@ const DashboardNav = () => {
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="rounded-full"
+                >
+                  <CircleUser className="h-5 w-5" />
+                  <span className="sr-only">Toggle user menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Logout</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </header>
@@ -230,15 +251,3 @@ const DashboardNav = () => {
   );
 };
 export default DashboardNav;
-
-// export default function Navbar({}: Props) {
-//   //   State hooks below from React
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <div>
-//       {/*  */}
-
-//     </div>
-//   );
-// }
