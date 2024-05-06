@@ -18,16 +18,16 @@ import { Input } from "@/components/ui/input";
 import { registerUserAction } from "@/app/data/actions/auth-actions";
 
 // Strapi errors message import
-import { StrapiErrors } from "@/components/custom/StrapiErrors";
+import { StrapiErrors } from "@/components/custom-ui/StrapiErrors";
 
 // React hook state for the form
 import { useFormState } from "react-dom";
 
 // Zod errors
-import { ZodErrors } from "@/components/custom/ZodErrors";
+import { ZodErrors } from "@/components/custom-ui/ZodErrors";
 
 // Our new sign up spinner component
-import { SubmitButton } from "@/components/custom/SubmitButton";
+import { SubmitButton } from "@/components/custom-ui/SubmitButton";
 
 const INITIAL_STATE = {
   data: null,
@@ -97,7 +97,7 @@ export function SignupForm() {
         <div className="mt-4 text-center text-sm">
           Have an account?
           <Link className="underline ml-2" href="signin">
-            Sing In
+            Sign In
           </Link>
         </div>
       </form>

@@ -145,7 +145,7 @@ const DashboardNav = () => {
                       </DropdownMenuItem>
                     </Link>
 
-                    <Link href="sell">
+                    <Link href="/sell">
                       <DropdownMenuItem className="flex flex-row items-center w-full">
                         <Receipt className="mr-2 h-4 w-4" />
                         <span>Sell</span>
@@ -230,15 +230,3 @@ const DashboardNav = () => {
   );
 };
 export default DashboardNav;
-
-// export default function Navbar({}: Props) {
-//   //   State hooks below from React
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <div>
-//       {/*  */}
-
-//     </div>
-//   );
-// }
