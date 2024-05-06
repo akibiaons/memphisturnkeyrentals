@@ -40,7 +40,7 @@ export function CanvasRevealEffectDemo() {
             colors={[[125, 211, 252]]}
           />
         </Card>
-        <Card title="Sell your property.z" icon={<AceternityIcon />}>
+        <Card title="Sell your property." icon={<AceternityIcon />}>
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-sky-600"

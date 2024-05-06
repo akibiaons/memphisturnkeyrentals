@@ -74,6 +74,7 @@ const Footer = () => {
                 <div className="relative w-full">
                   <Input
                     type="email"
+                    id="footer-input"
                     className="w-full pl-4 pr-20 py-5 border rounded-md text-gray-700 focus:outline-none focus:ring focus:border-none"
                     placeholder="you@domain.com"
                   />

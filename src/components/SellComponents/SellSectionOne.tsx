@@ -1,14 +1,5 @@
 "use client";
 
-import React from "react";
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
 import { SellForm } from "./sell-form";
 import { CanvasRevealEffectDemo } from "./canvas-reveal";
 

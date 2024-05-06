@@ -1,9 +1,7 @@
-import React from "react";
+"use client";
+
 import SellHero from "@/components/SellComponents/SellHero";
 import SellSectionOne from "@/components/SellComponents/SellSectionOne";
-
-// UI Component imports
-import { Separator } from "@/components/ui/separator";
 
 export default function page() {
   return (
@@ -15,7 +13,6 @@ export default function page() {
       <div className="max-w-7xl mx-auto ">
         <div className=" flex flex-col my-16 px-8">
           <SellSectionOne />
-          <Separator />
         </div>
       </div>
     </div>
