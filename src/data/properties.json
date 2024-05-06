@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Property One",
+    "latitude": 35.1495,
+    "longitude": -90.049
+  },
+  {
+    "id": "2",
+    "name": "Property Two",
+    "latitude": 35.15,
+    "longitude": -90.051
+  },
+  {
+    "id": "3",
+    "name": "Property Three",
+    "latitude": 35.147,
+    "longitude": -90.052
+  }
+]
