@@ -8,11 +8,14 @@ import {
 } from "./ui/accordion";
 import {
   BadgeDollarSign,
+  CalendarClock,
   CalendarFold,
+  Hammer,
   Home,
   MoveDown,
   MoveUp,
   NotebookTabs,
+  Ruler,
   Speech,
   UsersRound,
 } from "lucide-react";
@@ -137,8 +140,46 @@ export function ProductListing() {
                 </div>
               </div>
               <div>
-                <div>
-                  <div></div>
+                <div className="flex flex-row flex-wrap  gap-2 sm:gap-x-5 lg:gap-x-8 gap-y-3 items-center">
+                  <div className="flex flex-row  items-center">
+                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
+                      <Home className="h-7 w-7" />
+                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
+                        <h6 className="font-semibold text-md">Condo</h6>
+                        <p className="text-neutral-500">Home Type</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-row  items-center">
+                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
+                      <CalendarClock className="h-7 w-7" />
+                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
+                        <h6 className="font-semibold text-md">3 days</h6>
+                        <p className="text-neutral-500">Time on market</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-row  items-center">
+                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
+                      <Ruler className="h-7 w-7" />
+                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
+                        <h6 className="font-semibold text-md">
+                          <span>$</span>
+                          <span>522</span>
+                        </h6>
+                        <p className="text-neutral-500">Price per Sqft</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-row  items-center">
+                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
+                      <Hammer className="h-7 w-7" />
+                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
+                        <h6 className="font-semibold text-md">1999</h6>
+                        <p className="text-neutral-500">Year Built</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col w-full md:flex-row md:gap-4">
@@ -162,40 +203,64 @@ export function ProductListing() {
             <div className="mt-6 grid gap-4 text-sm text-gray-500 dark:text-gray-400">
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Movement
+                  Bedrooms
                 </span>
-                <span>Automatic self-winding mechanical movement</span>
+                <span>2</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Case
+                  Bathrooms
+                </span>
+                <span>2</span>
+              </div>
+              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
+                <span className="font-medium text-gray-900 dark:text-gray-50">
+                  Other Rooms
+                </span>
+                <span>Kitchen, Dining Room</span>
+              </div>
+              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
+                <span className="font-medium text-gray-900 dark:text-gray-50">
+                  Land Information
                 </span>
                 <span>
-                  Stainless steel case, 42mm diameter, 12mm thickness,
-                  screw-down caseback
+                  <span>- Lot Size Acres: 0.1694904</span>
+                  <span>- Lot Size Source: Assessor</span>
+                  <span>- Lot Size Square Feet: 7383</span>
                 </span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Dial
+                  Appliances
                 </span>
                 <span>
-                  Black dial with applied indices, luminous hands and markers
+                  Laundry: Washer, Dryer (Walk In Closet), Dishwasher, Microwave
                 </span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Strap
+                  Other Property Info
                 </span>
                 <span>
-                  Genuine leather strap, 20mm width, stainless steel buckle
+                  Source Listing Status: Active County: San Diego Directions:
+                  Use GPS Source Property Type: Residential Area: 92103 -
+                  Mission Hills Property Subtype: condo Source Neighborhood:
+                  92103 - Mission Hills Parcel Number: 4521920706 Zoning:
+                  R-1:SINGLE FAM-RES Property Subtype: Condominium Source System
+                  Name: C2C
                 </span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Water Resistance
+                  Building and Construction
                 </span>
-                <span>100 meters (330 feet)</span>
+                <span>
+                  Total Square Feet Living: 906 ,Year Built: 1984, Common Walls:
+                  2+, Common Walls Entry Level: 1, Entry Location: 1 Living
+                  Area, Source: Assessor, Property Age: 40, Property Attached:
+                  Yes, Levels or Stories: One Building, Total Stories: 1, Year
+                  Built Source: Assessor
+                </span>
               </div>
             </div>
           </div>
