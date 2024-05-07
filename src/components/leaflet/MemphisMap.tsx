@@ -17,12 +17,19 @@ interface Property {
 
 // Custom property marker
 const propertyMarker = (color = "red") =>
-  new L.divIcon({
+  new (L as any).divIcon({
     className: "property-marker",
     html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">+</div>`,
     iconSize: [20, 20],
     iconAnchor: [10, 10],
   });
+// const propertyMarker = (color = "red") =>
+// new L.divIcon({
+//   className: "property-marker",
+//   html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">+</div>`,
+//   iconSize: [20, 20],
+//   iconAnchor: [10, 10],
+// });
 
 const PropertyMap: React.FC = () => {
   // Hook declarations
