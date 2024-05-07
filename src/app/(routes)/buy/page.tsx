@@ -1,10 +1,19 @@
 import React from "react";
+import dynamic from "next/dynamic";
+
+const MemphisMap = dynamic(() => import("@/components/leaflet/MemphisMap"), {
+  ssr: false,
+});
 
 export default function page() {
   return (
     <div>
-      {/* Buy page for individuals buying from MTR, this will be feature intensive asf */}
-      <h1>Buy</h1>
+      <div>
+        {/* Map component */}
+        <div>
+          <MemphisMap />
+        </div>
+      </div>
     </div>
   );
 }
