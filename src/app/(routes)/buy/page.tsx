@@ -1,5 +1,9 @@
 import React from "react";
-import MemphisMap from "@/components/leaflet/MemphisMap";
+import dynamic from "next/dynamic";
+
+const MemphisMap = dynamic(() => import("@/components/leaflet/MemphisMap"), {
+  ssr: false,
+});
 
 export default function page() {
   return (
