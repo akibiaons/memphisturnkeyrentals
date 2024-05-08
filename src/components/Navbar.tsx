@@ -52,15 +52,35 @@ const DashboardNav = () => {
           <SheetContent side="left" className="sm:max-w-xs">
             <nav className="grid gap-6 text-lg font-medium">
               <SheetClose asChild>
-                <Button asChild variant="ghost">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      className="rounded-full"
+                    >
+                      <CircleUser className="h-5 w-5" />
+                      <span className="sr-only">Toggle user menu</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Settings</DropdownMenuItem>
+                    <DropdownMenuItem>Support</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                {/* <Button asChild variant="ghost">
                   <Link
                     href="/"
-                    className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                    className="group flex h-11 w-11 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                   >
-                    <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
+                    <CircleUser className="h-10 w-10 transition-all group-hover:scale-110" />
                     <span className="sr-only">Acme Inc</span>
                   </Link>
-                </Button>
+                </Button> */}
               </SheetClose>
               <SheetClose asChild>
                 <Button asChild variant="ghost">
@@ -68,8 +88,8 @@ const DashboardNav = () => {
                     href="#"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <LineChart className="h-5 w-5" />
-                    Settings
+                    {/* <LineChart className="h-5 w-5" /> */}
+                    Buy
                   </Link>
                 </Button>
               </SheetClose>
@@ -79,8 +99,8 @@ const DashboardNav = () => {
                     href="#"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <Users2 className="h-5 w-5" />
-                    Customers
+                    {/* <Users2 className="h-5 w-5" /> */}
+                    Sell
                   </Link>
                 </Button>
               </SheetClose>
@@ -90,8 +110,8 @@ const DashboardNav = () => {
                     href="#"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <Package className="h-5 w-5" />
-                    Products
+                    {/* <Package className="h-5 w-5" /> */}
+                    Manage
                   </Link>
                 </Button>
               </SheetClose>
@@ -101,8 +121,30 @@ const DashboardNav = () => {
                     href="#"
                     className="flex items-center gap-4 px-2.5 text-foreground"
                   >
-                    <ShoppingCart className="h-5 w-5" />
-                    Orders
+                    {/* <ShoppingCart className="h-5 w-5" /> */}
+                    Contact
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-foreground"
+                  >
+                    {/* <ShoppingCart className="h-5 w-5" /> */}
+                    Build to rent
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-foreground"
+                  >
+                    {/* <ShoppingCart className="h-5 w-5" /> */}
+                    Projects
                   </Link>
                 </Button>
               </SheetClose>
