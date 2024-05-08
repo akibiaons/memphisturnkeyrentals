@@ -50,15 +50,17 @@ const Footer = () => {
           <FooterSection
             title="Info"
             links={[
-              { name: "Learn", url: "/learn" },
-              { name: "Product", url: "/product" },
+              { name: "Buy", url: "/buy" },
+              { name: "Sell", url: "/sell" },
+              { name: "Manage", url: "/manage" },
             ]}
           />
           <FooterSection
             title="Resources"
             links={[
-              { name: "Tools", url: "/tools" },
-              { name: "Blog", url: "/blog" },
+              { name: "Contact", url: "/contact" },
+              { name: "Built to Rent", url: "/built-to-rent" },
+              { name: "Projects", url: "/projects" },
             ]}
           />
           <FooterSection
@@ -66,7 +68,7 @@ const Footer = () => {
             links={[
               { name: "Terms of Service", url: "/terms" },
               { name: "Privacy Policy", url: "/privacypolicy" },
-              { name: "Meet the Team", url: "/team" },
+              // { name: "Meet the Team", url: "/team" },
             ]}
           />
           <section className="flex flex-col items-start">
