@@ -20,7 +20,7 @@ export default function PropertyCarousel({
   onClose,
 }: PropertyCarouselProps) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 h-1/4 bg-white shadow-lg border-t p-4">
+    <div className="fixed bottom-20 left-0 right-0 h-1/4 bg-white shadow-lg border-t p-4">
       <Carousel className="w-full h-full">
         <CarouselContent>
           {images.map((img, index) => (
