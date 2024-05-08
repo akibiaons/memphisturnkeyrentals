@@ -33,7 +33,7 @@ export default function SectionTwo() {
   return (
     <div>
       <div>
-        <div className="flex flex-col text-center my-12 ">
+        <div className="flex flex-col text-center my-12">
           <p className="text-black mb-6 font-semibold uppercase text-sm">
             GET STARTED
           </p>
@@ -41,7 +41,7 @@ export default function SectionTwo() {
             Here are a few ways to workin with us!
           </h2>
         </div>
-        <div className="flex flex-col flex-1 lg:flex-row gap-8 justify-between items-center mx-auto">
+        <div className="flex flex-col flex-1 lg:flex-row gap-8 justify-center items-center mx-auto">
           <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="">Investor Profile</CardTitle>
@@ -72,7 +72,7 @@ export default function SectionTwo() {
               <Button>Create an Investor Profile</Button>
             </CardFooter>
           </Card>
-          <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between">
+          {/* <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="">DIY</CardTitle>
               <Blocks className="h-7 w-7 text-muted-foreground" />
@@ -86,7 +86,7 @@ export default function SectionTwo() {
             <CardFooter className="">
               <Button>Create an Investor Profile</Button>
             </CardFooter>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </div>
