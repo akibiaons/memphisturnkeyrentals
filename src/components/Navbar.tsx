@@ -176,7 +176,7 @@ const DashboardNav = () => {
                   <p className="text-neutral-700 cursor-pointer">Listings</p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
-                  <DropdownMenuLabel>Buy or sell a listing</DropdownMenuLabel>
+                  <DropdownMenuLabel>Buy or Sell</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <Link href="/buy">
@@ -234,11 +234,11 @@ const DashboardNav = () => {
                 <DropdownMenuLabel>Contact Us</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem>
+                  {/* <DropdownMenuItem>
                     <MessageSquareMore className="mr-2 h-4 w-4" />
                     <span>Message</span>
-                    {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
-                  </DropdownMenuItem>
+                    {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                  </DropdownMenuItem> */}
                   <DropdownMenuItem>
                     <Mail className="mr-2 h-4 w-4" />
                     <span>Email</span>
@@ -249,11 +249,11 @@ const DashboardNav = () => {
                     <span>Phone</span>
                     {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
+                  {/* <DropdownMenuItem>
                     <FaWhatsapp className="mr-2 h-4 w-4" />
                     <span>WhatsApp</span>
-                    {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
-                  </DropdownMenuItem>
+                    {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                  </DropdownMenuItem> */}
                   <DropdownMenuSeparator />
                   <Link href="/contact">
                     <DropdownMenuItem>
