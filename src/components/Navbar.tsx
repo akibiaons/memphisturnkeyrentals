@@ -41,7 +41,7 @@ import Image from "next/image";
 const DashboardNav = () => {
   return (
     <div className="flex flex-col sm:gap-4">
-      <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-4 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
+      <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-2 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
         <Sheet>
           <SheetTrigger asChild>
             <Button size="sm" variant="outline" className="lg:hidden">
@@ -152,7 +152,7 @@ const DashboardNav = () => {
           </SheetContent>
         </Sheet>
         <div className="bg-white flex justify-center items-center w-full ">
-          <div>
+          <div className="mr-14">
             <Link href="/">
               <Image
                 width={100}
