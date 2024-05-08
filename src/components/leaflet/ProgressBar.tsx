@@ -1,4 +1,5 @@
 import React from "react";
+import { Progress } from "../ui/progress";
 
 export default function ProgressBar() {
   const [progress, setProgress] = React.useState(13);
