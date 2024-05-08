@@ -85,7 +85,7 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/buy"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
                     {/* <LineChart className="h-5 w-5" /> */}
@@ -96,7 +96,7 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/sell"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
                     {/* <Users2 className="h-5 w-5" /> */}
@@ -107,7 +107,7 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/manage"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
                     {/* <Package className="h-5 w-5" /> */}
@@ -118,7 +118,7 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/contact"
                     className="flex items-center gap-4 px-2.5 text-foreground"
                   >
                     {/* <ShoppingCart className="h-5 w-5" /> */}
@@ -129,7 +129,7 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/build-to-rent"
                     className="flex items-center gap-4 px-2.5 text-foreground"
                   >
                     {/* <ShoppingCart className="h-5 w-5" /> */}
@@ -140,7 +140,7 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/projects"
                     className="flex items-center gap-4 px-2.5 text-foreground"
                   >
                     {/* <ShoppingCart className="h-5 w-5" /> */}
