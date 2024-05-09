@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    domains: ["localhost"], // Might have to change in production
     remotePatterns: [
       { hostname: "res.cloudinary.com" },
       { hostname: "images.unsplash.com" },

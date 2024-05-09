@@ -1,55 +1,51 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
-const people = [
-  {
-    id: 1,
-    name: "John Doe",
-    designation: "Software Engineer",
-    image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
-  },
-  {
-    id: 2,
-    name: "Robert Johnson",
-    designation: "Product Manager",
-    image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    id: 3,
-    name: "Jane Smith",
-    designation: "Data Scientist",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    id: 4,
-    name: "Emily Davis",
-    designation: "UX Designer",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    id: 5,
-    name: "Tyler Durden",
-    designation: "Soap Developer",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-  },
-  {
-    id: 6,
-    name: "Dora",
-    designation: "The Explorer",
-    image:
-      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
-  },
-];
+
+// Define the structure of a team member
+interface TeamMember {
+  id: number;
+  name: string;
+  designation: string;
+  image: string;
+}
 
 export function AnimatedTooltipPreview() {
+  // State to hold the team members
+  const [team, setTeam] = useState<TeamMember[]>([]);
+
+  // Function to fetch team members
+  useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:1337/api/teams?populate=*"
+        );
+        const fetchedTeam = response.data.data.map((item: any) => ({
+          id: item.id,
+          name: item.attributes.about.split(":")[1].trim(),
+          image: item.attributes.profilepic.data
+            ? `http://localhost:1337${item.attributes.profilepic.data.attributes.formats.medium.url}`
+            : "https://via.placeholder.com/150", // Provide a default image if none is available
+          designation: "Team Member", // Assuming a generic designation
+        }));
+        setTeam(fetchedTeam);
+      } catch (error) {
+        console.error("Failed to fetch team:", error);
+      }
+    };
+
+    fetchTeam();
+  }, []);
+
   return (
     <div className="flex flex-row items-center justify-center mb-10 w-full">
-      <AnimatedTooltip items={people} />
+      {team.length > 0 ? (
+        <AnimatedTooltip items={team} />
+      ) : (
+        <p>Loading...</p> // Display a loading message or spinner here
+      )}
     </div>
   );
 }
