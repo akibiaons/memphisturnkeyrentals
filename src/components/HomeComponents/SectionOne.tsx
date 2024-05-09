@@ -25,9 +25,10 @@ export default function SectionOne({}: Props) {
             How we make you money
           </h2>
           <h4 className="text-left w-10/12 mx-auto tracking-wide font-medium leading-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, animi
-            rem! Nam ratione minus, earum iste, error, iure natus debitis eum
-            voluptates harum vero accusantium.
+            Whether you are new to investing or a seasoned veteran, our team
+            will give you the tools you need to succeed. We act as your boots on
+            the ground and our goal is to deliver results that affect your
+            bottom line.
           </h4>
         </div>
       </div>
@@ -92,12 +93,12 @@ export default function SectionOne({}: Props) {
                 condition, and quality of material to make sure there are no
                 quick suprises, so you can rent them out ASAP.
               </p>
-              <p>
+              {/* <p>
                 We prioritize you the client,We use a third party inspector of
                 your choice to certify the overall property structure,
                 condition, and quality of material to make sure there are no
                 quick suprises, so you can rent them out ASAP.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ import Image from "next/image";
 const DashboardNav = () => {
   return (
     <div className="flex flex-col sm:gap-4">
-      <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-4 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
+      <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-2 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
         <Sheet>
           <SheetTrigger asChild>
             <Button size="sm" variant="outline" className="lg:hidden">
@@ -52,57 +52,99 @@ const DashboardNav = () => {
           <SheetContent side="left" className="sm:max-w-xs">
             <nav className="grid gap-6 text-lg font-medium">
               <SheetClose asChild>
-                <Button asChild variant="ghost">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      className="rounded-full"
+                    >
+                      <CircleUser className="h-5 w-5" />
+                      <span className="sr-only">Toggle user menu</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Settings</DropdownMenuItem>
+                    <DropdownMenuItem>Support</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                {/* <Button asChild variant="ghost">
                   <Link
                     href="/"
-                    className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                    className="group flex h-11 w-11 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                   >
-                    <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
+                    <CircleUser className="h-10 w-10 transition-all group-hover:scale-110" />
                     <span className="sr-only">Acme Inc</span>
                   </Link>
-                </Button>
+                </Button> */}
               </SheetClose>
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/buy"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <LineChart className="h-5 w-5" />
-                    Settings
+                    {/* <LineChart className="h-5 w-5" /> */}
+                    Buy
                   </Link>
                 </Button>
               </SheetClose>
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/sell"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <Users2 className="h-5 w-5" />
-                    Customers
+                    {/* <Users2 className="h-5 w-5" /> */}
+                    Sell
                   </Link>
                 </Button>
               </SheetClose>
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/manage"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    <Package className="h-5 w-5" />
-                    Products
+                    {/* <Package className="h-5 w-5" /> */}
+                    Manage
                   </Link>
                 </Button>
               </SheetClose>
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="#"
+                    href="/contact"
                     className="flex items-center gap-4 px-2.5 text-foreground"
                   >
-                    <ShoppingCart className="h-5 w-5" />
-                    Orders
+                    {/* <ShoppingCart className="h-5 w-5" /> */}
+                    Contact
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="/build-to-rent"
+                    className="flex items-center gap-4 px-2.5 text-foreground"
+                  >
+                    {/* <ShoppingCart className="h-5 w-5" /> */}
+                    Build to rent
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="/projects"
+                    className="flex items-center gap-4 px-2.5 text-foreground"
+                  >
+                    {/* <ShoppingCart className="h-5 w-5" /> */}
+                    Projects
                   </Link>
                 </Button>
               </SheetClose>
@@ -110,7 +152,7 @@ const DashboardNav = () => {
           </SheetContent>
         </Sheet>
         <div className="bg-white flex justify-center items-center w-full ">
-          <div>
+          <div className="mr-14">
             <Link href="/">
               <Image
                 width={100}
@@ -134,7 +176,7 @@ const DashboardNav = () => {
                   <p className="text-neutral-700 cursor-pointer">Listings</p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
-                  <DropdownMenuLabel>Buy or sell a listing</DropdownMenuLabel>
+                  <DropdownMenuLabel>Buy or Sell</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <Link href="/buy">
@@ -192,11 +234,11 @@ const DashboardNav = () => {
                 <DropdownMenuLabel>Contact Us</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem>
+                  {/* <DropdownMenuItem>
                     <MessageSquareMore className="mr-2 h-4 w-4" />
                     <span>Message</span>
-                    {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
-                  </DropdownMenuItem>
+                    {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                  </DropdownMenuItem> */}
                   <DropdownMenuItem>
                     <Mail className="mr-2 h-4 w-4" />
                     <span>Email</span>
@@ -207,11 +249,11 @@ const DashboardNav = () => {
                     <span>Phone</span>
                     {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
+                  {/* <DropdownMenuItem>
                     <FaWhatsapp className="mr-2 h-4 w-4" />
                     <span>WhatsApp</span>
-                    {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
-                  </DropdownMenuItem>
+                    {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                  </DropdownMenuItem> */}
                   <DropdownMenuSeparator />
                   <Link href="/contact">
                     <DropdownMenuItem>

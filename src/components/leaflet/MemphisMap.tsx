@@ -7,12 +7,14 @@ import "leaflet/dist/leaflet.css";
 
 // Import properties data directly from the JSON file
 import properties from "@/data/properties.json";
+import PropertyCarousel from "./PropertyCarousel";
 
 interface Property {
   id: string;
   name: string;
   latitude: number;
   longitude: number;
+  images: string[]; // Added this string interface
 }
 
 // Custom property marker
@@ -23,20 +25,19 @@ const propertyMarker = (color = "red") =>
     iconSize: [20, 20],
     iconAnchor: [10, 10],
   });
-// const propertyMarker = (color = "red") =>
-// new L.divIcon({
-//   className: "property-marker",
-//   html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">+</div>`,
-//   iconSize: [20, 20],
-//   iconAnchor: [10, 10],
-// });
 
 const PropertyMap: React.FC = () => {
   // Hook declarations
-  const [activePropertyId, setActivePropertyId] = useState<string | null>(null);
+  const [activeProperty, setActiveProperty] = useState<Property | null>(null);
 
-  const handleMarkerClick = (propertyId: string) => {
-    setActivePropertyId(activePropertyId === propertyId ? null : propertyId);
+  // Handle marker on click which is called in the return (<Marker>)
+  const handleMarkerClick = (property: Property) => {
+    // Below is for changing the color from green to red
+    setActiveProperty(activeProperty?.id === property.id ? null : property);
+  };
+
+  const handleCloseCarousel = () => {
+    setActiveProperty(null);
   };
 
   const mapOptions = {
@@ -47,26 +48,34 @@ const PropertyMap: React.FC = () => {
   };
 
   return (
-    <MapContainer
-      style={{ height: "80vh", width: "100%", zIndex: 10 }}
-      {...mapOptions}
-    >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {properties.map((property: Property) => (
-        <Marker
-          key={property.id}
-          position={[property.latitude, property.longitude]}
-          icon={propertyMarker(
-            property.id === activePropertyId ? "green" : "red"
-          )}
-          eventHandlers={{
-            click: () => handleMarkerClick(property.id),
-          }}
-        >
-          <Popup>{property.name}</Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <div>
+      <MapContainer
+        style={{ height: "80vh", width: "100%", zIndex: 0 }}
+        {...mapOptions}
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        {properties.map((property) => (
+          <Marker
+            key={property.id}
+            position={[property.latitude, property.longitude]}
+            icon={propertyMarker(property === activeProperty ? "green" : "red")}
+            eventHandlers={{
+              click: () => {
+                handleMarkerClick(property);
+              },
+            }}
+          >
+            <Popup className="hidden">{property.name}</Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+      {activeProperty && (
+        <PropertyCarousel
+          images={activeProperty.images}
+          onClose={handleCloseCarousel}
+        />
+      )}
+    </div>
   );
 };
 
