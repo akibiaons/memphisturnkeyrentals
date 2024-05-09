@@ -15,26 +15,33 @@ export function AnimatedTooltipPreview() {
   // State to hold the team members
   const [team, setTeam] = useState<TeamMember[]>([]);
 
-  // Function to fetch team members
   useEffect(() => {
-    const fetchTeam = async () => {
+    async function fetchTeam() {
       try {
         const response = await axios.get(
           "http://localhost:1337/api/teams?populate=*"
         );
-        const fetchedTeam = response.data.data.map((item: any) => ({
-          id: item.id,
-          name: item.attributes.about.split(":")[1].trim(),
-          image: item.attributes.profilepic.data
+        console.log(response.data); // Log the response to check the structure
+        const fetchedTeam = response.data.data.map((item: any) => {
+          // Add checks to ensure data exists
+          const aboutText = item.attributes.about || "";
+          const namePart = aboutText.split(":")[1]; // Check if splitting is safe
+          const image = item.attributes.profilepic.data
             ? `http://localhost:1337${item.attributes.profilepic.data.attributes.formats.medium.url}`
-            : "https://via.placeholder.com/150", // Provide a default image if none is available
-          designation: "Team Member", // Assuming a generic designation
-        }));
+            : "/path/to/default-image.png"; // Fallback for missing images
+
+          return {
+            id: item.id,
+            name: namePart ? namePart.trim() : "Unknown", // Fallback for missing name
+            designation: "Team Member",
+            image,
+          };
+        });
         setTeam(fetchedTeam);
       } catch (error) {
         console.error("Failed to fetch team:", error);
       }
-    };
+    }
 
     fetchTeam();
   }, []);
