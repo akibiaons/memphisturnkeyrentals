@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/utils/cn";
-import PropertyCard from "../Listing";
+import PropertyCard from "../PropertyCard";
 
 export const ParallaxScroll = ({
   properties, // Expect an array of property objects instead of just image strings
