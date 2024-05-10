@@ -12,9 +12,9 @@ type Props = {
 
 export default function SellHero({ imageUrl }: Props) {
   return (
-    <div className="relative h-[600px] lg:h-[742px] w-full overflow-hidden ">
+    <div className=" h-[600px] lg:h-[742px] w-full overflow-hidden ">
       <div className="hero-bg mx-auto   h-screen object-fit">
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className=" inset-0 bg-black bg-opacity-50"></div>
         <HeroHighlight>
           <motion.h1
             initial={{
@@ -36,7 +36,7 @@ export default function SellHero({ imageUrl }: Props) {
               Sell an Investment
             </div>
 
-            <Highlight className="text-neutral-200 text-2xl md:text-3xl">
+            <Highlight className="text-neutral-50 text-2xl md:text-3xl">
               Get a Guaranteed Offer on Your House!
             </Highlight>
             {/* <div className="mt-4">
