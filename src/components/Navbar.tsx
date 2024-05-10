@@ -72,15 +72,6 @@ const DashboardNav = () => {
                     <DropdownMenuItem>Logout</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                {/* <Button asChild variant="ghost">
-                  <Link
-                    href="/"
-                    className="group flex h-11 w-11 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
-                  >
-                    <CircleUser className="h-10 w-10 transition-all group-hover:scale-110" />
-                    <span className="sr-only">Acme Inc</span>
-                  </Link>
-                </Button> */}
               </SheetClose>
               <SheetClose asChild>
                 <Button asChild variant="ghost">
