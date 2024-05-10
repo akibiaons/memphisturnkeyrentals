@@ -26,8 +26,8 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   tags, // Update to use the array of tags
 }) => {
   return (
-    <Card className="min-h-[500px] flex flex-col">
-      <div className="relative w-full h-[400px]">
+    <Card className="min-h-[500px] min-w-1/2 *:flex flex-col">
+      <div className="relative w-full h-[300px]">
         <Image
           src={imageUrl}
           alt={imageAlt}
