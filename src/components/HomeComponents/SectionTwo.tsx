@@ -42,9 +42,11 @@ export default function SectionTwo() {
           </h2>
         </div>
         <div className="flex flex-col flex-1 lg:flex-row gap-8 justify-center items-center mx-auto">
-          <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between">
+          <Card className="min-w-[300px] max-w-[350px] min-h-[250px] flex flex-col justify-between group/bento hover:shadow-xl transition duration-200 shadow-input ">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="">Investor Profile</CardTitle>
+              <CardTitle className="group-hover/bento:translate-x-2 transition duration-200">
+                Investor Profile
+              </CardTitle>
               <User className="h-7 w-7 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -57,9 +59,12 @@ export default function SectionTwo() {
               <Button>Create an Investor Profile</Button>
             </CardFooter>
           </Card>
-          <Card className="min-w-[300px] max-w-[350px]  min-h-[250px] flex flex-col justify-between">
+          <Card className="min-w-[300px] max-w-[350px]  min-h-[250px] flex flex-col justify-between group/bento hover:shadow-xl transition duration-200 shadow-input">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className=""> Consultation</CardTitle>
+              <CardTitle className="group-hover/bento:translate-x-2 transition duration-200">
+                {" "}
+                Consultation
+              </CardTitle>
               <Speech className="h-7 w-7 text-muted-foreground" />
             </CardHeader>
             <CardContent>

@@ -142,7 +142,7 @@ const DashboardNav = () => {
             </nav>
           </SheetContent>
         </Sheet>
-        <div className="bg-white flex justify-center items-center w-full ">
+        <div className=" flex justify-center items-center w-full ">
           <div className="mr-14">
             <Link href="/">
               <Image
@@ -160,7 +160,7 @@ const DashboardNav = () => {
             <span className="line line2"></span>
           </div>
           {/* Navigation links and such */}
-          <div className="items-center flex-row space-x-8 w-full justify-end text-[#bfbfbf] hidden lg:flex">
+          <div className="items-center flex-row space-x-8 w-full justify-end hidden lg:flex">
             <div className="">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -192,7 +192,7 @@ const DashboardNav = () => {
             <div className="">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <p className="text-neutral-700 cursor-pointer">Manage</p>
+                  <p className="cursor-pointer">Manage</p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Manage listings</DropdownMenuLabel>
@@ -210,10 +210,10 @@ const DashboardNav = () => {
               </DropdownMenu>
             </div>
 
-            <a href="/build-to-rent" className=" text-black ">
+            <a href="/build-to-rent" className="  ">
               Built to Rent
             </a>
-            <a href="/projects" className=" text-black ">
+            <a href="/projects" className="  ">
               Projects
             </a>
             {/* Contact Button/SHADCN for desktop */}
