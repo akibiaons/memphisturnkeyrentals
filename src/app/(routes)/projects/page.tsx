@@ -1,12 +1,15 @@
 import React from "react";
+import Hero from "./components/hero";
 
 type Props = {};
 
 export default function projects({}: Props) {
   return (
     <div>
-      {/*  */}
-      <h1>Projects page</h1>
+      <div>
+        <Hero />
+      </div>
+      <div></div>
     </div>
   );
 }
