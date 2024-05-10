@@ -11,6 +11,7 @@ import {
 } from "./ui/dropdown-menu";
 import { FaWhatsapp } from "react-icons/fa";
 import {
+  ChevronDown,
   Coins,
   ExternalLink,
   Mail,
@@ -160,11 +161,14 @@ const DashboardNav = () => {
             <span className="line line2"></span>
           </div>
           {/* Navigation links and such */}
-          <div className="items-center flex-row space-x-8 w-full justify-end hidden lg:flex">
+          <div className="items-center flex-row space-x-8 w-full justify-end hidden lg:flex ">
             <div className="">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <p className="text-neutral-700 cursor-pointer">Listings</p>
+                  <p className=" cursor-pointer   flex flex-row items-center gap-[0.4px]">
+                    Listings
+                    <ChevronDown className="w-4 h-4" />
+                  </p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Buy or Sell</DropdownMenuLabel>
@@ -192,7 +196,9 @@ const DashboardNav = () => {
             <div className="">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <p className="cursor-pointer">Manage</p>
+                  <p className="cursor-pointer flex flex-row items-center gap-[0.4px]">
+                    Manage <ChevronDown className="w-4 h-4" />
+                  </p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Manage listings</DropdownMenuLabel>
