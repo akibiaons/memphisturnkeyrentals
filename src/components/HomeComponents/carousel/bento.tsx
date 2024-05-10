@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
+import Link from "next/link";
 
 interface BuildToRentHome {
   id: number;
@@ -55,11 +56,13 @@ export function BentoTwoGridHome() {
           key={item.id}
           header={
             <DirectionAwareHover imageUrl={item.image}>
-              <img
-                src={item.image}
-                alt={item.address}
-                className="w-full h-full object-cover rounded-t-lg"
-              />
+              <Link href="/build-to-rent">
+                <img
+                  src={item.image}
+                  alt={item.address}
+                  className="w-full h-full object-cover rounded-t-lg"
+                />
+              </Link>
             </DirectionAwareHover>
           }
           title={item.address}
