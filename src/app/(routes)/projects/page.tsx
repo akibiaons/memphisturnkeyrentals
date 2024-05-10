@@ -15,6 +15,7 @@ const properties = [
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
     tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
+    price: 250000, // Assuming price is a number; adjust accordingly
   },
   {
     imageUrl:
@@ -25,6 +26,7 @@ const properties = [
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
     tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
+    price: 130000, // Assuming price is a number; adjust accordingly
   },
   {
     imageUrl:
@@ -35,6 +37,7 @@ const properties = [
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
     tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
+    price: 210000, // Assuming price is a number; adjust accordingly
   },
   {
     imageUrl:
@@ -45,6 +48,7 @@ const properties = [
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
     tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
+    price: 230000, // Assuming price is a number; adjust accordingly
   },
   {
     imageUrl:
@@ -55,6 +59,7 @@ const properties = [
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
     tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
+    price: 150000, // Assuming price is a number; adjust accordingly
   },
 ];
 

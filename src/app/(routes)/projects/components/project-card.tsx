@@ -4,7 +4,7 @@ interface PropertyCardProps {
   imageUrl: string;
   imageAlt: string;
   address: string;
-  price: string;
+  price: number;
   tags: string[]; // Change this to an array of strings
 }
 import { Badge } from "@/components/ui/badge";
