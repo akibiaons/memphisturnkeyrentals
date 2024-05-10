@@ -33,7 +33,7 @@ const Footer = () => {
       <main className="w-full max-w-7xl justify-center mx-auto flex flex-col md:flex-col px-6 py-9 gap-8 ">
         <section className="flex flex-col md:flex-row gap-8 justify-between">
           <div className="flex flex-row md:flex-col justify-between items-center">
-            <h3 className="font-display font-black text-4xl text-left md:text-center">
+            <h3 className="font-display font-black text-4xl text-left ">
               Turnkey Memphis
             </h3>
             <div className="flex h-7 flex-row  justify-center items-center space-x-3 text-lg ">
