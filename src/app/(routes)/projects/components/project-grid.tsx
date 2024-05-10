@@ -7,7 +7,10 @@ interface Property {
   address: string;
   content: string;
   footerText: string;
-  tags: string[];
+  tags: {
+    text: string;
+    className: string;
+  }[];
   price: number;
 }
 

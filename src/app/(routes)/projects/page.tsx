@@ -2,10 +2,10 @@
 
 import React from "react";
 import Hero from "./components/hero";
-import PropertyCard from "./components/project-card";
 import ProjectGrid from "./components/project-grid";
+import { PropertyCardProperty } from "./components/project-card";
 
-const properties = [
+const properties: PropertyCardProperty[] = [
   {
     imageUrl:
       "https://res.cloudinary.com/dfgr7tov1/image/upload/v1713393089/biggerHero_vvduaq.jpg",
@@ -14,8 +14,12 @@ const properties = [
     content:
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
-    tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
-    price: 250000, // Assuming price is a number; adjust accordingly
+    tags: [
+      { text: "New Listing", className: "bg-green-500" },
+      { text: "City View", className: "bg-blue-500" },
+      { text: "Pet Friendly", className: "bg-purple-500" },
+    ],
+    price: 250000,
   },
   {
     imageUrl:
@@ -25,8 +29,12 @@ const properties = [
     content:
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
-    tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
-    price: 130000, // Assuming price is a number; adjust accordingly
+    tags: [
+      { text: "New Listing", className: "bg-green-500" },
+      { text: "City View", className: "bg-blue-500" },
+      { text: "Pet Friendly", className: "bg-purple-500" },
+    ],
+    price: 130000,
   },
   {
     imageUrl:
@@ -36,8 +44,12 @@ const properties = [
     content:
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
-    tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
-    price: 210000, // Assuming price is a number; adjust accordingly
+    tags: [
+      { text: "New Listing", className: "bg-green-500" },
+      { text: "City View", className: "bg-blue-500" },
+      { text: "Pet Friendly", className: "bg-purple-500" },
+    ],
+    price: 210000,
   },
   {
     imageUrl:
@@ -47,8 +59,12 @@ const properties = [
     content:
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
-    tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
-    price: 230000, // Assuming price is a number; adjust accordingly
+    tags: [
+      { text: "New Listing", className: "bg-green-500" },
+      { text: "City View", className: "bg-blue-500" },
+      { text: "Pet Friendly", className: "bg-purple-500" },
+    ],
+    price: 230000,
   },
   {
     imageUrl:
@@ -58,8 +74,12 @@ const properties = [
     content:
       "This modern apartment features 2 bedrooms, 2 bathrooms, a fully equipped kitchen, and a spacious living room with a great view of the downtown skyline.",
     footerText: "Available from June 1st, 2024 - Contact us for more details!",
-    tags: ["New Listing", "City View", "Pet Friendly"], // Array of strings for tags
-    price: 150000, // Assuming price is a number; adjust accordingly
+    tags: [
+      { text: "New Listing", className: "bg-green-500" },
+      { text: "City View", className: "bg-blue-500" },
+      { text: "Pet Friendly", className: "bg-purple-500" },
+    ],
+    price: 150000,
   },
 ];
 
