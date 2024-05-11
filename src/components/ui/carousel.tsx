@@ -1,10 +1,5 @@
 "use client";
 
-/* Note for Eli: 4/49/24 9:33pm
-- I'm not sure which looks better in terms of orientation, vertical or horizontal, I guess it depends on mobile or desktop devices 
-- I am working on setting up a way for the mobile version to be vertical, with only one image showing, I wasn't able to crack it for the last hour
-and need to move onto the footer and pagination / navigation then the creation of other pages.
-*/
 import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -22,7 +17,7 @@ type CarouselPlugin = UseCarouselParameters[1];
 type CarouselProps = {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
-  orientation?: "horizontal" | "vertical";
+  orientation?: "horizontal" | "vertical" | "lg:vertical";
   setApi?: (api: CarouselApi) => void;
 };
 
