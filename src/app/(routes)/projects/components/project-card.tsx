@@ -59,12 +59,12 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
       </div>
 
       <div className="flex flex-col p-2 px-5">
-        <div className="mt-3 cursor-default ">
+        <div className="mt-3 cursor-default text-lg ">
           <div className=" mb-1 font-medium">{formatter.format(price)}</div>
         </div>
         <div>
           <div>
-            <div className="flex flex-row items-center gap-5 text-muted-foreground ">
+            <div className="flex flex-row items-center gap-5 mb-1 text-muted-foreground ">
               <div>
                 <p>
                   <span className=" mr-1">2</span>
