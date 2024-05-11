@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Cabinet Grotesk */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("//cdn.fontshare.com/wf/J2PZYZURCR7HNQKXCZ4VXYA3K5FFCCLT/PZSZLWHMBCE7FFGOUYDEU33FAESUMA3X/JFDL5FBAQ2WMYL3LGKSCZKAIFCS2UQ63.woff2")
+      format("woff2"),
+    url("//cdn.fontshare.com/wf/J2PZYZURCR7HNQKXCZ4VXYA3K5FFCCLT/PZSZLWHMBCE7FFGOUYDEU33FAESUMA3X/JFDL5FBAQ2WMYL3LGKSCZKAIFCS2UQ63.woff")
+      format("woff"),
+    url("//cdn.fontshare.com/wf/J2PZYZURCR7HNQKXCZ4VXYA3K5FFCCLT/PZSZLWHMBCE7FFGOUYDEU33FAESUMA3X/JFDL5FBAQ2WMYL3LGKSCZKAIFCS2UQ63.ttf")
+      format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+Link,
+input,
+textarea,
+label {
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
