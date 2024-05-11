@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { Button } from "../ui/button";
 import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "../ui/hero-highlight";
+import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
@@ -29,11 +28,11 @@ export default function Hero() {
              "
           >
             <div className="text-4xl md:text-6xl lg:text-6xl mb-4">
-              Turnkey Rentals in Memphis
+              Recent property projects
             </div>
 
             <Highlight className="text-neutral-50 text-2xl md:text-3xl">
-              Secure your stakes, Memphis awaits
+              Get an early view
             </Highlight>
             <div className="mt-4">
               <Button className="bg-blue-500">Property Listings</Button>
