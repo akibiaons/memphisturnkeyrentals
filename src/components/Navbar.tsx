@@ -88,6 +88,17 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
+                    href="/contact"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  >
+                    {/* <LineChart className="h-5 w-5" /> */}
+                    Contact
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
                     href="/sell"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
@@ -255,7 +266,7 @@ const DashboardNav = () => {
                   <Link href="/contact">
                     <DropdownMenuItem>
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      <span>Contact Page</span>
+                      <Link href="/contact">Contact Page</Link>
                       {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
                     </DropdownMenuItem>
                   </Link>
