@@ -64,7 +64,7 @@ const DashboardNav = () => {
                       <span className="sr-only">Toggle user menu</span>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
+                  <DropdownMenuContent side="right" className="mt-5">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>Settings</DropdownMenuItem>
@@ -111,7 +111,7 @@ const DashboardNav = () => {
                 <Button asChild variant="ghost">
                   <Link
                     href="/contact"
-                    className="flex items-center gap-4 px-2.5 text-foreground"
+                    className="flex items-center gap-4 px-2. text-muted-foreground hover:text-foreground"
                   >
                     {/* <ShoppingCart className="h-5 w-5" /> */}
                     Contact
@@ -122,7 +122,7 @@ const DashboardNav = () => {
                 <Button asChild variant="ghost">
                   <Link
                     href="/build-to-rent"
-                    className="flex items-center gap-4 px-2.5 text-foreground"
+                    className="flex items-center gap-4 px-2.5  text-muted-foreground hover:text-foreground"
                   >
                     {/* <ShoppingCart className="h-5 w-5" /> */}
                     Build to rent
@@ -133,7 +133,7 @@ const DashboardNav = () => {
                 <Button asChild variant="ghost">
                   <Link
                     href="/projects"
-                    className="flex items-center gap-4 px-2.5 text-foreground"
+                    className="flex items-center gap-4 px-2.5  text-muted-foreground hover:text-foreground"
                   >
                     {/* <ShoppingCart className="h-5 w-5" /> */}
                     Projects
@@ -216,12 +216,12 @@ const DashboardNav = () => {
               </DropdownMenu>
             </div>
 
-            <a href="/build-to-rent" className="  ">
+            <Link href="/build-to-rent" className="  ">
               Built to Rent
-            </a>
-            <a href="/projects" className="  ">
+            </Link>
+            <Link href="/projects" className="  ">
               Projects
-            </a>
+            </Link>
             {/* Contact Button/SHADCN for desktop */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
