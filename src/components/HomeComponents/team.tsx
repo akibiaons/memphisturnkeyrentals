@@ -6,9 +6,9 @@ import { AnimatedTooltip } from "../ui/animated-tooltip";
 // Define the structure of a team member
 interface TeamMember {
   id: number;
-  name: string;
-  designation: string;
-  image: string;
+  image: string; // The profile picture
+  name: string; // The member name
+  designation: string; // The member title
 }
 
 export function AnimatedTooltipPreview() {
@@ -19,27 +19,30 @@ export function AnimatedTooltipPreview() {
     async function fetchTeam() {
       try {
         const response = await axios.get(
-          "http://localhost:1337/api/teams?populate=*"
+          "http://glorious-sparkle-1fb7e61245.strapiapp.com/api/teams?populate=*"
         );
         console.log(response.data); // Log the response to check the structure
         const fetchedTeam = response.data.data.map((item: any) => {
-          // Add checks to ensure data exists
-          const aboutText = item.attributes.about || "";
-          const namePart = aboutText.split(":")[1]; // Check if splitting is safe
-          const image = item.attributes.profilepic.data
-            ? `http://localhost:1337${item.attributes.profilepic.data.attributes.formats.medium.url}`
-            : "/path/to/default-image.png"; // Fallback for missing images
-
+          // Safely get img url
+          const getImageUrl = (formats: any) => {
+            return (
+              formats?.medium?.url ||
+              formats?.small?.url ||
+              "/path/to/default-image.png"
+            );
+          };
           return {
             id: item.id,
-            name: namePart ? namePart.trim() : "Unknown", // Fallback for missing name
-            designation: "Team Member",
-            image,
+            name: item.attributes.memberTitle || "Unknown", // Use memberTitle as the name
+            designation: item.attributes.memberDesc || "Team member", // Use member desc as the desc
+            image: getImageUrl(
+              item.attributes.profilepic.data.attributes.formats
+            ),
           };
         });
         setTeam(fetchedTeam);
       } catch (error) {
-        console.error("Failed to fetch team:", error);
+        console.error("Failed to fetch team members:", error);
       }
     }
 
