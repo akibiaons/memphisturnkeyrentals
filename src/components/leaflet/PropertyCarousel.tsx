@@ -33,7 +33,7 @@ export default function PropertyCarousel({
   properties,
 }: PropertyCarouselProps) {
   // State and ref handlers:
-  const [height, setHeight] = useState("h-1/4"); // Initial height
+  const [height, setHeight] = useState("25%"); // Initial height
   const touchStartY = useRef(0);
   const touchEndY = useRef(0);
 
@@ -49,10 +49,10 @@ export default function PropertyCarousel({
   const handleTouchEnd = () => {
     if (touchStartY.current - touchEndY.current > 50) {
       // Swipe up
-      setHeight("h-1/2"); // Change to the height you want on swipe up
+      setHeight("70%"); // Change to the height you want on swipe up
     } else if (touchEndY.current - touchStartY.current > 50) {
       // Swipe down
-      setHeight("h-1/4"); // Change back to initial height on swipe down
+      setHeight("25%"); // Change back to initial height on swipe down
     }
   };
 
@@ -69,7 +69,8 @@ export default function PropertyCarousel({
 
   return (
     <div
-      className={`fixed bottom-20 left-0 right-0 lg:left-auto lg:right-0 ${height} lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 lg:pt-[10rem] transition-all duration-600 ease-in-out`}
+      className={`fixed bottom-20 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
+      style={{ height: height }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
