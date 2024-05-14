@@ -15,6 +15,11 @@ interface Property {
   latitude: number;
   longitude: number;
   images: string[]; // Added this string interface
+  price: number;
+  address: string;
+  bed: number;
+  bath: number;
+  sqft: number;
 }
 
 // Custom property marker
@@ -73,6 +78,13 @@ const PropertyMap: React.FC = () => {
         <PropertyCarousel
           images={activeProperty.images}
           onClose={handleCloseCarousel}
+          propertyDetails={{
+            price: activeProperty.price,
+            address: activeProperty.address,
+            bed: activeProperty.bed,
+            bath: activeProperty.bath,
+            sqft: activeProperty.sqft,
+          }}
         />
       )}
     </div>

@@ -10,14 +10,24 @@ import {
 
 // import { Progress } from "@/components/ui/progress";
 
+interface PropertyDetails {
+  price: number;
+  address: string;
+  bed: number;
+  bath: number;
+  sqft: number;
+}
+
 interface PropertyCarouselProps {
   images: string[];
   onClose: () => void; // the function to hide the carousel
+  propertyDetails: PropertyDetails; // Add propertyDetails to the props
 }
 
 export default function PropertyCarousel({
   images,
   onClose,
+  propertyDetails,
 }: PropertyCarouselProps) {
   // State and ref handlers:
   const [height, setHeight] = useState("h-1/4"); // Initial height
@@ -56,37 +66,87 @@ export default function PropertyCarousel({
 
   return (
     <div
-      className={`fixed bottom-20 left-0 right-0 ${height} bg-white shadow-lg border-t p-4 lg:w-[20%] lg:h-full transition-all duration-600 ease-in-out`}
+      className={`fixed bottom-20 left-0 right-0 lg:left-auto lg:right-0 ${height} lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       {/* Swipe indicator */}
-      <div className="flex justify-center items-center mb-2 z-10">
+      <div className="flex justify-center items-center mb-2 z-10 lg:hidden">
         <div className="w-12 h-2 bg-gray-400 rounded-full"></div>
       </div>
 
-      <Carousel className="w-full h-full ">
-        <CarouselContent>
+      {/* Mobile view */}
+      <div className="lg:hidden">
+        <Carousel className="w-full h-full">
+          <CarouselContent>
+            {images.map((img, index) => (
+              <CarouselItem key={index}>
+                <div className="relative w-full h-full ">
+                  <Image
+                    src={img}
+                    alt={`Property image ${index + 1}`}
+                    layout="responsive" // Changed to responsive to maintain aspect ratio
+                    width={400} // Define width
+                    height={300} // Define height
+                    objectFit="contain" // Changed to contain to see the whole image
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+        <div className="relative w-full h-full p-4 bg-white">
+          <p className="text-lg font-semibold">
+            ${propertyDetails.price.toLocaleString()}
+          </p>
+          <p className="text-sm text-gray-600">{propertyDetails.address}</p>
+          <p className="text-sm text-gray-600">
+            {propertyDetails.bed} Beds, {propertyDetails.bath} Baths
+          </p>
+          <p className="text-sm text-gray-600">
+            {propertyDetails.sqft.toLocaleString()} sqft
+          </p>
+        </div>
+      </div>
+
+      {/* Desktop view */}
+      <div className="hidden lg:block">
+        <div className="grid grid-cols-3 gap-4">
           {images.map((img, index) => (
-            <CarouselItem key={index}>
-              <div className="relative w-full h-full ">
-                <Image
-                  src={img}
-                  alt={`Property image ${index + 1}`}
-                  layout="responsive" // Changed to responsive to maintain aspect ratio
-                  width={400} // Define width
-                  height={300} // Define height
-                  objectFit="contain" // Changed to contain to see the whole image
-                />
-              </div>
-            </CarouselItem>
+            <div key={index} className="relative w-full h-full col-span-1">
+              <Image
+                src={img}
+                alt={`Property image ${index + 1}`}
+                layout="responsive"
+                width={400}
+                height={300}
+                objectFit="cover"
+                className="rounded-md"
+              />
+            </div>
           ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-      <button onClick={onClose} className="absolute top-0 right-0 p-2 text-xl ">
+        </div>
+        <div className="mt-4">
+          <p className="text-lg font-semibold">
+            ${propertyDetails.price.toLocaleString()}
+          </p>
+          <p className="text-sm text-gray-600">{propertyDetails.address}</p>
+          <p className="text-sm text-gray-600">
+            {propertyDetails.bed} Beds, {propertyDetails.bath} Baths
+          </p>
+          <p className="text-sm text-gray-600">
+            {propertyDetails.sqft.toLocaleString()} sqft
+          </p>
+        </div>
+      </div>
+
+      <button
+        onClick={onClose}
+        className="absolute top-0 right-0 p-2 text-xl lg:text-lg bg-white"
+      >
         x
       </button>
     </div>
