@@ -55,7 +55,7 @@ const PropertyMap: React.FC = () => {
   return (
     <div>
       <MapContainer
-        style={{ height: "80vh", width: "100%", zIndex: 0 }}
+        style={{ height: "100vh", width: "100%", zIndex: 0 }}
         {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

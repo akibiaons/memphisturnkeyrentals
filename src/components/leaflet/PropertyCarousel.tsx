@@ -69,7 +69,7 @@ export default function PropertyCarousel({
 
   return (
     <div
-      className={`fixed bottom-20 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
+      className={`fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
       style={{ height: height }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
