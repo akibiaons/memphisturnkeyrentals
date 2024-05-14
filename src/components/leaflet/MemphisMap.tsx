@@ -76,15 +76,9 @@ const PropertyMap: React.FC = () => {
       </MapContainer>
       {activeProperty && (
         <PropertyCarousel
-          images={activeProperty.images}
+          images={activeProperty.images} // Pass the images of the active property
+          properties={properties} // Pass all properties for desktop
           onClose={handleCloseCarousel}
-          propertyDetails={{
-            price: activeProperty.price,
-            address: activeProperty.address,
-            bed: activeProperty.bed,
-            bath: activeProperty.bath,
-            sqft: activeProperty.sqft,
-          }}
         />
       )}
     </div>
