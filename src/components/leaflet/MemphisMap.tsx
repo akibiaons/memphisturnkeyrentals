@@ -15,6 +15,11 @@ interface Property {
   latitude: number;
   longitude: number;
   images: string[]; // Added this string interface
+  price: number;
+  address: string;
+  bed: number;
+  bath: number;
+  sqft: number;
 }
 
 // Custom property marker
@@ -50,7 +55,7 @@ const PropertyMap: React.FC = () => {
   return (
     <div>
       <MapContainer
-        style={{ height: "80vh", width: "100%", zIndex: 0 }}
+        style={{ height: "100vh", width: "100%", zIndex: 0 }}
         {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -71,7 +76,8 @@ const PropertyMap: React.FC = () => {
       </MapContainer>
       {activeProperty && (
         <PropertyCarousel
-          images={activeProperty.images}
+          images={activeProperty.images} // Pass the images of the active property
+          properties={properties} // Pass all properties for desktop
           onClose={handleCloseCarousel}
         />
       )}

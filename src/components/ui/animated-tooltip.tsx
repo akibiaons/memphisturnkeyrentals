@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useState } from "react";
 import { motion, useTransform, useMotionValue, useSpring } from "framer-motion";
 
@@ -71,7 +70,7 @@ export const AnimatedTooltip: React.FC<AnimatedTooltipProps> = ({ items }) => {
               <div className="text-white text-xs">{item.designation}</div>
             </motion.div>
           )}
-          <Image
+          <img
             onMouseMove={handleMouseMove}
             height={100}
             width={100}
