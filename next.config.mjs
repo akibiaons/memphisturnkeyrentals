@@ -1,14 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  env: {
-    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: "dfgr7tov1",
-    NEXT_PUBLIC_CLOUDINARY_PRESET_NAME: "o4beoehp",
-  },
   images: {
-    deviceSizes: [640, 768, 1024, 1280, 1600],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: ["res.cloudinary.com", "images.unsplash.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "glorious-sparkle-1fb7e61245.strapiapp.comhttps",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
   },
 };
 
 export default nextConfig;
+
+// glorious-sparkle-1fb7e61245.strapiapp.com
+// glorious-sparkle-1fb7e61245.media.strapiapp.com

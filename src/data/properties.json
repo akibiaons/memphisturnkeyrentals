@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "Property One",
+    "latitude": 35.1495,
+    "longitude": -90.049,
+    "images": [
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1714246022/Screenshot_2024-04-27_at_12.26.56_PM_sdpx6h.png",
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1714246022/Screenshot_2024-04-27_at_12.26.56_PM_sdpx6h.png"
+    ],
+    "price": 120000,
+    "address": "1623 Whitehorse Ln, Memphis, TN 91290",
+    "bed": 3,
+    "bath": 3,
+    "sqft": 1200
+  },
+  {
+    "id": "2",
+    "name": "Property Two",
+    "latitude": 35.15,
+    "longitude": -90.051,
+    "images": [
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1715196994/Screenshot_2024-05-08_at_12.36.29_PM_rab8zh.png",
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1715196994/Screenshot_2024-05-08_at_12.36.29_PM_rab8zh.png"
+    ],
+    "price": 120000,
+    "address": "1623 Whitehorse Ln, Memphis, TN 91290",
+    "bed": 3,
+    "bath": 3,
+    "sqft": 1200
+  },
+  {
+    "id": "3",
+    "name": "Property Three",
+    "latitude": 35.147,
+    "longitude": -90.052,
+    "images": [
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1715197022/Screenshot_2024-05-08_at_12.37.00_PM_cw6nqo.png",
+      "https://res.cloudinary.com/dfgr7tov1/image/upload/v1715197022/Screenshot_2024-05-08_at_12.37.00_PM_cw6nqo.png"
+    ],
+    "price": 120000,
+    "address": "1623 Whitehorse Ln, Memphis, TN 91290",
+    "bed": 3,
+    "bath": 3,
+    "sqft": 1200
+  }
+]

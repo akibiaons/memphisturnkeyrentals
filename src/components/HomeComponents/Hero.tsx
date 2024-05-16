@@ -6,15 +6,11 @@ import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "../ui/hero-highlight";
 
-type Props = {
-  imageUrl: string;
-};
-
-export default function Hero({ imageUrl }: Props) {
+export default function Hero() {
   return (
-    <div className="relative h-[600px] lg:h-[742px] w-full overflow-hidden ">
+    <div className=" h-[600px] lg:h-[742px] w-full overflow-hidden ">
       <div className="hero-bg mx-auto   h-screen object-fit">
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className=" bg-black bg-opacity-50"></div>
         <HeroHighlight>
           <motion.h1
             initial={{
@@ -36,11 +32,11 @@ export default function Hero({ imageUrl }: Props) {
               Turnkey Rentals in Memphis
             </div>
 
-            <Highlight className="text-neutral-200 text-2xl md:text-3xl">
+            <Highlight className="text-neutral-50 text-2xl md:text-3xl">
               Secure your stakes, Memphis awaits
             </Highlight>
             <div className="mt-4">
-              <Button className="  bg-blue-500">Property Listings</Button>
+              <Button className="bg-blue-500">Property Listings</Button>
             </div>
           </motion.h1>
         </HeroHighlight>

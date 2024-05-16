@@ -13,11 +13,11 @@ export default function Home() {
     <div>
       {/* Hero section below  */}
       <div>
-        <Hero imageUrl="https://res.cloudinary.com/dfgr7tov1/image/upload/v1713393089/biggerHero_vvduaq.jpg" />
+        <Hero />
       </div>
       {/* Section one below */}
       <div className="max-w-7xl mx-auto ">
-        <div className=" flex flex-col my-16 px-8  ">
+        <div className=" flex flex-col my-16 px-2  ">
           <SectionOne />
           <Separator />
         </div>
@@ -30,10 +30,10 @@ export default function Home() {
         </div>
 
         {/* Start of section two */}
-        <div className=" flex flex-col my-16 px-4">
+        <div className=" flex flex-col my-32 px-4">
           <SectionTwo />
         </div>
-        <div className=" flex flex-col my-16 px-4 ">
+        <div className=" flex flex-col my-32 px-4 ">
           <SectionFour />
         </div>
       </div>
