@@ -99,7 +99,7 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="/manage"
+                    href="https://strongerpropertymanagement.com/lander"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
                     {/* <Package className="h-5 w-5" /> */}
@@ -147,8 +147,8 @@ const DashboardNav = () => {
           <div className="mr-14">
             <Link href="/">
               <Image
-                width={100}
-                height={100}
+                width={140}
+                height={140}
                 src={
                   "https://res.cloudinary.com/dfgr7tov1/image/upload/v1713386709/Screenshot_2024-04-16_at_3.27_2_tw8bsq.png"
                 }
@@ -165,37 +165,6 @@ const DashboardNav = () => {
             <div className="">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <p className=" cursor-pointer   flex flex-row items-center gap-[0.4px]">
-                    Listings
-                    <ChevronDown className="w-4 h-4" />
-                  </p>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <DropdownMenuLabel>Buy or Sell</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <Link href="/buy">
-                      <DropdownMenuItem className="flex flex-row items-center w-full">
-                        <Coins className="mr-2 h-4 w-4" />
-                        <span>Buy</span>
-                        {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
-                      </DropdownMenuItem>
-                    </Link>
-
-                    <Link href="/sell">
-                      <DropdownMenuItem className="flex flex-row items-center w-full">
-                        <Receipt className="mr-2 h-4 w-4" />
-                        <span>Sell</span>
-                        {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
-                      </DropdownMenuItem>
-                    </Link>
-                  </DropdownMenuGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-            <div className="">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
                   <p className="cursor-pointer flex flex-row items-center gap-[0.4px]">
                     Manage <ChevronDown className="w-4 h-4" />
                   </p>
@@ -204,7 +173,7 @@ const DashboardNav = () => {
                   <DropdownMenuLabel>Manage listings</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
-                    <Link href="/manage">
+                    <Link href="https://strongerpropertymanagement.com/lander">
                       <DropdownMenuItem className="flex flex-row items-center w-full">
                         <SquareGanttChart className="mr-2 h-4 w-4" />
                         <span>Manage</span>
@@ -215,13 +184,22 @@ const DashboardNav = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-
-            <Link href="/build-to-rent" className="  ">
-              Built to Rent
+            <Link href="/buy">Buy</Link>
+            <Link href="/sell">
+              Sell
+              {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
             </Link>
             <Link href="/projects" className="  ">
               Projects
             </Link>
+            <Link
+              href="/build-to-rent"
+              className="cursor-pointer flex flex-row items-center gap-[0.4px]"
+            >
+              Built to Rent
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+
             {/* Contact Button/SHADCN for desktop */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -262,7 +240,6 @@ const DashboardNav = () => {
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
-
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button

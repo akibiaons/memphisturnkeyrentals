@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Separator } from "./ui/separator";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 type LinkItem = {
   name: string;
@@ -33,9 +34,17 @@ const Footer = () => {
       <main className="w-full max-w-7xl justify-center mx-auto flex flex-col md:flex-col px-6 py-9 gap-8 ">
         <section className="flex flex-col md:flex-row gap-8 justify-between">
           <div className="flex flex-row md:flex-col justify-between items-center">
-            <h3 className="font-display font-black text-4xl text-left ">
+            {/* <h3 className="font-display font-black text-4xl text-left ">
               Turnkey Memphis
-            </h3>
+            </h3> */}
+            <Image
+              width={150}
+              height={150}
+              src={
+                "https://res.cloudinary.com/dfgr7tov1/image/upload/v1713386709/Screenshot_2024-04-16_at_3.27_2_tw8bsq.png"
+              }
+              alt="MTR Logo"
+            />
             <div className="flex h-7 flex-row  justify-center items-center space-x-3 text-lg ">
               <div className="flex flex-row justify-between items-center space-x-2">
                 <Twitter />
@@ -59,7 +68,7 @@ const Footer = () => {
             title="Resources"
             links={[
               { name: "Contact", url: "/contact" },
-              { name: "Built to Rent", url: "/built-to-rent" },
+              { name: "Build to Rent", url: "/build-to-rent" },
               { name: "Projects", url: "/projects" },
             ]}
           />

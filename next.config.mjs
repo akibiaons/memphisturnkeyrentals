@@ -1,10 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "localhost",
-      "glorious-sparkle-1fb7e61245.media.strapiapp.com",
-      "res.cloudinary.com",
+
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "glorious-sparkle-1fb7e61245.strapiapp.comhttps",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+
     ],
   },
 };
