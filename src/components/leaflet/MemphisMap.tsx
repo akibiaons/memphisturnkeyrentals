@@ -41,10 +41,11 @@ const PropertyMap: React.FC = () => {
     setActiveProperty(activeProperty?.id === property.id ? null : property);
   };
 
+  // Fucntion to close the carousel dropdown
   const handleCloseCarousel = () => {
     setActiveProperty(null);
   };
-
+  // inital map settings on default and load
   const mapOptions = {
     center: [35.1495, -90.049] as [number, number],
     zoom: 13,
