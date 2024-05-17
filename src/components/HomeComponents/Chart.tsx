@@ -60,8 +60,9 @@ const data: ChartData = {
         178000, 160000, 193451, 175000,
       ], // Example data points
       fill: true,
-      backgroundColor: "rgb(0, 0, 0)",
-      borderColor: "rgba(0, 0, 0, 0.2)",
+      backgroundColor: "rgb(43, 60, 109)",
+
+      borderColor: "rgba(0, 0, 0, 0.1)",
     },
   ],
 };
