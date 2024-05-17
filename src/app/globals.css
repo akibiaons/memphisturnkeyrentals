@@ -122,3 +122,24 @@ label {
   color: white;
   background: #9a031e;
 }
+
+.rd {
+  background: #9a031e;
+}
+
+.rdhv {
+  background: #e87388;
+}
+
+.bl {
+  background: #2b3c6d;
+}
+
+.blhv {
+  background: #8a9cd0;
+}
+
+/* LOGO/BUSINESS COLOR BLUES */
+/* light [#8A9CD0] dark [#2b3c6d] */
+/* RED */
+/* dark [#9a031e] light [#E87388] */
