@@ -18,6 +18,7 @@ import {
   MessageSquareMore,
   PhoneCall,
   Receipt,
+  SquareArrowOutUpRight,
   SquareGanttChart,
 } from "lucide-react";
 
@@ -43,6 +44,7 @@ const DashboardNav = () => {
   return (
     <div className="flex flex-col sm:gap-4">
       <header className="sticky top-0 z-30 flex h-14 py-1 items-center gap-4 border px-2 sm:static sm:h-auto sm:border-1 sm:bg-transparent sm:px-6">
+        {/* MOBILE */}
         <Sheet>
           <SheetTrigger asChild>
             <Button size="sm" variant="outline" className="lg:hidden">
@@ -77,11 +79,22 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="/buy"
+                    href="https://strongerpropertymanagement.com/lander"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground "
+                  >
+                    Manage
+                    <SquareArrowOutUpRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="/listings"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
                     {/* <LineChart className="h-5 w-5" /> */}
-                    Buy
+                    Listings
                   </Link>
                 </Button>
               </SheetClose>
@@ -96,17 +109,7 @@ const DashboardNav = () => {
                   </Link>
                 </Button>
               </SheetClose>
-              <SheetClose asChild>
-                <Button asChild variant="ghost">
-                  <Link
-                    href="https://strongerpropertymanagement.com/lander"
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                  >
-                    {/* <Package className="h-5 w-5" /> */}
-                    Manage
-                  </Link>
-                </Button>
-              </SheetClose>
+
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
@@ -118,17 +121,7 @@ const DashboardNav = () => {
                   </Link>
                 </Button>
               </SheetClose>
-              <SheetClose asChild>
-                <Button asChild variant="ghost">
-                  <Link
-                    href="/build-to-rent"
-                    className="flex items-center gap-4 px-2.5  text-muted-foreground hover:text-foreground"
-                  >
-                    {/* <ShoppingCart className="h-5 w-5" /> */}
-                    Build to rent
-                  </Link>
-                </Button>
-              </SheetClose>
+
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
@@ -140,51 +133,46 @@ const DashboardNav = () => {
                   </Link>
                 </Button>
               </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="/build-to-rent"
+                    className="flex items-center gap-4 px-2.5  text-muted-foreground hover:text-foreground"
+                  >
+                    Build to rent
+                    <ChevronDown />
+                  </Link>
+                </Button>
+              </SheetClose>
             </nav>
           </SheetContent>
         </Sheet>
+
+        {/* NOT MOBILE */}
         <div className=" flex justify-center items-center w-full ">
           <div className="mr-14">
             <Link href="/">
               <Image
                 width={140}
                 height={140}
-                src={
-                  "https://res.cloudinary.com/dfgr7tov1/image/upload/v1713386709/Screenshot_2024-04-16_at_3.27_2_tw8bsq.png"
-                }
+                src="https://res.cloudinary.com/dfgr7tov1/image/upload/v1713386709/Screenshot_2024-04-16_at_3.27_2_tw8bsq.png"
                 alt="MTR Logo"
               />
             </Link>
           </div>
-          <div>
-            <span className="line line1"></span>
-            <span className="line line2"></span>
-          </div>
+
           {/* Navigation links and such */}
           <div className="items-center flex-row space-x-8 w-full justify-end hidden lg:flex ">
             <div className="">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <p className="cursor-pointer flex flex-row items-center gap-[0.4px]">
-                    Manage <ChevronDown className="w-4 h-4" />
-                  </p>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <DropdownMenuLabel>Manage listings</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <Link href="https://strongerpropertymanagement.com/lander">
-                      <DropdownMenuItem className="flex flex-row items-center w-full">
-                        <SquareGanttChart className="mr-2 h-4 w-4" />
-                        <span>Manage</span>
-                        {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
-                      </DropdownMenuItem>
-                    </Link>
-                  </DropdownMenuGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <Link
+                href="https://strongerpropertymanagement.com/lander"
+                className="flex flex-row items-center w-full"
+              >
+                <span>Manage</span>
+                <SquareArrowOutUpRight className="ml-1 mr-2 h-4 w-4" />
+              </Link>
             </div>
-            <Link href="/buy">Buy</Link>
+            <Link href="/listings">Listings</Link>
             <Link href="/sell">
               Sell
               {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
@@ -196,7 +184,7 @@ const DashboardNav = () => {
               href="/build-to-rent"
               className="cursor-pointer flex flex-row items-center gap-[0.4px]"
             >
-              Built to Rent
+              Build to Rent
               <ChevronDown className="w-4 h-4" />
             </Link>
 

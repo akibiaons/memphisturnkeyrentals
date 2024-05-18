@@ -36,7 +36,7 @@ export default function Hero() {
               Secure your stakes, Memphis awaits
             </Highlight>
             <div className="mt-4">
-              <Button className="bg-blue-500">Property Listings</Button>
+              <Button className="blhv">Property Listings</Button>
             </div>
           </motion.h1>
         </HeroHighlight>

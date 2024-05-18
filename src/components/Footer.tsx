@@ -59,9 +59,12 @@ const Footer = () => {
           <FooterSection
             title="Info"
             links={[
-              { name: "Buy", url: "/buy" },
+              { name: "Listings", url: "/listings" },
               { name: "Sell", url: "/sell" },
-              { name: "Manage", url: "/manage" },
+              {
+                name: "Manage",
+                url: "https://strongerpropertymanagement.com/lander",
+              },
             ]}
           />
           <FooterSection

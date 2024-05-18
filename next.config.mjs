@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-
     remotePatterns: [
       {
         protocol: "https",
@@ -15,7 +14,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
-
+      {
+        protocol: "https",
+        hostname: "glorious-sparkle-1fb7e61245.media.strapiapp.com",
+      },
     ],
   },
 };

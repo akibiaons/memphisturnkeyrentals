@@ -2,18 +2,12 @@
 
 import React from "react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { CardStackDemo } from "./card-stack";
-import { AnimatedTooltipPreview } from "./team";
+import { Drill, Fence, Hammer, Home, PaintRoller } from "lucide-react";
+import { MdManageAccounts } from "react-icons/md";
 
-type Props = {};
+import { Separator } from "../ui/separator";
 
-export default function SectionOne({}: Props) {
+export default function SectionOne() {
   return (
     <div className="">
       <div className="flex flex-col text-center my-6 ">
@@ -24,84 +18,72 @@ export default function SectionOne({}: Props) {
           <h2 className="text-4xl px-1 lg:px-0 font-semibold text-black mb-6 lg:text-6xl">
             How we make you money
           </h2>
-          <h4 className="text-left w-10/12 mx-auto tracking-wide font-medium leading-4">
-            Whether you are new to investing or a seasoned veteran, our team
-            will give you the tools you need to succeed. We act as your boots on
-            the ground and our goal is to deliver results that affect your
-            bottom line.
-          </h4>
         </div>
       </div>
-      <div className="flex flex-col gap-12 lg:gap-0 lg:grid grid-cols-5 grid-rows-1 my-12">
-        <div className="col-span-2 row-span-1 px-4 ">
-          <div className="flex flex-col">
-            <h4 className="mt-8 text-center font-semibold text-3xl">
-              What some people have to say
-            </h4>
-            <div className="md:col-start-1 mb-12 content-start">
-              <CardStackDemo />
-            </div>
-          </div>
-          <div className="">
-            <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Inspected Property</AccordionTrigger>
-                <AccordionContent>
-                  We use a third party inspector of your choice to certify the
-                  overall property structure, condition, and quality of material
-                  to make sure there are no quick suprises, so you can rent them
-                  out ASAP.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger>Build to Rent Value</AccordionTrigger>
-                <AccordionContent>
-                  Take advantage of our new home sales average of $360,827! Our
-                  homes built to rent are at a value of $149,928
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger>Stable Income</AccordionTrigger>
-                <AccordionContent>
-                  We offer everything under one roof for you to leverage when
-                  creating cashflow, from our in house property management,
-                  keeping your property at 98% occupied year round!
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-        <div className="col-start-3 col-span-3 mx-8 justify-center flex flex-col space-x-4 space-y-2">
-          <div className="">
-            <div className="">
-              <h3 className="text-2xl font-bold">
-                With our team of investors and agents, we make it easy to
-                start...
-              </h3>
+      <div className="flex flex-col gap-12 lg:gap-0 lg:grid grid-cols-5 grid-rows-1 my-12 mb-32">
+        <div className="col-start-1 col-span-5  mx-8 justify-center flex flex-col space-x-4 space-y-2">
+          <div>
+            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start align-top content-center gap-12 ">
+              <div className="flex flex-col items-center max-w-[300px] max-h-[275px]">
+                <div className=" flex flex-col items-center w-min mx-auto my-8">
+                  <div className="flex flex-row space-x-2 h-[3rem] items-center">
+                    <PaintRoller className="w-14 h-14 mb-3   text-[#9a031e]" />
+                    <Separator orientation="vertical" />
+                    <Hammer className="w-14 h-14 mb-3  text-[#9a031e]" />
+                  </div>
+                  <Separator />
+                  <div className="flex flex-row space-x-2 h-[3rem] items-center">
+                    <Drill className="w-14 h-14 mt-3  text-[#9a031e]" />
+                    <Separator orientation="vertical" />
+                    <Home className="w-14 h-14 mt-3  text-[#9a031e]" />
+                  </div>
+                </div>
 
-              <AnimatedTooltipPreview />
-            </div>
-            <div className="space-y-2 text-neutral-700  font-medium mb-4 text-md ">
-              <p className="">
-                Our turnkey business model allows you to grow your long term
-                real estate rental portfolio in the #1 rated cashflowing market
-                in America
-              </p>
-              <p>
-                We prioritize you the client,We use a third party inspector of
-                your choice to certify the overall property structure,
-                condition, and quality of material to make sure there are no
-                quick suprises, so you can rent them out ASAP.
-              </p>
-              {/* <p>
-                We prioritize you the client,We use a third party inspector of
-                your choice to certify the overall property structure,
-                condition, and quality of material to make sure there are no
-                quick suprises, so you can rent them out ASAP.
-              </p> */}
+                <div>
+                  <h4 className="text-lg">
+                    All properties are fully remodeled from the inside out.
+                    Making it seamless maintenace and quick tenant placement.
+                  </h4>
+                </div>
+              </div>
+              <Separator className="lg:hidden my-12" />
+              <div className="flex flex-col items-center max-w-[300px] max-h-[275px]">
+                <div className="flex flex-col items-center  mx-auto my-8">
+                  <Fence className="w-20 h-20  text-[#9a031e]" />
+                </div>
+                <div>
+                  <h4 className="text-lg">
+                    We are dedicated to meet your rental investment needs. We
+                    ensure your properties are managed efficiently, keeping
+                    tenants satisfied, and profits growing
+                  </h4>
+                </div>
+              </div>
+              <Separator className="lg:hidden my-8" />
+
+              <div className="flex flex-col items-center max-w-[300px] max-h-[275px]">
+                <div className=" flex flex-col items-center  mx-auto my-8">
+                  <MdManageAccounts className="w-20 h-20  text-[#9a031e]" />
+                </div>
+                <div>
+                  <h4 className="text-lg">
+                    We offer in-house property management services to all
+                    investors. We will renovate or build, place a tenant, and
+                    after you purchase it, we will manage it for you!
+                  </h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <h4 className="text-center w-10/12 mx-auto tracking-wide font-medium text-muted-foreground leading-4 mb-12">
+          Whether you are new to investing or a seasoned veteran, our team will
+          give you the tools you need to succeed. We act as your boots on the
+          ground and our goal is to deliver results that affect your bottom
+          line.
+        </h4>
       </div>
     </div>
   );

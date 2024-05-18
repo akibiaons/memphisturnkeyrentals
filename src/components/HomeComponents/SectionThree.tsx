@@ -2,7 +2,7 @@ import React from "react";
 import Chart from "@/components/HomeComponents/Chart";
 import { Separator } from "../ui/separator";
 
-export default function SectionThree({ ...props }) {
+export default function SectionThree() {
   return (
     <div className="bg-dot-black/[0.2] md:pb-12 md:px-12">
       <div className="flex flex-col text-center my-12 ">
