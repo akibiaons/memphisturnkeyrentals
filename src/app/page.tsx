@@ -105,7 +105,7 @@ export default function Home() {
         {/* End of section one */}
         <div className=" flex flex-col my-16  px-4">
           <div className="mb-12">
-            <SectionThree className="" />
+            <SectionThree />
           </div>
           <Separator />
         </div>
