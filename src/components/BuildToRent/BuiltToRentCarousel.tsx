@@ -14,15 +14,15 @@ interface PropertyDetails {
   images: string[];
   price: number;
   address: string;
-  bed: number;
-  bath: number;
+  beds: number;
+  baths: number;
   sqft: number;
 }
 
 interface BuildToRentCarouselProps {
   images: string[];
-  onClose: () => void; // the function to hide the carousel
-  properties: PropertyDetails[]; // Add propertyDetails to the props
+  onClose: () => void;
+  properties: PropertyDetails[];
 }
 
 export default function BuildToRentCarousel({
@@ -30,7 +30,7 @@ export default function BuildToRentCarousel({
   onClose,
   properties,
 }: BuildToRentCarouselProps) {
-  const [height, setHeight] = useState("25%"); // Initial height
+  const [height, setHeight] = useState("25%");
   const touchStartY = useRef(0);
   const touchEndY = useRef(0);
 
@@ -40,16 +40,14 @@ export default function BuildToRentCarousel({
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndY.current = e.targetTouches[0].clientY;
-    e.preventDefault(); // Prevent scrolling while touching the carousel
+    e.preventDefault();
   };
 
   const handleTouchEnd = () => {
     if (touchStartY.current - touchEndY.current > 50) {
-      // Swipe up
-      setHeight("70%"); // Change to the height you want on swipe up
+      setHeight("70%");
     } else if (touchEndY.current - touchStartY.current > 50) {
-      // Swipe down
-      setHeight("25%"); // Change back to initial height on swipe down
+      setHeight("25%");
     }
   };
 
@@ -66,20 +64,18 @@ export default function BuildToRentCarousel({
 
   return (
     <div
-      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
+      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
       style={{ height: height }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Swipe indicator */}
       <div className="flex justify-center items-center mb-2 z-10 lg:hidden">
         <div className="w-12 h-2 bg-gray-400 rounded-full"></div>
       </div>
 
-      {/* Mobile view for the active property */}
       <div className="lg:hidden">
-        <Carousel className="w-full h-full ">
+        <Carousel className="w-full h-full">
           <CarouselContent>
             {images.map((img, index) => (
               <CarouselItem key={index}>
@@ -105,14 +101,14 @@ export default function BuildToRentCarousel({
           </p>
           <p className="text-sm text-gray-600">{properties[0]?.address}</p>
           <p className="text-sm text-gray-600">
-            {properties[0]?.bed} Beds, {properties[0]?.bath} Baths
+            {properties[0]?.beds} Beds, {properties[0]?.baths} Baths
           </p>
           <p className="text-sm text-gray-600">
             {properties[0]?.sqft.toLocaleString()} sqft
           </p>
         </div>
       </div>
-      {/* Desktop view for all properties */}
+
       <div className="hidden lg:flex lg:flex-col lg:h-full lg:overflow-y-auto">
         {properties.map((property) => (
           <div
@@ -140,7 +136,8 @@ export default function BuildToRentCarousel({
               </p>
               <p className="text-sm text-gray-600">{property.address}</p>
               <p className="text-sm text-gray-600">
-                {property.bed} Beds, {property.bath} Baths
+                {property.beds} Beds,
+                {property.baths} Baths
               </p>
               <p className="text-sm text-gray-600">
                 {property.sqft?.toLocaleString()} sqft

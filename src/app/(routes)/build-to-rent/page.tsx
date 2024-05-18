@@ -9,9 +9,14 @@ const PropertyMap = dynamic(
 );
 
 const BuildToRentPage: React.FC = () => {
+  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/buildtorents?populate=*`;
   return (
-    <PropertyMap apiUrl="https://strapiurl.com//api/buildtorents?populate=* " />
-  ); // Change url endpoint to the public Strapi or private Strapi url
+    <PropertyMap
+      apiUrl={
+        "https://glorious-sparkle-1fb7e61245.strapiapp.com/api/buildtorents?populate=*"
+      }
+    />
+  );
 };
 
 export default BuildToRentPage;
