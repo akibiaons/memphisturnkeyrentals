@@ -12,8 +12,8 @@ interface PropertyDetails {
   images: string[];
   price: number;
   address: string;
-  bed: number;
-  bath: number;
+  beds: number;
+  baths: number;
   sqft: number;
   latitude: number;
   longitude: number;
@@ -105,7 +105,7 @@ export default function PropertyCarousel({
             {properties[0]?.address || "Address not available"}
           </p>
           <p className="text-sm text-gray-600">
-            {properties[0]?.bed || "N/A"} Beds, {properties[0]?.bath || "N/A"}{" "}
+            {properties[0]?.beds || "N/A"} Beds, {properties[0]?.baths || "N/A"}{" "}
             Baths
           </p>
           <p className="text-sm text-gray-600">
@@ -145,7 +145,7 @@ export default function PropertyCarousel({
               </p>
               <p className="text-sm text-gray-600">{property.address}</p>
               <p className="text-sm text-gray-600">
-                {property.bed} Beds, {property.bath} Baths
+                {property.beds} Beds, {property.baths} Baths
               </p>
               <p className="text-sm text-gray-600">
                 {property.sqft?.toLocaleString()} sqft

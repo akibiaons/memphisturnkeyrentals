@@ -1,25 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Import properties data directly from the JSON file
-import properties from "@/data/properties.json";
+import { fetchListings } from "@/data/fetchListings";
 import PropertyCarousel from "./PropertyCarousel";
 
 interface Property {
   id: string;
-  name: string;
+  address: string;
+  images: string[];
+  price: number;
+  beds: number;
+  baths: number;
+  sqft: number;
   latitude: number;
   longitude: number;
-  images: string[]; // Added this string interface
-  price: number;
-  address: string;
-  bed: number;
-  bath: number;
-  sqft: number;
 }
 
 // Custom property marker
@@ -34,6 +33,18 @@ const propertyMarker = (color = "red") =>
 const PropertyMap: React.FC = () => {
   // Hook declarations
   const [activeProperty, setActiveProperty] = useState<Property | null>(null);
+  const [properties, setProperties] = useState<Property[]>([]);
+  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/forpurchases?populate=*`;
+
+  // useEffect to fetch some of the properties
+  useEffect(() => {
+    const getProperties = async () => {
+      const listings = await fetchListings(apiUrl);
+      console.log("Fetched properties:", listings); // Log fetched properties to check for errors
+      setProperties(listings);
+    };
+    getProperties();
+  }, [apiUrl]);
 
   // Handle marker on click which is called in the return (<Marker>)
   const handleMarkerClick = (property: Property) => {
@@ -71,7 +82,7 @@ const PropertyMap: React.FC = () => {
               },
             }}
           >
-            <Popup className="hidden">{property.name}</Popup>
+            <Popup className="hidden">{property.address}</Popup>
           </Marker>
         ))}
       </MapContainer>
