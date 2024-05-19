@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -90,6 +90,7 @@ const PropertyMap: React.FC = () => {
         <PropertyCarousel
           images={activeProperty.images} // Pass the images of the active property
           properties={properties} // Pass all properties for desktop
+          activePropertyId={activeProperty.id}
           onClose={handleCloseCarousel}
         />
       )}

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel";
 
 interface PropertyDetails {
+  id: string;
   images: string[];
   price: number;
   address: string;
@@ -22,17 +23,22 @@ interface PropertyDetails {
 interface PropertyCarouselProps {
   images: string[];
   properties: PropertyDetails[];
+  activePropertyId: string;
   onClose: () => void;
 }
 
 export default function PropertyCarousel({
   images,
   properties,
+  activePropertyId,
   onClose,
 }: PropertyCarouselProps) {
   const [height, setHeight] = useState("25%");
   const touchStartY = useRef(0);
   const touchEndY = useRef(0);
+
+  // Card highlight on click effect below
+  const propertyRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartY.current = e.targetTouches[0].clientY;
@@ -61,6 +67,16 @@ export default function PropertyCarousel({
       document.removeEventListener("touchmove", handleTouchMoveGlobal);
     };
   }, []);
+
+  // Use effect for handling the highlight on property being clicked for desktop
+  useEffect(() => {
+    if (propertyRefs.current[activePropertyId]) {
+      propertyRefs.current[activePropertyId]?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [activePropertyId]);
 
   return (
     <div
@@ -118,8 +134,13 @@ export default function PropertyCarousel({
       <div className="hidden lg:flex lg:flex-col lg:h-full lg:overflow-y-auto">
         {properties.map((property, index) => (
           <div
-            key={index}
-            className="mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg"
+            key={property.id}
+            ref={(el) => {
+              propertyRefs.current[property.id] = el;
+            }}
+            className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg ${
+              property.id === activePropertyId ? "border-4 border-blue-500" : ""
+            }`}
           >
             <div className="grid grid-cols-3 gap-4 flex-grow">
               {property.images.map((img, imgIndex) => (
