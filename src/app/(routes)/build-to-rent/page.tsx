@@ -8,15 +8,15 @@ const PropertyMap = dynamic(
   }
 );
 
-const BuildToRentPage: React.FC = () => {
-  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/buildtorents?populate=*`;
+export default function page() {
   return (
-    <PropertyMap
-      apiUrl={
-        "https://glorious-sparkle-1fb7e61245.strapiapp.com/api/buildtorents?populate=*"
-      }
-    />
+    <div>
+      <div>
+        {/* Map component */}
+        <div>
+          <PropertyMap />
+        </div>
+      </div>
+    </div>
   );
-};
-
-export default BuildToRentPage;
+}
