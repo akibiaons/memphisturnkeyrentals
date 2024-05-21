@@ -14,6 +14,7 @@ interface Property {
 
 export const fetchListings = async (apiUrl: string): Promise<Property[]> => {
   try {
+    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/forpurchases?populate=*`;
     const response = await axios.get(apiUrl);
     if (response.data && response.data.data) {
       return response.data.data.map((item: any) => {
