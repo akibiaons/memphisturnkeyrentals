@@ -68,16 +68,18 @@ export default function BuildToRentCarousel({
 
   return (
     <div
-      className={`lg:block lg:bottom-0 lg:fixed fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
+      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
       style={{ height: height }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
+      {/* Swipe indicator */}
       <div className="flex justify-center items-center mb-2 z-10 lg:hidden">
         <div className="w-12 h-2 bg-gray-400 rounded-full"></div>
       </div>
 
+      {/* Mobile view start */}
       <div className="lg:hidden">
         <Carousel className="w-full h-full">
           <CarouselContent>
