@@ -9,7 +9,7 @@ import "leaflet/dist/leaflet.css";
 import { fetchListings } from "@/data/fetchListings";
 import PropertyCarousel from "./PropertyCarousel";
 
-interface Property {
+interface PropertyDetails {
   id: string;
   address: string;
   images: string[];
@@ -32,8 +32,10 @@ const propertyMarker = (color = "red") =>
 
 const PropertyMap: React.FC = () => {
   // Hook declarations
-  const [activeProperty, setActiveProperty] = useState<Property | null>(null);
-  const [properties, setProperties] = useState<Property[]>([]);
+  const [activeProperty, setActiveProperty] = useState<PropertyDetails | null>(
+    null
+  );
+  const [properties, setProperties] = useState<PropertyDetails[]>([]);
   const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/forpurchases?populate=*`;
 
   // useEffect to fetch some of the properties
@@ -47,7 +49,7 @@ const PropertyMap: React.FC = () => {
   }, [apiUrl]);
 
   // Handle marker on click which is called in the return (<Marker>)
-  const handleMarkerClick = (property: Property) => {
+  const handleMarkerClick = (property: PropertyDetails) => {
     // Below is for changing the color from green to red
     setActiveProperty(activeProperty?.id === property.id ? null : property);
   };
@@ -88,7 +90,7 @@ const PropertyMap: React.FC = () => {
       </MapContainer>
       {activeProperty && (
         <PropertyCarousel
-          images={activeProperty.images} // Pass the images of the active property
+          activeProperty={activeProperty}
           properties={properties} // Pass all properties for desktop
           activePropertyId={activeProperty.id}
           onClose={handleCloseCarousel}

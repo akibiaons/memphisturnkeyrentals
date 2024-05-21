@@ -21,14 +21,14 @@ interface PropertyDetails {
 }
 
 interface PropertyCarouselProps {
-  images: string[];
+  activeProperty: PropertyDetails;
   properties: PropertyDetails[];
   activePropertyId: string;
   onClose: () => void;
 }
 
 export default function PropertyCarousel({
-  images,
+  activeProperty,
   properties,
   activePropertyId,
   onClose,
@@ -68,19 +68,9 @@ export default function PropertyCarousel({
     };
   }, []);
 
-  // Use effect for handling the highlight on property being clicked for desktop
-  useEffect(() => {
-    if (propertyRefs.current[activePropertyId]) {
-      propertyRefs.current[activePropertyId]?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  }, [activePropertyId]);
-
   return (
     <div
-      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
+      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out overflow-y-auto`}
       style={{ height: height }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -95,7 +85,7 @@ export default function PropertyCarousel({
       <div className="lg:hidden">
         <Carousel className="w-full h-full">
           <CarouselContent>
-            {images.map((img, index) => (
+            {activeProperty.images.map((img, index) => (
               <CarouselItem key={index}>
                 <div className="relative w-full h-full">
                   <Image
@@ -115,17 +105,17 @@ export default function PropertyCarousel({
         </Carousel>
         <div className="bg-white p-4 mt-4 shadow-lg rounded-lg">
           <p className="text-lg font-semibold">
-            ${properties[0]?.price?.toLocaleString() || "N/A"}
+            ${activeProperty?.price?.toLocaleString() || "N/A"}
           </p>
           <p className="text-sm text-gray-600">
-            {properties[0]?.address || "Address not available"}
+            {activeProperty?.address || "Address not available"}
           </p>
           <p className="text-sm text-gray-600">
-            {properties[0]?.beds || "N/A"} Beds, {properties[0]?.baths || "N/A"}{" "}
-            Baths
+            {activeProperty?.beds || "N/A"} Beds,{" "}
+            {activeProperty?.baths || "N/A"} Baths
           </p>
           <p className="text-sm text-gray-600">
-            {properties[0]?.sqft?.toLocaleString() || "N/A"} sqft
+            {activeProperty?.sqft?.toLocaleString() || "N/A"} sqft
           </p>
         </div>
       </div>
