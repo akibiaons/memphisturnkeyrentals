@@ -8,9 +8,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-interface PropertyDetails {
+interface BuildToRentDeets {
   id: string;
-  name: string;
   images: string[];
   price: number;
   address: string;
@@ -21,18 +20,23 @@ interface PropertyDetails {
 
 interface BuildToRentCarouselProps {
   images: string[];
+  properties: BuildToRentDeets[];
+  activePropertyId: string;
   onClose: () => void;
-  properties: PropertyDetails[];
 }
 
 export default function BuildToRentCarousel({
   images,
-  onClose,
+  activePropertyId,
   properties,
+  onClose,
 }: BuildToRentCarouselProps) {
   const [height, setHeight] = useState("25%");
   const touchStartY = useRef(0);
   const touchEndY = useRef(0);
+
+  // Card highlight on click effect below
+  const propertyRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartY.current = e.targetTouches[0].clientY;
@@ -64,7 +68,7 @@ export default function BuildToRentCarousel({
 
   return (
     <div
-      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
+      className={`lg:block lg:bottom-0 lg:fixed fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out`}
       style={{ height: height }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -113,7 +117,12 @@ export default function BuildToRentCarousel({
         {properties.map((property) => (
           <div
             key={property.id}
-            className="mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg"
+            ref={(el) => {
+              propertyRefs.current[property.id] = el;
+            }}
+            className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg ${
+              property.id === activePropertyId ? "border-4 border-blue-500" : ""
+            }`}
           >
             <div className="grid grid-cols-3 gap-4 flex-grow">
               {property.images.map((img, index) => (
