@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
-import axios from "axios";
 import "leaflet/dist/leaflet.css";
 
+// Import for btr listings
+import { fetchBtr } from "@/data/fetchbtr";
 import BuildToRentCarousel from "../BuildToRent/BuiltToRentCarousel";
 
-interface Property {
+interface BuildToRentDeets {
   id: string;
-  name: string;
   address: string;
   images: string[];
   price: number;
@@ -21,10 +21,6 @@ interface Property {
   longitude: number;
 }
 
-interface PropertyMapProps {
-  apiUrl: string;
-}
-
 const propertyMarker = (color = "red") =>
   new (L as any).divIcon({
     className: "property-marker",
@@ -33,50 +29,33 @@ const propertyMarker = (color = "red") =>
     iconAnchor: [10, 10],
   });
 
-const PropertyMap: React.FC<PropertyMapProps> = ({ apiUrl }) => {
-  const [properties, setProperties] = useState<Property[]>([]);
-  const [activeProperty, setActiveProperty] = useState<Property | null>(null);
+const PropertyMap: React.FC = () => {
+  // Hook declarations for setting active property and highlighting on desktop with useRef
+  const [activeProperty, setActiveProperty] = useState<BuildToRentDeets | null>(
+    null
+  );
+  const [properties, setProperties] = useState<BuildToRentDeets[]>([]);
+  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/buildtorents?populate=*`; // this is basically used as the apiUrl
 
+  // New useEffect to just store the data
   useEffect(() => {
-    const fetchProperties = async () => {
-      try {
-        const response = await axios.get(apiUrl);
-        if (response.data && response.data.data) {
-          const data = response.data.data.map((item: any) => ({
-            id: item.id,
-            name: item.attributes.name,
-            address: item.attributes.propertyAddress,
-            images: item.attributes.propertyImg.data.map(
-              (img: any) => img.attributes.url
-            ),
-            price: item.attributes.price,
-            beds: item.attributes.beds,
-            baths: item.attributes.baths,
-            sqft: item.attributes.sqft,
-            latitude: item.attributes.latitude,
-            longitude: item.attributes.longitude,
-          }));
-          console.log("Mapped Data:", data);
-          setProperties(data);
-        } else {
-          console.error("Invalid API response structure:", response.data);
-        }
-      } catch (error) {
-        console.error("Failed to fetch properties:", error);
-      }
+    const getProperties = async () => {
+      const btrListings = await fetchBtr(apiUrl);
+      console.log("Fetched property:", btrListings);
+      setProperties(btrListings);
     };
-
-    fetchProperties();
+    getProperties();
   }, [apiUrl]);
 
-  const handleMarkerClick = (property: Property) => {
+  // Handle marker on click
+  const handleMarkerClick = (property: BuildToRentDeets) => {
     setActiveProperty(activeProperty?.id === property.id ? null : property);
   };
-
+  // Close the carousel mobile menu
   const handleCloseCarousel = () => {
     setActiveProperty(null);
   };
-
+  // initial settings for loading the leaflet map, I wanna figure out a way to make it load near the biggest grouping of markers
   const mapOptions = {
     center: [35.1495, -90.049] as [number, number],
     zoom: 13,
@@ -85,39 +64,32 @@ const PropertyMap: React.FC<PropertyMapProps> = ({ apiUrl }) => {
   };
 
   return (
-    <div className="flex h-screen">
-      <div className="flex-grow">
-        <MapContainer
-          style={{ height: "100vh", width: "100%", zIndex: 0 }}
-          {...mapOptions}
-        >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          {properties.map(
-            (property) =>
-              property.latitude &&
-              property.longitude && (
-                <Marker
-                  key={property.id}
-                  position={[property.latitude, property.longitude]}
-                  icon={propertyMarker(
-                    property === activeProperty ? "green" : "red"
-                  )}
-                  eventHandlers={{
-                    click: () => {
-                      handleMarkerClick(property);
-                    },
-                  }}
-                >
-                  <Popup className="hidden">{property.name}</Popup>
-                </Marker>
-              )
-          )}
-        </MapContainer>
-      </div>
+    <div>
+      <MapContainer
+        style={{ height: "100vh", width: "100%", zIndex: 0 }}
+        {...mapOptions}
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        {properties.map((property) => (
+          <Marker
+            key={property.id}
+            position={[property.latitude, property.longitude]}
+            icon={propertyMarker(property === activeProperty ? "green" : "red")}
+            eventHandlers={{
+              click: () => {
+                handleMarkerClick(property);
+              },
+            }}
+          >
+            <Popup className="hidden">{property.address}</Popup>
+          </Marker>
+        ))}
+      </MapContainer>
       {activeProperty && (
         <BuildToRentCarousel
           images={activeProperty.images}
           properties={properties}
+          activePropertyId={activeProperty.id}
           onClose={handleCloseCarousel}
         />
       )}
