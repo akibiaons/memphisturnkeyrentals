@@ -16,6 +16,8 @@ interface BuildToRentDeets {
   beds: number;
   baths: number;
   sqft: number;
+  latitude: number;
+  longitude: number;
 }
 
 interface BuildToRentCarouselProps {
