@@ -14,6 +14,7 @@ interface BuildToRentDeets {
 
 export const fetchBtr = async (apiUrl: string): Promise<BuildToRentDeets[]> => {
   try {
+    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/buildtorents?populate=*`;
     const response = await axios.get(apiUrl);
     if (response.data && response.data.data) {
       return response.data.data.map((item: any) => {
