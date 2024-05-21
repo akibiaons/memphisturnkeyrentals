@@ -87,7 +87,7 @@ const PropertyMap: React.FC = () => {
       </MapContainer>
       {activeProperty && (
         <BuildToRentCarousel
-          images={activeProperty.images}
+          activeProperty={activeProperty}
           properties={properties}
           activePropertyId={activeProperty.id}
           onClose={handleCloseCarousel}

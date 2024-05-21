@@ -19,16 +19,16 @@ interface BuildToRentDeets {
 }
 
 interface BuildToRentCarouselProps {
-  images: string[];
+  activeProperty: BuildToRentDeets;
   properties: BuildToRentDeets[];
   activePropertyId: string;
   onClose: () => void;
 }
 
 export default function BuildToRentCarousel({
-  images,
-  activePropertyId,
+  activeProperty,
   properties,
+  activePropertyId,
   onClose,
 }: BuildToRentCarouselProps) {
   const [height, setHeight] = useState("25%");
@@ -83,7 +83,7 @@ export default function BuildToRentCarousel({
       <div className="lg:hidden">
         <Carousel className="w-full h-full">
           <CarouselContent>
-            {images.map((img, index) => (
+            {activeProperty.images.map((img, index) => (
               <CarouselItem key={index}>
                 <div className="relative w-full h-full">
                   <Image
@@ -103,14 +103,14 @@ export default function BuildToRentCarousel({
         </Carousel>
         <div className="bg-white p-4 mt-4 shadow-lg rounded-lg">
           <p className="text-lg font-semibold">
-            ${properties[0]?.price.toLocaleString()}
+            ${activeProperty?.price.toLocaleString()}
           </p>
-          <p className="text-sm text-gray-600">{properties[0]?.address}</p>
+          <p className="text-sm text-gray-600">{activeProperty?.address}</p>
           <p className="text-sm text-gray-600">
-            {properties[0]?.beds} Beds, {properties[0]?.baths} Baths
+            {activeProperty?.beds} Beds, {activeProperty?.baths} Baths
           </p>
           <p className="text-sm text-gray-600">
-            {properties[0]?.sqft.toLocaleString()} sqft
+            {activeProperty?.sqft.toLocaleString()} sqft
           </p>
         </div>
       </div>
