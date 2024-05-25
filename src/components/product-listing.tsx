@@ -20,165 +20,114 @@ import {
   UsersRound,
 } from "lucide-react";
 
-export function ProductListing() {
+interface DetailedProperty {
+  id: string;
+  images: string[];
+  price: number;
+  address: string;
+  description: string;
+  beds: number;
+  baths: number;
+  sqft: number;
+  yearBuilt: number;
+  neighborhoodScore: number;
+  targetMonthlyRent: number;
+  cashOnCashReturn: number;
+  monthlyCashFlow: number;
+  fiveYearProjectedReturn: number;
+  occupancyStatus: string;
+  homeType: string;
+}
+
+interface ProductListingProps {
+  property: DetailedProperty;
+}
+
+export function ProductListing({ property }: ProductListingProps) {
   return (
     <>
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className=" md:grid md:gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
           <div className="grid gap-4">
             <div className="flex flex-row mb-12 md:grid grid-cols-3 gap-4">
-              <button className="rounded-lg border border-gray-200 transition-colors hover:border-gray-900 dark:border-gray-800 dark:hover:border-gray-50">
-                <img
-                  alt="Watch Thumbnail"
-                  className="aspect-square w-full rounded-lg object-cover"
-                  height={100}
-                  src="/placeholder.svg"
-                  width={100}
-                />
-                <span className="sr-only">View Image 1</span>
-              </button>
-              <button className="rounded-lg border border-gray-200 transition-colors hover:border-gray-900 dark:border-gray-800 dark:hover:border-gray-50">
-                <img
-                  alt="Watch Thumbnail"
-                  className="aspect-square w-full rounded-lg object-cover"
-                  height={100}
-                  src="/placeholder.svg"
-                  width={100}
-                />
-                <span className="sr-only">View Image 2</span>
-              </button>
-              <button className="rounded-lg border border-gray-200 transition-colors hover:border-gray-900 dark:border-gray-800 dark:hover:border-gray-50">
-                <img
-                  alt="Watch Thumbnail"
-                  className="aspect-square w-full rounded-lg object-cover"
-                  height={100}
-                  src="/placeholder.svg"
-                  width={100}
-                />
-                <span className="sr-only">View Image 3</span>
-              </button>
+              {property.images.map((image, index) => (
+                <button
+                  key={index}
+                  className="rounded-lg border border-gray-200 transition-colors hover:border-gray-900 dark:border-gray-800 dark:hover:border-gray-50"
+                >
+                  <img
+                    alt={`Property Image ${index + 1}`}
+                    className="aspect-square w-full rounded-lg object-cover"
+                    height={100}
+                    src={image}
+                    width={100}
+                  />
+                  <span className="sr-only">View Image {index + 1}</span>
+                </button>
+              ))}
             </div>
           </div>
           <div className="flex flex-col md:grid md:gap-4">
             <div>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Precision Timepiece: The Elegant Chronograph
+                {property.address}
               </h1>
               <p className="mt-4 text-gray-500 dark:text-gray-400">
-                Crafted with the finest materials, this chronograph watch
-                combines timeless style and advanced functionality. Elevate your
-                everyday with this exceptional timepiece.
+                {property.description}
               </p>
             </div>
             <div className="grid space-y-4">
               <div className="flex flex-row items-center gap-2">
                 <div className="h-3 w-3 bg-green-600 rounded-full"></div>
-                <p className="text-md">For Rent</p>
+                <p className="text-md">{property.occupancyStatus}</p>
               </div>
               <div className=" flex flex-row">
                 <h2 className="text-xl font-bold">
                   <span>$</span>
-                  <span>3,000</span>
-                  <span>/month</span>
+                  <span>{property.price.toLocaleString()}</span>
                 </h2>
-                <div className="ml-4 items-center flex flex-col md:flex-row ">
-                  <div className="text-green-700 flex flex-row items-center">
-                    <MoveUp className="h-5" />
-                    <div>
-                      <p className="flex flex-row items-center">
-                        <span className="font-semibold">$</span>
-                        <span className="font-semibold mr-1 text-xl">200</span>
-                        <span className="font-medium text-md">(14%)</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-red-700 flex flex-row items-center">
-                    <MoveDown className="h-5" />
-                    <div>
-                      <p className="flex flex-row items-center">
-                        <span className="font-semibold">$</span>
-                        <span className="font-semibold mr-1 text-xl">200</span>
-                        <span className="font-medium text-md">(14%)</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div>
                 <div className="flex flex-row items-center gap-5">
                   <div>
                     <p>
-                      <span className="font-bold mr-1">2</span>
+                      <span className="font-bold mr-1">{property.beds}</span>
                       <span className="font-normal">Bed</span>
                     </p>
                   </div>
                   <div>
                     <p>
-                      <span className="font-bold mr-1">1</span>
+                      <span className="font-bold mr-1">{property.baths}</span>
                       <span className="font-normal">Bath</span>
                     </p>
                   </div>
                   <div>
                     <p>
-                      <span className="font-bold mr-1">900</span>
+                      <span className="font-bold mr-1">
+                        {property.sqft.toLocaleString()}
+                      </span>
                       <span className="font-normal">Sqft</span>
                     </p>
                   </div>
-                  <div>
-                    <p className="flex flex-col sm:flex-row">
-                      <span className="font-bold mr-1">1,096</span>
-                      <span className="font-normal">Sqft Lot</span>
+                </div>
+              </div>
+              <div className="flex flex-row items-center gap-5">
+                <div className="flex flex-row items-center">
+                  <Home className="h-7 w-7" />
+                  <div className="ml-2">
+                    <p className="font-semibold">{property.homeType}</p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Home Type
                     </p>
                   </div>
                 </div>
-              </div>
-              <div>
-                <div>
-                  <p className="text-sm hover:underline cursor-pointer tracking-wide">
-                    1463 Essex St Unit 6, San Diego, CA 92103
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div className="flex flex-row flex-wrap  gap-2 sm:gap-x-5 lg:gap-x-8 gap-y-3 items-center">
-                  <div className="flex flex-row  items-center">
-                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
-                      <Home className="h-7 w-7" />
-                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
-                        <h6 className="font-semibold text-md">Condo</h6>
-                        <p className="text-neutral-500">Home Type</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-row  items-center">
-                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
-                      <CalendarClock className="h-7 w-7" />
-                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
-                        <h6 className="font-semibold text-md">3 days</h6>
-                        <p className="text-neutral-500">Time on market</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-row  items-center">
-                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
-                      <Ruler className="h-7 w-7" />
-                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
-                        <h6 className="font-semibold text-md">
-                          <span>$</span>
-                          <span>522</span>
-                        </h6>
-                        <p className="text-neutral-500">Price per Sqft</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-row  items-center">
-                    <div className="flex flex-row items-center tracking-wide sm:mx-2">
-                      <Hammer className="h-7 w-7" />
-                      <div className="flex flex-col items-start align-center -space-y-1 ml-1 leading-5">
-                        <h6 className="font-semibold text-md">1999</h6>
-                        <p className="text-neutral-500">Year Built</p>
-                      </div>
-                    </div>
+                <div className="flex flex-row items-center">
+                  <CalendarClock className="h-7 w-7" />
+                  <div className="ml-2">
+                    <p className="font-semibold">{property.yearBuilt}</p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Year Built
+                    </p>
                   </div>
                 </div>
               </div>
@@ -205,249 +154,48 @@ export function ProductListing() {
                 <span className="font-medium text-gray-900 dark:text-gray-50">
                   Bedrooms
                 </span>
-                <span>2</span>
+                <span>{property.beds}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
                   Bathrooms
                 </span>
-                <span>2</span>
+                <span>{property.baths}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Other Rooms
+                  Neighborhood Score
                 </span>
-                <span>Kitchen, Dining Room</span>
+                <span>{property.neighborhoodScore}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Land Information
+                  Target Monthly Rent
                 </span>
-                <span>
-                  <span>- Lot Size Acres: 0.1694904</span>
-                  <span>- Lot Size Source: Assessor</span>
-                  <span>- Lot Size Square Feet: 7383</span>
-                </span>
+                <span>{property.targetMonthlyRent}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Appliances
+                  Cash on Cash Return
                 </span>
-                <span>
-                  Laundry: Washer, Dryer (Walk In Closet), Dishwasher, Microwave
-                </span>
+                <span>{property.cashOnCashReturn}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Other Property Info
+                  Monthly Cash Flow
                 </span>
-                <span>
-                  Source Listing Status: Active County: San Diego Directions:
-                  Use GPS Source Property Type: Residential Area: 92103 -
-                  Mission Hills Property Subtype: condo Source Neighborhood:
-                  92103 - Mission Hills Parcel Number: 4521920706 Zoning:
-                  R-1:SINGLE FAM-RES Property Subtype: Condominium Source System
-                  Name: C2C
-                </span>
+                <span>{property.monthlyCashFlow}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Building and Construction
+                  Five Year Projected Return
                 </span>
-                <span>
-                  Total Square Feet Living: 906 ,Year Built: 1984, Common Walls:
-                  2+, Common Walls Entry Level: 1, Entry Location: 1 Living
-                  Area, Source: Assessor, Property Age: 40, Property Attached:
-                  Yes, Levels or Stories: One Building, Total Stories: 1, Year
-                  Built Source: Assessor
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Reviews
-            </h2>
-            <div className="mt-6 grid gap-6">
-              <div className="grid gap-2">
-                <div className="flex items-center gap-2">
-                  <img
-                    alt="User Avatar"
-                    className="h-10 w-10 rounded-full"
-                    height={40}
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "40/40",
-                      objectFit: "cover",
-                    }}
-                    width={40}
-                  />
-                  <div>
-                    <h4 className="font-medium">John Doe</h4>
-                    <div className="flex items-center gap-0.5">
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-muted stroke-muted-foreground" />
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-500 dark:text-gray-400">
-                  "This watch is an absolute gem! The craftsmanship is
-                  impeccable, and the design is both timeless and modern. I've
-                  been wearing it every day and it's quickly become my favorite
-                  accessory."
-                </p>
-              </div>
-              <div className="grid gap-2">
-                <div className="flex items-center gap-2">
-                  <img
-                    alt="User Avatar"
-                    className="h-10 w-10 rounded-full"
-                    height={40}
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "40/40",
-                      objectFit: "cover",
-                    }}
-                    width={40}
-                  />
-                  <div>
-                    <h4 className="font-medium">Jane Smith</h4>
-                    <div className="flex items-center gap-0.5">
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                      <StarIcon className="h-4 w-4 fill-primary" />
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-500 dark:text-gray-400">
-                  "I'm absolutely in love with this watch! The attention to
-                  detail is remarkable, and the performance is top-notch. It's
-                  the perfect blend of style and functionality. Highly
-                  recommended!"
-                </p>
+                <span>{property.fiveYearProjectedReturn}</span>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="py-12 mx-4 lg:mx-0 text-left lg:mr-[20rem]">
-        <Accordion type="multiple">
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="flex flex-row font-semibold text-2xl">
-              <p className="flex flex-row items-center gap-2">
-                <span>
-                  <Home />
-                </span>
-                Open House{" "}
-              </p>
-            </AccordionTrigger>
-            <AccordionContent className="text-lg font-normal">
-              We use a third party inspector of your choice to certify the
-              overall property structure, condition, and quality of material to
-              make sure there are no quick suprises, so you can rent them out
-              ASAP.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger className="flex flex-row font-semibold text-2xl">
-              <p className="flex flex-row items-center gap-2">
-                <span>
-                  <NotebookTabs />
-                </span>
-                Property Details{" "}
-              </p>
-            </AccordionTrigger>
-            <AccordionContent className="text-lg font-normal">
-              Take advantage of our new home sales average of $360,827! Our
-              homes built to rent are at a value of $149,928
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger className="flex flex-row font-semibold text-2xl">
-              <p className="flex flex-row items-center justify-left gap-2">
-                <span>
-                  <Speech />
-                </span>
-                Connect with a lender
-              </p>
-            </AccordionTrigger>
-            <AccordionContent className="text-lg font-normal">
-              We offer everything under one roof for you to leverage when
-              creating cashflow, from our in house property management, keeping
-              your property at 98% occupied year round!
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-4">
-            <AccordionTrigger className="flex flex-row font-semibold text-2xl">
-              <p className="flex flex-row items-center gap-2">
-                <span>
-                  <CalendarFold />
-                </span>
-                Monthly Payment
-              </p>
-            </AccordionTrigger>
-            <AccordionContent className="text-lg font-normal">
-              We offer everything under one roof for you to leverage when
-              creating cashflow, from our in house property management, keeping
-              your property at 98% occupied year round!
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-5">
-            <AccordionTrigger className="flex flex-row font-semibold text-2xl">
-              <p className="flex flex-row items-center gap-2">
-                <span>
-                  <BadgeDollarSign />
-                </span>
-                Home Value
-              </p>
-            </AccordionTrigger>
-            <AccordionContent className="text-lg font-normal">
-              We offer everything under one roof for you to leverage when
-              creating cashflow, from our in house property management, keeping
-              your property at 98% occupied year round!
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-6">
-            <AccordionTrigger className="flex flex-row font-semibold text-2xl">
-              <p className="flex flex-row items-center gap-2">
-                <span>
-                  <UsersRound />
-                </span>
-                Agents
-              </p>
-            </AccordionTrigger>
-            <AccordionContent className="text-lg font-normal">
-              We offer everything under one roof for you to leverage when
-              creating cashflow, from our in house property management, keeping
-              your property at 98% occupied year round!
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </section>
     </>
-  );
-}
-
-function StarIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
   );
 }
