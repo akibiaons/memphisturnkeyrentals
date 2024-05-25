@@ -7,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link"; // for linkning with buttons
 
 interface PropertyDetails {
   id: string;
@@ -138,15 +139,17 @@ export default function PropertyCarousel({
                   key={imgIndex}
                   className="relative w-full h-full col-span-1"
                 >
-                  <Image
-                    src={img}
-                    alt={`Property image ${imgIndex + 1}`}
-                    layout="responsive"
-                    width={400}
-                    height={300}
-                    objectFit="cover"
-                    className="rounded-md"
-                  />
+                  <Link href={`/listings/${property.id}`}>
+                    <Image
+                      src={img}
+                      alt={`Property image ${imgIndex + 1}`}
+                      layout="responsive"
+                      width={400}
+                      height={300}
+                      objectFit="cover"
+                      className="rounded-md"
+                    />
+                  </Link>
                 </div>
               ))}
             </div>

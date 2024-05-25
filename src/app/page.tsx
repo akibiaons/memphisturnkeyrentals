@@ -115,7 +115,7 @@ export default function Home() {
           <SectionTwo />
         </div>
         <div className=" flex flex-col my-32 px-4 ">
-          <SectionFour />
+          {/* <SectionFour /> */}
         </div>
       </div>
     </div>
