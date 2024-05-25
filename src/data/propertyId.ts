@@ -21,7 +21,7 @@ interface DetailedProperty {
 }
 
 // Might have to change how I am calling based on the structure of the JSON, so look out for the same errors as before
-export const fetchProperty = async (
+export const fetchPropertyDetails = async (
   id: string
 ): Promise<DetailedProperty | null> => {
   try {
