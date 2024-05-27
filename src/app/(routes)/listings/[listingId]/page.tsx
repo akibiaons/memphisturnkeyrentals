@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { fetchPropertyDetails } from "@/data/propertyId"; // fetching strapi data in this component
+import { fetchPropertyDetails } from "@/data/propertyId"; // Adjust the import path as needed
 import { ProductListing } from "@/components/product-listing";
 import { ImagesSlider } from "@/components/ui/image-slider";
 import { motion } from "framer-motion";
@@ -25,15 +25,14 @@ interface DetailedProperty {
   homeType: string;
 }
 
-const Listing = () => {
-  const params = useParams();
-  const listingId = params?.listingId as string; // Type assertion for params
+const Listing = ({ params }: { params: { listingId: string } }) => {
+  const { listingId } = params;
   const [property, setProperty] = useState<DetailedProperty | null>(null);
 
-  // useEffect to collect data
   useEffect(() => {
     const getProperty = async () => {
       const fetchedProperty = await fetchPropertyDetails(listingId);
+      console.log("Fetched Property:", fetchedProperty); // Log the fetched property details
       setProperty(fetchedProperty);
     };
     getProperty();
@@ -73,4 +72,5 @@ const Listing = () => {
     </div>
   );
 };
+
 export default Listing;

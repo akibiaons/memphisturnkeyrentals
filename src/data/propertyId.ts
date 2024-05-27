@@ -27,15 +27,17 @@ export const fetchPropertyDetails = async (
   try {
     const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/forpurchases/${id}?populate=*`;
     const response = await axios.get(apiUrl);
+    console.log("API Response:", response.data); // Log the response for inspection
     if (response.data && response.data.data) {
       const attributes = response.data.data.attributes || {};
       const propertyImg = attributes.sellImg?.data || [];
       return {
         id: response.data.data.id,
         address: attributes.sellAddress || "N/A",
-        images: propertyImg.map(
-          (img: any) =>
-            `${process.env.NEXT_PUBLIC_STRAPI_URL}${img.attributes.url}`
+        images: propertyImg.map((img: any) =>
+          img.attributes.url.startsWith("http")
+            ? img.attributes.url
+            : `${process.env.NEXT_PUBLIC_STRAPI_URL}${img.attributes.url}`
         ),
         price: attributes.sellPrice || 0,
         description: attributes.description || "",
