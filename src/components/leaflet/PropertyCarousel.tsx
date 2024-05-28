@@ -145,15 +145,17 @@ export default function PropertyCarousel({
               {activeProperty.images.map((img, imgIndex) => (
                 <CarouselItem key={imgIndex}>
                   <div className="relative w-full h-full">
-                    <Image
-                      src={img}
-                      alt={`Property image ${imgIndex + 1}`}
-                      layout="responsive"
-                      width={400}
-                      height={300}
-                      objectFit="cover"
-                      className="rounded-md"
-                    />
+                    <Link href={`/listings/${activeProperty.id}`}>
+                      <Image
+                        src={img}
+                        alt={`Property image ${imgIndex + 1}`}
+                        layout="responsive"
+                        width={400}
+                        height={300}
+                        objectFit="cover"
+                        className="rounded-md"
+                      />
+                    </Link>
                   </div>
                 </CarouselItem>
               ))}
