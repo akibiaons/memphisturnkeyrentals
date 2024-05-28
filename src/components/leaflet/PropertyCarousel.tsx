@@ -117,8 +117,10 @@ export default function PropertyCarousel({
           <p className="text-lg font-semibold">
             ${activeProperty?.price?.toLocaleString() || "N/A"}
           </p>
-          <p className="text-sm text-gray-600">
-            {activeProperty?.address || "Address not available"}
+          <p className="text-sm text-gray-600 underline">
+            <Link href={`/listings/${activeProperty.id}`}>
+              {activeProperty?.address || "Address not available"}
+            </Link>
           </p>
           <p className="text-sm text-gray-600">
             {activeProperty?.beds || "N/A"} Beds,{" "}
@@ -167,8 +169,10 @@ export default function PropertyCarousel({
             <p className="text-lg font-semibold">
               ${activeProperty?.price?.toLocaleString() || "N/A"}
             </p>
-            <p className="text-sm text-gray-600">
-              {activeProperty?.address || "Address not available"}
+            <p className="text-sm text-gray-600 underline">
+              <Link href={`/listings/${activeProperty.id}`}>
+                {activeProperty?.address || "Address not available"}
+              </Link>
             </p>
             <p className="text-sm text-gray-600">
               {activeProperty?.beds || "N/A"} Beds,{" "}
@@ -218,7 +222,11 @@ export default function PropertyCarousel({
                 <p className="text-lg font-semibold">
                   ${property.price?.toLocaleString()}
                 </p>
-                <p className="text-sm text-gray-600">{property.address}</p>
+                <p className="text-sm text-gray-600 underline">
+                  <Link href={`/listings/${activeProperty.id}`}>
+                    {property.address}
+                  </Link>
+                </p>
                 <p className="text-sm text-gray-600">
                   {property.beds} Beds, {property.baths} Baths
                 </p>
