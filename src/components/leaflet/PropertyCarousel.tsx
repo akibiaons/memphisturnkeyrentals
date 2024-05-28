@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Link from "next/link"; // for linkning with buttons
+import Link from "next/link"; // for linking with buttons
 
 interface PropertyDetails {
   id: string;
@@ -69,9 +69,18 @@ export default function PropertyCarousel({
     };
   }, []);
 
+  useEffect(() => {
+    if (activePropertyId && propertyRefs.current[activePropertyId]) {
+      propertyRefs.current[activePropertyId]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [activePropertyId]);
+
   return (
     <div
-      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out overflow-y-auto`}
+      className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-[25%] lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 p-4 transition-all duration-600 ease-in-out overflow-y-auto z-50`}
       style={{ height: height }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -123,23 +132,19 @@ export default function PropertyCarousel({
 
       {/* Desktop view */}
       <div className="hidden lg:flex lg:flex-col lg:h-full lg:overflow-y-auto">
-        {properties.map((property, index) => (
-          <div
-            key={property.id}
-            ref={(el) => {
-              propertyRefs.current[property.id] = el;
-            }}
-            className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg ${
-              property.id === activePropertyId ? "border-4 border-blue-500" : ""
-            }`}
-          >
-            <div className="grid grid-cols-3 gap-4 flex-grow">
-              {property.images.map((img, imgIndex) => (
-                <div
-                  key={imgIndex}
-                  className="relative w-full h-full col-span-1"
-                >
-                  <Link href={`/listings/${property.id}`}>
+        {/* Carousel for active property */}
+        <div
+          className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] ${
+            activeProperty.id === activePropertyId
+              ? "border-4 border-blue-500"
+              : ""
+          }`}
+        >
+          <Carousel className="w-full h-full">
+            <CarouselContent>
+              {activeProperty.images.map((img, imgIndex) => (
+                <CarouselItem key={imgIndex}>
+                  <div className="relative w-full h-full">
                     <Image
                       src={img}
                       alt={`Property image ${imgIndex + 1}`}
@@ -149,24 +154,78 @@ export default function PropertyCarousel({
                       objectFit="cover"
                       className="rounded-md"
                     />
-                  </Link>
-                </div>
+                  </div>
+                </CarouselItem>
               ))}
-            </div>
-            <div className="mt-4">
-              <p className="text-lg font-semibold">
-                ${property.price?.toLocaleString()}
-              </p>
-              <p className="text-sm text-gray-600">{property.address}</p>
-              <p className="text-sm text-gray-600">
-                {property.beds} Beds, {property.baths} Baths
-              </p>
-              <p className="text-sm text-gray-600">
-                {property.sqft?.toLocaleString()} sqft
-              </p>
-            </div>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+          <div className="bg-white p-4 mt-4 shadow-lg rounded-lg">
+            <p className="text-lg font-semibold">
+              ${activeProperty?.price?.toLocaleString() || "N/A"}
+            </p>
+            <p className="text-sm text-gray-600">
+              {activeProperty?.address || "Address not available"}
+            </p>
+            <p className="text-sm text-gray-600">
+              {activeProperty?.beds || "N/A"} Beds,{" "}
+              {activeProperty?.baths || "N/A"} Baths
+            </p>
+            <p className="text-sm text-gray-600">
+              {activeProperty?.sqft?.toLocaleString() || "N/A"} sqft
+            </p>
           </div>
-        ))}
+        </div>
+
+        {/* Cards for other properties */}
+        {properties
+          .filter((property) => property.id !== activePropertyId)
+          .map((property, index) => (
+            <div
+              key={property.id}
+              ref={(el) => {
+                propertyRefs.current[property.id] = el;
+              }}
+              className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] ${
+                property.id === activePropertyId
+                  ? "border-4 border-blue-500"
+                  : ""
+              }`}
+            >
+              <div className="relative w-full h-full col-span-1">
+                <Link href={`/listings/${property.id}`}>
+                  {property.images.length > 0 ? (
+                    <Image
+                      src={property.images[0]}
+                      alt={`Property image ${index + 1}`}
+                      layout="responsive"
+                      width={400}
+                      height={300}
+                      objectFit="cover"
+                      className="rounded-md"
+                    />
+                  ) : (
+                    <div className="w-full h-[300px] bg-gray-200 flex items-center justify-center rounded-md">
+                      <span className="text-gray-500">No Image Available</span>
+                    </div>
+                  )}
+                </Link>
+              </div>
+              <div className="mt-4">
+                <p className="text-lg font-semibold">
+                  ${property.price?.toLocaleString()}
+                </p>
+                <p className="text-sm text-gray-600">{property.address}</p>
+                <p className="text-sm text-gray-600">
+                  {property.beds} Beds, {property.baths} Baths
+                </p>
+                <p className="text-sm text-gray-600">
+                  {property.sqft?.toLocaleString()} sqft
+                </p>
+              </div>
+            </div>
+          ))}
       </div>
 
       <button
