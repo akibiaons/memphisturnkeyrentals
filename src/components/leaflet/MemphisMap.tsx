@@ -65,7 +65,7 @@ const PropertyMap: React.FC = () => {
   return (
     <div className="flex h-full">
       <MapContainer
-        style={{ height: "100vh", width: "75%", zIndex: 0 }}
+        style={{ height: "100vh", width: "100%", zIndex: 0 }}
         {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -84,7 +84,7 @@ const PropertyMap: React.FC = () => {
           </Marker>
         ))}
       </MapContainer>
-      <div className="w-[25%] h-full">
+      <div className="lg:w-[25%] h-full">
         <PropertyCarousel
           activeProperty={activeProperty}
           properties={properties}

@@ -109,17 +109,15 @@ export default function PropertyCarousel({
                   {activeProperty.images.map((img, imgIndex) => (
                     <CarouselItem key={imgIndex}>
                       <div className="relative w-full h-full">
-                        <Link href={`/listings/${activeProperty.id}`}>
-                          <Image
-                            src={img}
-                            alt={`Property image ${imgIndex + 1}`}
-                            layout="responsive"
-                            width={400}
-                            height={300}
-                            objectFit="cover"
-                            className="rounded-md"
-                          />
-                        </Link>
+                        <Image
+                          src={img}
+                          alt={`Property image ${imgIndex + 1}`}
+                          layout="responsive"
+                          width={400}
+                          height={300}
+                          objectFit="cover"
+                          className="rounded-md"
+                        />
                       </div>
                     </CarouselItem>
                   ))}
@@ -163,25 +161,21 @@ export default function PropertyCarousel({
                 onClick={() => onCardClick(property)} // Handle card click
               >
                 <div className="relative w-full h-full col-span-1">
-                  <Link href={`/listings/${property.id}`}>
-                    {property.images.length > 0 ? (
-                      <Image
-                        src={property.images[0]}
-                        alt={`Property image ${index + 1}`}
-                        layout="responsive"
-                        width={400}
-                        height={300}
-                        objectFit="cover"
-                        className="rounded-md"
-                      />
-                    ) : (
-                      <div className="w-full h-[300px] bg-gray-200 flex items-center justify-center rounded-md">
-                        <span className="text-gray-500">
-                          No Image Available
-                        </span>
-                      </div>
-                    )}
-                  </Link>
+                  {property.images.length > 0 ? (
+                    <Image
+                      src={property.images[0]}
+                      alt={`Property image ${index + 1}`}
+                      layout="responsive"
+                      width={400}
+                      height={300}
+                      objectFit="cover"
+                      className="rounded-md"
+                    />
+                  ) : (
+                    <div className="w-full h-[300px] bg-gray-200 flex items-center justify-center rounded-md">
+                      <span className="text-gray-500">No Image Available</span>
+                    </div>
+                  )}
                 </div>
                 <div className="mt-4">
                   <p className="text-lg font-semibold">
@@ -203,13 +197,6 @@ export default function PropertyCarousel({
             ))}
         </div>
       </div>
-
-      <button
-        onClick={onClose}
-        className="absolute top-0 right-0 p-2 text-xl lg:text-lg bg-white"
-      >
-        x
-      </button>
     </div>
   );
 }
