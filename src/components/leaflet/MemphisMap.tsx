@@ -80,7 +80,7 @@ const PropertyMap: React.FC = () => {
               },
             }}
           >
-            <Popup>{property.address}</Popup>
+            <Popup className="hidden">{property.address}</Popup>
           </Marker>
         ))}
       </MapContainer>
