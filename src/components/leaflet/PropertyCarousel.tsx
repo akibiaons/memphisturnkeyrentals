@@ -84,7 +84,7 @@ export default function PropertyCarousel({
   return (
     <div
       className={`lg:block lg:bottom-0 lg:sticky fixed bottom-0 left-0 right-0 lg:left-auto lg:right-0 lg:w-full lg:h-full bg-white shadow-lg border-t lg:border-t-0 lg:border-1 transition-all duration-600 ease-in-out overflow-y-auto z-50 ${
-        isMobile ? "mobile-touch-enabled" : ""
+        isMobile ? "lg:overflow-scroll z-0" : ""
       }`}
       style={{ height: isMobile ? height : "100%" }}
       onTouchStart={isMobile ? handleTouchStart : undefined}
@@ -95,8 +95,8 @@ export default function PropertyCarousel({
         <div className="w-12 h-2 bg-gray-400 rounded-full"></div>
       </div>
 
-      <div className="h-full flex flex-col overflow-hidden">
-        <div className="hidden lg:flex lg:flex-col lg:h-full lg:overflow-y-auto flex-grow">
+      <div className="h-full flex flex-col lg:overflow-hidden">
+        <div className="hidden lg:flex lg:flex-col lg:h-full lg:overflow-y-scroll flex-grow">
           {activeProperty && (
             <div
               ref={(el) => {
@@ -153,10 +153,10 @@ export default function PropertyCarousel({
                 ref={(el) => {
                   propertyRefs.current[property.id] = el;
                 }}
-                className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] ${
+                className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] lg:overflow-hidden ${
                   property.id === activePropertyId
                     ? "border-4 border-blue-500"
-                    : ""
+                    : "lg:overflow-y-scroll"
                 }`}
                 onClick={() => onCardClick(property)} // Handle card click
               >
