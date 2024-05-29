@@ -10,7 +10,7 @@ export default function page() {
     <div>
       <div>
         {/* Map component */}
-        <div>
+        <div className="w-[100%] lg:max-w-8xl">
           <MemphisMap />
         </div>
       </div>
