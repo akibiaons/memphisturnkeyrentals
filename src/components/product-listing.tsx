@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-interface DetailedProperty {
+interface ListedPropertyDeets {
   id: string;
   images: string[];
   price: number;
@@ -32,17 +32,12 @@ interface DetailedProperty {
   baths: number;
   sqft: number;
   yearBuilt: number;
-  neighborhoodScore: number;
-  targetMonthlyRent: number;
-  cashOnCashReturn: number;
-  monthlyCashFlow: number;
-  fiveYearProjectedReturn: number;
   occupancyStatus: string;
   homeType: string;
+  propertyStatus: string;
 }
-
 interface ProductListingProps {
-  property: DetailedProperty;
+  property: ListedPropertyDeets;
 }
 
 export function ProductListing({ property }: ProductListingProps) {
@@ -163,36 +158,6 @@ export function ProductListing({ property }: ProductListingProps) {
                   Bathrooms
                 </span>
                 <span>{property.baths}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Neighborhood Score
-                </span>
-                <span>{property.neighborhoodScore}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Target Monthly Rent
-                </span>
-                <span>{property.targetMonthlyRent}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Cash on Cash Return
-                </span>
-                <span>{property.cashOnCashReturn}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Monthly Cash Flow
-                </span>
-                <span>{property.monthlyCashFlow}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Five Year Projected Return
-                </span>
-                <span>{property.fiveYearProjectedReturn}</span>
               </div>
             </div>
           </div>

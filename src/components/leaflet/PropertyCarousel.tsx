@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 
-interface PropertyDetails {
+interface Property {
   id: string;
   images: string[];
   price: number;
@@ -19,14 +19,21 @@ interface PropertyDetails {
   sqft: number;
   latitude: number;
   longitude: number;
+  description: string;
+  propertyType: string;
+  yearBuilt: number;
+  occupancyStatus: string;
+  listingStatus: string;
+  actualMonthlyRent: number;
+  projectedMonthlyRent: number;
 }
 
 interface PropertyCarouselProps {
-  activeProperty: PropertyDetails | null;
-  properties: PropertyDetails[];
+  activeProperty: Property | null;
+  properties: Property[];
   activePropertyId: string;
   onClose: () => void;
-  onCardClick: (property: PropertyDetails) => void; // Add the card click handler
+  onCardClick: (property: Property) => void; // Add the card click handler
 }
 
 export default function PropertyCarousel({
@@ -94,8 +101,7 @@ export default function PropertyCarousel({
       <div className="flex justify-center items-center mb-2 z-10 lg:hidden">
         <div className="w-12 h-2 bg-gray-400 rounded-full"></div>
       </div>
-
-      {/* Mobile View ========================*/}
+      {/* Mobile View */}
       <div className="block lg:hidden">
         {activeProperty && (
           <div className="mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] border-4 border-blue-500">

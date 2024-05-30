@@ -6,7 +6,7 @@ import { ProductListing } from "@/components/product-listing";
 import { ImagesSlider } from "@/components/ui/image-slider";
 import { motion } from "framer-motion";
 
-interface DetailedProperty {
+interface ListedPropertyDeets {
   id: string;
   images: string[];
   price: number;
@@ -16,18 +16,15 @@ interface DetailedProperty {
   baths: number;
   sqft: number;
   yearBuilt: number;
-  neighborhoodScore: number;
-  targetMonthlyRent: number;
-  cashOnCashReturn: number;
-  monthlyCashFlow: number;
-  fiveYearProjectedReturn: number;
   occupancyStatus: string;
   homeType: string;
+  propertyStatus: string;
+  avalibility: string;
 }
 
 const Listing = ({ params }: { params: { listingId: string } }) => {
   const { listingId } = params;
-  const [property, setProperty] = useState<DetailedProperty | null>(null);
+  const [property, setProperty] = useState<ListedPropertyDeets | null>(null);
 
   useEffect(() => {
     const getProperty = async () => {
