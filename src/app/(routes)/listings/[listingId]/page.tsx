@@ -1,34 +1,38 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { fetchPropertyDetails } from "@/data/propertyId"; // Adjust the import path as needed
+import { fetchProperty } from "@/data/fetchProperty"; // Adjust the import path as needed
 import { ProductListing } from "@/components/product-listing";
 import { ImagesSlider } from "@/components/ui/image-slider";
 import { motion } from "framer-motion";
 
-interface ListedPropertyDeets {
+interface Property {
   id: string;
   images: string[];
   price: number;
   address: string;
-  description: string;
   beds: number;
   baths: number;
   sqft: number;
+  latitude: number;
+  longitude: number;
+  description: string;
+  propertyType: string;
   yearBuilt: number;
   occupancyStatus: string;
-  homeType: string;
-  propertyStatus: string;
-  avalibility: string;
+  listingStatus: string;
+  actualMonthlyRent: number;
+  projectedMonthlyRent: number;
 }
 
 const Listing = ({ params }: { params: { listingId: string } }) => {
   const { listingId } = params;
-  const [property, setProperty] = useState<ListedPropertyDeets | null>(null);
+  const [property, setProperty] = useState<Property | null>(null);
 
   useEffect(() => {
     const getProperty = async () => {
-      const fetchedProperty = await fetchPropertyDetails(listingId);
+      const fetchedProperty = await fetchProperty(listingId);
       console.log("Fetched Property:", fetchedProperty); // Log the fetched property details
       setProperty(fetchedProperty);
     };
