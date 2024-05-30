@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,6 +20,7 @@ import {
   Speech,
   UsersRound,
 } from "lucide-react";
+import Image from "next/image";
 
 interface DetailedProperty {
   id: string;
@@ -67,8 +69,8 @@ export function ProductListing({ property }: ProductListingProps) {
               ))}
             </div>
           </div>
-          <div className="flex flex-col md:grid md:gap-4">
-            <div>
+          <div className="flex flex-col md:grid md:gap-4 lg:flex">
+            <div className="pb-0">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 {property.address}
               </h1>
