@@ -26,21 +26,21 @@ interface BtrProperty {
   projectedMonthlyRent: number;
 }
 
-const BtrListing = ({ params }: { params: { listingId: string } }) => {
-  const { listingId } = params;
+const BtrListing = ({ params }: { params: { buildtorentId: string } }) => {
+  const { buildtorentId } = params;
   const [property, setProperty] = useState<BtrProperty | null>(null);
 
   useEffect(() => {
     const getProperty = async () => {
-      const fetchedBtrProperty = await fetchBtrProperty(listingId);
-      console.log("Fetched property:", fetchedBtrProperty);
-      setProperty(fetchedBtrProperty);
+      const fetchedProperty = await fetchBtrProperty(buildtorentId);
+      console.log("Fetched property:", fetchedProperty);
+      setProperty(fetchedProperty);
     };
     getProperty();
-  }, [listingId]);
+  }, [buildtorentId]);
 
   if (!property) {
-    return <div>Loading build to rents...</div>;
+    return <div>Loading property...</div>;
   }
 
   return (
@@ -71,8 +71,7 @@ const BtrListing = ({ params }: { params: { listingId: string } }) => {
         </ImagesSlider>
       </section>
       <section className="mx-auto max-w-7xl my-16">
-        <BtrListingId property={property} />{" "}
-        {/* Needs changing to btr lisitng */}
+        <BtrListingId property={property} />
       </section>
     </div>
   );

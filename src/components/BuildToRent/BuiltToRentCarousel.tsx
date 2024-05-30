@@ -133,7 +133,7 @@ export default function BuildToRentCarousel({
                 ${activeProperty?.price?.toLocaleString() || "N/A"}
               </p>
               <p className="text-sm text-gray-600 underline">
-                <Link href={`/listings/${activeProperty.id}`}>
+                <Link href={`/build-to-rent/${activeProperty.id}`}>
                   {activeProperty?.address || "Address not available"}
                 </Link>
               </p>
@@ -185,7 +185,7 @@ export default function BuildToRentCarousel({
                   ${property.price?.toLocaleString()}
                 </p>
                 <p className="text-sm text-gray-600 underline">
-                  <Link href={`/listings/${property.id}`}>
+                  <Link href={`/build-to-rent/${property.id}`}>
                     {property.address}
                   </Link>
                 </p>
@@ -235,7 +235,7 @@ export default function BuildToRentCarousel({
                   ${activeProperty?.price?.toLocaleString() || "N/A"}
                 </p>
                 <p className="text-sm text-gray-600 underline">
-                  <Link href={`/listings/${activeProperty.id}`}>
+                  <Link href={`/build-to-rent/${activeProperty.id}`}>
                     {activeProperty?.address || "Address not available"}
                   </Link>
                 </p>
@@ -287,7 +287,7 @@ export default function BuildToRentCarousel({
                     ${property.price?.toLocaleString()}
                   </p>
                   <p className="text-sm text-gray-600 underline">
-                    <Link href={`/listings/${property.id}`}>
+                    <Link href={`/build-to-rent/${property.id}`}>
                       {property.address}
                     </Link>
                   </p>

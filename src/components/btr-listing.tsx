@@ -46,7 +46,6 @@ interface BtrListingProps {
 }
 
 export function BtrListingId({ property }: BtrListingProps) {
-  // Determine the class for the status dot based on listingStatus
   const getStatusClass = (status: string) => {
     switch (status.toLowerCase()) {
       case "available":

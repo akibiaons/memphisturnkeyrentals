@@ -23,40 +23,38 @@ export const fetchBtrProperty = async (
   id: string
 ): Promise<BtrProperty | null> => {
   try {
-    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/buildtorents?populate=*`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/buildtorents/${id}?populate=*`;
     const response = await axios.get(apiUrl);
     if (response.data && response.data.data) {
-      return response.data.data.map((item: any) => {
-        const attributes = item.attributes || {};
-        const propertyImg = attributes.propertyImg?.data || {};
-        return {
-          id: item.id,
-          address: attributes.propertyAddress || "N/A",
-          images: propertyImg.map((img: any) =>
-            img.attributes.url.startsWith("http")
-              ? img.attributes.url
-              : `${process.env.NEXT_PUBLIC_STRAPI_URL}${img.attributes.url}`
-          ),
-          price: attributes.price || 0,
-          beds: attributes.beds || 0,
-          baths: attributes.baths || 0,
-          sqft: attributes.sqft || 0,
-          latitude: attributes.latitude || 0,
-          longitude: attributes.longitude || 0,
-          description: attributes.propertyDesc || "",
-          propertyType: attributes.propertyType || "",
-          yearBuilt: attributes.yearBuilt || 0,
-          occupancyStatus: attributes.occupancy || "",
-          listingStatus: attributes.propertyStatus || "",
-          actualMonthlyRent: attributes.actualRent || 0,
-          projectedMonthlyRent: attributes.targetMonthlyRent || 0,
-        };
-      });
+      const attributes = response.data.data.attributes || {};
+      const propertyImg = attributes.propertyImg?.data || [];
+      return {
+        id: response.data.data.id,
+        address: attributes.propertyAddress || "N/A",
+        images: propertyImg.map((img: any) =>
+          img.attributes.url.startsWith("http")
+            ? img.attributes.url
+            : `${process.env.NEXT_PUBLIC_STRAPI_URL}${img.attributes.url}`
+        ),
+        price: attributes.price || 0,
+        beds: attributes.beds || 0,
+        baths: attributes.baths || 0,
+        sqft: attributes.sqft || 0,
+        latitude: attributes.latitude || 0,
+        longitude: attributes.longitude || 0,
+        description: attributes.propertyDesc || "",
+        propertyType: attributes.propertyType || "",
+        yearBuilt: attributes.yearBuilt || 0,
+        occupancyStatus: attributes.occupancy || "",
+        listingStatus: attributes.propertyStatus || "",
+        actualMonthlyRent: attributes.actualRent || 0,
+        projectedMonthlyRent: attributes.targetMonthlyRent || 0,
+      };
     } else {
       throw new Error("Invalid API response structure");
     }
   } catch (error) {
-    console.error("Failed to fetch properties:", error);
+    console.error("Failed to fetch property:", error);
     return null;
   }
 };
