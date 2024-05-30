@@ -8,16 +8,23 @@ import "leaflet/dist/leaflet.css";
 import { fetchListings } from "@/data/fetchListings";
 import PropertyCarousel from "./PropertyCarousel";
 
-interface PropertyDetails {
+interface Property {
   id: string;
-  address: string;
   images: string[];
   price: number;
+  address: string;
   beds: number;
   baths: number;
   sqft: number;
   latitude: number;
   longitude: number;
+  description: string;
+  propertyType: string;
+  yearBuilt: number;
+  occupancyStatus: string;
+  listingStatus: string;
+  actualMonthlyRent: number;
+  projectedMonthlyRent: number;
 }
 
 const propertyMarker = (color = "red") =>
@@ -29,25 +36,22 @@ const propertyMarker = (color = "red") =>
   });
 
 const PropertyMap: React.FC = () => {
-  const [activeProperty, setActiveProperty] = useState<PropertyDetails | null>(
-    null
-  );
-  const [properties, setProperties] = useState<PropertyDetails[]>([]);
-  const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/forpurchases?populate=*`;
+  const [activeProperty, setActiveProperty] = useState<Property | null>(null);
+  const [properties, setProperties] = useState<Property[]>([]);
 
   useEffect(() => {
     const getProperties = async () => {
-      const listings = await fetchListings(apiUrl);
+      const listings = await fetchListings();
       setProperties(listings);
     };
     getProperties();
-  }, [apiUrl]);
+  }, []);
 
-  const handleMarkerClick = (property: PropertyDetails) => {
+  const handleMarkerClick = (property: Property) => {
     setActiveProperty(property);
   };
 
-  const handleCardClick = (property: PropertyDetails) => {
+  const handleCardClick = (property: Property) => {
     setActiveProperty(property);
   };
 
@@ -101,8 +105,6 @@ const PropertyMap: React.FC = () => {
           </div>
         </div>
       </div>
-      {/*===============================================================================================*/}
-      {/* Mobile version is here below these = */}
       <div className="lg:hidden block">
         <MapContainer
           style={{ height: "100vh", width: "100%", zIndex: 0 }}

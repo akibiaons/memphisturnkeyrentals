@@ -22,34 +22,48 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-interface DetailedProperty {
+interface Property {
   id: string;
   images: string[];
   price: number;
   address: string;
-  description: string;
   beds: number;
   baths: number;
   sqft: number;
+  latitude: number;
+  longitude: number;
+  description: string;
+  propertyType: string;
   yearBuilt: number;
-  neighborhoodScore: number;
-  targetMonthlyRent: number;
-  cashOnCashReturn: number;
-  monthlyCashFlow: number;
-  fiveYearProjectedReturn: number;
   occupancyStatus: string;
-  homeType: string;
+  listingStatus: string;
+  actualMonthlyRent: number;
+  projectedMonthlyRent: number;
 }
 
 interface ProductListingProps {
-  property: DetailedProperty;
+  property: Property;
 }
 
 export function ProductListing({ property }: ProductListingProps) {
+  // Determine the class for the status dot based on listingStatus
+  const getStatusClass = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "available":
+        return "bg-green-600";
+      case "sold":
+        return "bg-red-600";
+      case "under contract":
+        return "bg-yellow-500";
+      default:
+        return "bg-gray-400";
+    }
+  };
+
   return (
     <>
       <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className=" md:grid md:gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
+        <div className="md:grid md:gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
           <div className="grid gap-4">
             <div className="flex flex-row mb-12 md:grid grid-cols-3 gap-4">
               {property.images.map((image, index) => (
@@ -80,10 +94,14 @@ export function ProductListing({ property }: ProductListingProps) {
             </div>
             <div className="grid space-y-4">
               <div className="flex flex-row items-center gap-2">
-                <div className="h-3 w-3 bg-green-600 rounded-full"></div>
-                <p className="text-md">{property.occupancyStatus}</p>
+                <div
+                  className={`h-3 w-3 rounded-full ${getStatusClass(
+                    property.listingStatus
+                  )}`}
+                ></div>
+                <p className="text-md">{property.listingStatus}</p>
               </div>
-              <div className=" flex flex-row">
+              <div className="flex flex-row">
                 <h2 className="text-xl font-bold">
                   <span>$</span>
                   <span>{property.price.toLocaleString()}</span>
@@ -117,7 +135,7 @@ export function ProductListing({ property }: ProductListingProps) {
                 <div className="flex flex-row items-center">
                   <Home className="h-7 w-7" />
                   <div className="ml-2">
-                    <p className="font-semibold">{property.homeType}</p>
+                    <p className="font-semibold">{property.propertyType}</p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Home Type
                     </p>
@@ -129,6 +147,30 @@ export function ProductListing({ property }: ProductListingProps) {
                     <p className="font-semibold">{property.yearBuilt}</p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Year Built
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-row items-center gap-5">
+                <div className="flex flex-row items-center">
+                  <BadgeDollarSign className="h-7 w-7" />
+                  <div className="ml-2">
+                    <p className="font-semibold">
+                      {property.actualMonthlyRent.toLocaleString()}
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Actual Rent
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-row items-center">
+                  <BadgeDollarSign className="h-7 w-7" />
+                  <div className="ml-2">
+                    <p className="font-semibold">
+                      {property.projectedMonthlyRent.toLocaleString()}
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Projected Rent
                     </p>
                   </div>
                 </div>
@@ -166,33 +208,15 @@ export function ProductListing({ property }: ProductListingProps) {
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Neighborhood Score
+                  Property Type
                 </span>
-                <span>{property.neighborhoodScore}</span>
+                <span>{property.propertyType}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Target Monthly Rent
+                  Occupancy Status
                 </span>
-                <span>{property.targetMonthlyRent}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Cash on Cash Return
-                </span>
-                <span>{property.cashOnCashReturn}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Monthly Cash Flow
-                </span>
-                <span>{property.monthlyCashFlow}</span>
-              </div>
-              <div className="grid grid-cols-[150px_1fr] items-start gap-4">
-                <span className="font-medium text-gray-900 dark:text-gray-50">
-                  Five Year Projected Return
-                </span>
-                <span>{property.fiveYearProjectedReturn}</span>
+                <span>{property.occupancyStatus}</span>
               </div>
             </div>
           </div>
