@@ -10,10 +10,10 @@ const PropertyMap = dynamic(
 
 export default function page() {
   return (
-    <div>
+    <div className="lg:overflow-hidden">
       <div>
         {/* Map component */}
-        <div>
+        <div className="w-[100%] lg:max-w-8xl lg:max-h-[100vh]">
           <PropertyMap />
         </div>
       </div>

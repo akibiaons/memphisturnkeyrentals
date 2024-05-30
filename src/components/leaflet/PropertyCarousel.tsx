@@ -101,6 +101,7 @@ export default function PropertyCarousel({
       <div className="flex justify-center items-center mb-2 z-10 lg:hidden">
         <div className="w-12 h-2 bg-gray-400 rounded-full"></div>
       </div>
+
       {/* Mobile View */}
       <div className="block lg:hidden">
         {activeProperty && (
