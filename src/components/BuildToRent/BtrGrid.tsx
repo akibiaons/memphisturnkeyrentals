@@ -1,8 +1,11 @@
-import { useRef, useState, useEffect } from "react";
-import PropertyCard from "./project-card";
-import { fetchProjects } from "@/data/fetchProjects";
+"use client";
+// The grid layout on the mobile /buildtorent page
+import { useRef, useState, useEffect } from "react"; // useRef, state and hook imports to manage the page state and useeffect to anchor the data to the pages DOM I beleive
+import ListingCard from "./BtrCard"; // The ui for the cards and their details
+import { fetchBtrListings } from "@/data/fetchbtr";
 
-interface Projects {
+// Interface of property as this is the data type being passed down from the strapi api url
+export interface BtrProperty {
   id: string;
   images: string[];
   price: number;
@@ -10,8 +13,8 @@ interface Projects {
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number | null;
-  longitude: number | null;
+  latitude: number;
+  longitude: number;
   description: string;
   propertyType: string;
   yearBuilt: number;
@@ -21,23 +24,26 @@ interface Projects {
   projectedMonthlyRent: number;
 }
 
-interface ProjectGridProps {
+//  Not too sure what this does and why it is a className? Is this in charge of styling??
+interface BtrGridProps {
   className?: string;
 }
 
-const ProjectGrid: React.FC<ProjectGridProps> = ({ className }) => {
-  const [properties, setProperties] = useState<Projects[]>([]);
-  const gridRef = useRef<HTMLDivElement>(null);
-  // useEffect to fetch the data
+const BtrGrid: React.FC<BtrGridProps> = ({ className }) => {
+  const [properties, setProperties] = useState<BtrProperty[]>([]);
+  const gridRef = useRef<HTMLDivElement>(null); // Not too sure what useRef does in the application
+
+  // UseEffect to fetch the data function and anchor the most recent data from the Strapi apiURL
   useEffect(() => {
     const getProperties = async () => {
-      const projects = await fetchProjects();
-      console.log("Fetched projects:", projects);
-      setProperties(projects);
+      const btrListings = await fetchBtrListings();
+      console.log("Fetched property:", btrListings);
+      setProperties(btrListings);
     };
     getProperties();
-  });
-  // part of the ui component here
+  }, []);
+
+  // Not too sure what these 4 variables do, perhaps something with the grid sizing??
   const third = Math.ceil(properties.length / 3);
   const firstPart = properties.slice(0, third);
   const secondPart = properties.slice(third, 2 * third);
@@ -52,7 +58,7 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ className }) => {
         <div className="grid gap-10" key={partIndex}>
           {part.map((property, idx) => (
             <div key={`grid-${partIndex}-${idx}`}>
-              <PropertyCard
+              <ListingCard
                 imageUrl={property.images[0] || ""}
                 imageAlt={`Image of ${property.address}`}
                 tags={[
@@ -69,4 +75,4 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ className }) => {
   );
 };
 
-export default ProjectGrid;
+export default BtrGrid;

@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react"; // useRef, state and hook i
 import ListingCard from "./ListingCard"; // The ui for the cards and their details
 import { fetchListings } from "@/data/fetchListings"; // Fetching the function that fetches the Strapi listings data types.
 
-// Interfece of property as this is the data type being passed down from the strapi api url
+// Interface of property as this is the data type being passed down from the strapi api url
 export interface Property {
   id: string;
   images: string[];
