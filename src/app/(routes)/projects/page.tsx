@@ -93,9 +93,7 @@ export default function projects() {
       <div className="flex flex-col">
         <div className=" max-w-7xl mx-auto ">
           <div className="my-20 px-3 sm:px-6 md:px-8  lg:px-4">
-            <h2 className="text-2xl font-semibold mb-8 ">
-              Memphis Houses for sale
-            </h2>
+            <h2 className="text-2xl font-semibold mb-8 ">Our Projects</h2>
             <div className="px-1">
               <ProjectGrid properties={properties} />
             </div>
@@ -105,7 +103,7 @@ export default function projects() {
           </div>
         </div>
         <Separator />
-        <div className=" max-w-7xl mx-auto ">
+        {/* <div className=" max-w-7xl mx-auto ">
           <div className="my-20 px-3 sm:px-6 md:px-8 lg:px-4">
             <h2 className="text-2xl font-semibold mb-8 ">
               Downtown condos for rent
@@ -117,8 +115,8 @@ export default function projects() {
               <p>See all 992 properties for rent</p>
             </div>
           </div>
-        </div>
-        <Separator />
+        </div> */}
+        {/* <Separator />
         <div className=" max-w-7xl mx-auto ">
           <div className="my-20 px-3 sm:px-6 md:px-8 lg:px-4">
             <h2 className="text-2xl font-semibold mb-8 ">
@@ -131,7 +129,7 @@ export default function projects() {
               <p>See all 12 houses for rent</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
