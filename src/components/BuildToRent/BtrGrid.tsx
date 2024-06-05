@@ -1,11 +1,11 @@
 "use client";
-
+// The grid layout on the mobile /buildtorent page
 import { useRef, useState, useEffect } from "react"; // useRef, state and hook imports to manage the page state and useeffect to anchor the data to the pages DOM I beleive
-import ListingCard from "./ListingCard"; // The ui for the cards and their details
-import { fetchListings } from "@/data/fetchListings"; // Fetching the function that fetches the Strapi listings data types.
+import ListingCard from "./BtrCard"; // The ui for the cards and their details
+import { fetchBtrListings } from "@/data/fetchbtr";
 
 // Interface of property as this is the data type being passed down from the strapi api url
-export interface Property {
+export interface BtrProperty {
   id: string;
   images: string[];
   price: number;
@@ -25,22 +25,22 @@ export interface Property {
 }
 
 //  Not too sure what this does and why it is a className? Is this in charge of styling??
-interface ListingGridProps {
+interface BtrGridProps {
   className?: string;
 }
 
-// The function ListingGrid with the <ListingGridProps> being the class name so it is an attribute that has to be called in the parent, for example <ListingGrid className{classNameorSomething}>
-const ListingGrid: React.FC<ListingGridProps> = ({ className }) => {
-  const [properties, setProperties] = useState<Property[]>([]); // setting the inital state of the properties to an empty array
+const BtrGrid: React.FC<BtrGridProps> = ({ className }) => {
+  const [properties, setProperties] = useState<BtrProperty[]>([]);
   const gridRef = useRef<HTMLDivElement>(null); // Not too sure what useRef does in the application
 
   // UseEffect to fetch the data function and anchor the most recent data from the Strapi apiURL
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchListings();
-      setProperties(data);
+    const getProperties = async () => {
+      const btrListings = await fetchBtrListings();
+      console.log("Fetched property:", btrListings);
+      setProperties(btrListings);
     };
-    fetchData();
+    getProperties();
   }, []);
 
   // Not too sure what these 4 variables do, perhaps something with the grid sizing??
@@ -75,4 +75,4 @@ const ListingGrid: React.FC<ListingGridProps> = ({ className }) => {
   );
 };
 
-export default ListingGrid;
+export default BtrGrid;

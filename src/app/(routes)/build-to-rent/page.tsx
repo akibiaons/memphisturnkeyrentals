@@ -7,15 +7,22 @@ const PropertyMap = dynamic(
     ssr: false,
   }
 );
+const BtrGrid = dynamic(() => import("@/components/BuildToRent/BtrGrid"), {
+  ssr: false,
+});
 
 export default function page() {
   return (
-    <div className="lg:overflow-hidden">
-      <div>
+    <div>
+      <div className="hidden lg:block">
         {/* Map component */}
         <div className="w-[100%] lg:max-w-8xl lg:max-h-[100vh]">
           <PropertyMap />
         </div>
+      </div>
+      {/* Mobile version which just has the property cards from carousel component */}
+      <div className="lg:hidden block">
+        <BtrGrid />
       </div>
     </div>
   );
