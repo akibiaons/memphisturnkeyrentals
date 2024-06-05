@@ -1,26 +1,43 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import PropertyCard from "./project-card";
+import { fetchProjects } from "@/data/fetchProjects";
 
-interface Property {
-  imageUrl: string;
-  imageAlt: string;
-  address: string;
-  content: string;
-  footerText: string;
-  tags: {
-    text: string;
-    className: string;
-  }[];
+interface Projects {
+  id: string;
+  images: string[];
   price: number;
+  address: string;
+  beds: number;
+  baths: number;
+  sqft: number;
+  latitude: number | null;
+  longitude: number | null;
+  description: string;
+  propertyType: string;
+  yearBuilt: number;
+  occupancyStatus: string;
+  listingStatus: string;
+  actualMonthlyRent: number;
+  projectedMonthlyRent: number;
 }
 
 interface ProjectGridProps {
-  properties: Property[];
   className?: string;
 }
 
-const ProjectGrid: React.FC<ProjectGridProps> = ({ properties, className }) => {
+const ProjectGrid: React.FC<ProjectGridProps> = ({ className }) => {
+  const [properties, setProperties] = useState<Projects[]>([]);
   const gridRef = useRef<HTMLDivElement>(null);
+  // useEffect to fetch the data
+  useEffect(() => {
+    const getProperties = async () => {
+      const projects = await fetchProjects();
+      console.log("Fetched projects:", projects);
+      setProperties(projects);
+    };
+    getProperties();
+  });
+  // part of the ui component here
   const third = Math.ceil(properties.length / 3);
   const firstPart = properties.slice(0, third);
   const secondPart = properties.slice(third, 2 * third);
@@ -35,7 +52,15 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ properties, className }) => {
         <div className="grid gap-10" key={partIndex}>
           {part.map((property, idx) => (
             <div key={`grid-${partIndex}-${idx}`}>
-              <PropertyCard {...property} />
+              <PropertyCard
+                imageUrl={property.images[0] || ""}
+                imageAlt={`Image of ${property.address}`}
+                tags={[
+                  { text: property.propertyType, className: "badge-class" },
+                  { text: property.listingStatus, className: "badge-class" },
+                ]}
+                {...property}
+              />
             </div>
           ))}
         </div>

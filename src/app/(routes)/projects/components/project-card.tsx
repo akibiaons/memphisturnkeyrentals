@@ -1,20 +1,26 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 
-export interface Property {
-  imageUrl: string;
-  imageAlt: string;
-  address: string;
-  content: string;
-  footerText: string;
+export interface Projects {
+  id: string;
+  images: string[];
   price: number;
-  tags: {
-    text: string;
-    className: string;
-  }[];
+  address: string;
+  beds: number;
+  baths: number;
+  sqft: number;
+  latitude: number | null;
+  longitude: number | null;
+  description: string;
+  propertyType: string;
+  yearBuilt: number;
+  occupancyStatus: string;
+  listingStatus: string;
+  actualMonthlyRent: number;
+  projectedMonthlyRent: number;
 }
 
-export interface PropertyCardProperty extends Property {
+export interface PropertyCardProperty extends Projects {
   tags: {
     text: string;
     className: string;

@@ -8,8 +8,8 @@ interface Projects {
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
+  latitude: number | null;
+  longitude: number | null;
   description: string;
   propertyType: string;
   yearBuilt: number;
@@ -23,31 +23,36 @@ export const fetchProjects = async (): Promise<Projects[]> => {
   try {
     const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=*`;
     const response = await axios.get(apiUrl);
+
     if (response.data && response.data.data) {
       return response.data.data.map((item: any) => {
         const attributes = item.attributes || {};
-        const projectImage = attributes.projectImage?.data || {};
+        const imagesData = attributes.propertyImg?.data || [];
+        //
+        const images = imagesData.map((img: any) => {
+          const url = img.attributes.url;
+          return url.startsWith("http")
+            ? url
+            : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
+        });
+
         return {
           id: item.id,
-          address: attributes.projectImage || "N/A",
-          images: projectImage.map((img: any) => {
-            img.attributes.url.startsWith("http")
-              ? img.attributes.url
-              : `${process.env.NEXT_PUBLIC_STRAPI_URL}${img.attributes.url}`;
-          }),
+          address: attributes.propertyAddress || "N/A",
+          images,
           price: attributes.propertyPrice || 0,
           beds: attributes.beds || 0,
           baths: attributes.baths || 0,
           sqft: attributes.sqft || 0,
-          latitude: attributes.latitude || 0,
-          longitude: attributes.longitude || 0,
+          latitude: attributes.lat || null,
+          longitude: attributes.longitude || null,
           description: attributes.propertyDesc || "",
           propertyType: attributes.propertyType || "",
           yearBuilt: attributes.yearBuilt || 0,
-          occupancyStatus: attributes.propertyOccupancy || "",
-          listingStatus: attributes.listingStatus || "",
-          actualMonthlyRent: attributes.actualMonthlyRent || 0,
-          projectedMonthlyRent: attributes.projectedMonthlyRent || 0,
+          occupancyStatus: attributes.occupancy || "",
+          listingStatus: attributes.ListedStatus || "",
+          actualMonthlyRent: attributes.actualRent || 0,
+          projectedMonthlyRent: attributes.projectedRent || 0,
         };
       });
     } else {
