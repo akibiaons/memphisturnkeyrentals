@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import Link from "next/link";
 import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "../ui/hero-highlight";
@@ -36,7 +36,9 @@ export default function Hero() {
               Secure your stakes, Memphis awaits
             </Highlight>
             <div className="mt-4">
-              <Button className="blhv">Property Listings</Button>
+              <Link href="/listings">
+                <Button className="blhv">Property Listings</Button>
+              </Link>
             </div>
           </motion.h1>
         </HeroHighlight>
