@@ -52,8 +52,8 @@ const DashboardNav = () => {
               <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="sm:max-w-xs justify-start">
-            <nav className="grid gap-6 text-lg font-medium justify-start">
+          <SheetContent side="left" className="sm:max-w-xs">
+            <nav className="grid gap-4 text-lg font-medium text-left justify-start">
               <SheetClose asChild>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -80,7 +80,7 @@ const DashboardNav = () => {
                 <Button asChild variant="ghost">
                   <Link
                     href="https://strongerpropertymanagement.com/lander"
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground "
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
                     Manage
                     <SquareArrowOutUpRight className="h-5 w-5" />
@@ -93,7 +93,6 @@ const DashboardNav = () => {
                     href="/listings"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    {/* <LineChart className="h-5 w-5" /> */}
                     Listings
                   </Link>
                 </Button>
@@ -104,19 +103,16 @@ const DashboardNav = () => {
                     href="/sell"
                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    {/* <Users2 className="h-5 w-5" /> */}
                     Sell
                   </Link>
                 </Button>
               </SheetClose>
-
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
                     href="/projects"
-                    className="flex items-center gap-4 px-2.5  text-muted-foreground hover:text-foreground"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    {/* <ShoppingCart className="h-5 w-5" /> */}
                     Projects
                   </Link>
                 </Button>
@@ -125,21 +121,19 @@ const DashboardNav = () => {
                 <Button asChild variant="ghost">
                   <Link
                     href="/build-to-rent"
-                    className="flex items-center gap-4 px-2.5  text-muted-foreground hover:text-foreground"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
                     Build to rent
                     <ChevronDown />
                   </Link>
                 </Button>
               </SheetClose>
-
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
                     href="/contact"
-                    className="flex items-center gap-4 px-2. text-muted-foreground hover:text-foreground"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                   >
-                    {/* <ShoppingCart className="h-5 w-5" /> */}
                     Contact
                   </Link>
                 </Button>
@@ -149,7 +143,7 @@ const DashboardNav = () => {
         </Sheet>
 
         {/* NOT MOBILE */}
-        <div className=" flex justify-center items-center w-full ">
+        <div className="flex justify-center items-center w-full">
           <div className="mr-14">
             <Link href="/">
               <Image
@@ -162,8 +156,8 @@ const DashboardNav = () => {
           </div>
 
           {/* Navigation links and such */}
-          <div className="items-center flex-row space-x-8 w-full justify-end hidden lg:flex ">
-            <div className="">
+          <div className="items-center flex-row space-x-8 w-full justify-end hidden lg:flex">
+            <div>
               <Link
                 href="https://strongerpropertymanagement.com/lander"
                 className="flex flex-row items-center w-full"
@@ -173,10 +167,7 @@ const DashboardNav = () => {
               </Link>
             </div>
             <Link href="/listings">Listings</Link>
-            <Link href="/sell">
-              Sell
-              {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
-            </Link>
+            <Link href="/sell">Sell</Link>
             <Link href="/projects" className="  ">
               Projects
             </Link>
@@ -197,32 +188,18 @@ const DashboardNav = () => {
                 <DropdownMenuLabel>Contact Us</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  {/* <DropdownMenuItem>
-                    <MessageSquareMore className="mr-2 h-4 w-4" />
-                    <span>Message</span>
-                    {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                  </DropdownMenuItem> */}
                   <DropdownMenuItem>
                     <Mail className="mr-2 h-4 w-4" />
                     <span>Email</span>
-                    {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <PhoneCall className="mr-2 h-4 w-4" />
                     <span>Phone</span>
-                    {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
-                  {/* <DropdownMenuItem>
-                    <FaWhatsapp className="mr-2 h-4 w-4" />
-                    <span>WhatsApp</span>
-                    {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                  </DropdownMenuItem> */}
-                  <DropdownMenuSeparator />
                   <Link href="/contact">
                     <DropdownMenuItem>
                       <ExternalLink className="mr-2 h-4 w-4" />
                       <span>Contact Page</span>
-                      {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
                     </DropdownMenuItem>
                   </Link>
                 </DropdownMenuGroup>
