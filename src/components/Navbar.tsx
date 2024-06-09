@@ -52,8 +52,8 @@ const DashboardNav = () => {
               <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="sm:max-w-xs">
-            <nav className="grid gap-6 text-lg font-medium">
+          <SheetContent side="left" className="sm:max-w-xs justify-start">
+            <nav className="grid gap-6 text-lg font-medium justify-start">
               <SheetClose asChild>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -113,18 +113,6 @@ const DashboardNav = () => {
               <SheetClose asChild>
                 <Button asChild variant="ghost">
                   <Link
-                    href="/contact"
-                    className="flex items-center gap-4 px-2. text-muted-foreground hover:text-foreground"
-                  >
-                    {/* <ShoppingCart className="h-5 w-5" /> */}
-                    Contact
-                  </Link>
-                </Button>
-              </SheetClose>
-
-              <SheetClose asChild>
-                <Button asChild variant="ghost">
-                  <Link
                     href="/projects"
                     className="flex items-center gap-4 px-2.5  text-muted-foreground hover:text-foreground"
                   >
@@ -141,6 +129,18 @@ const DashboardNav = () => {
                   >
                     Build to rent
                     <ChevronDown />
+                  </Link>
+                </Button>
+              </SheetClose>
+
+              <SheetClose asChild>
+                <Button asChild variant="ghost">
+                  <Link
+                    href="/contact"
+                    className="flex items-center gap-4 px-2. text-muted-foreground hover:text-foreground"
+                  >
+                    {/* <ShoppingCart className="h-5 w-5" /> */}
+                    Contact
                   </Link>
                 </Button>
               </SheetClose>

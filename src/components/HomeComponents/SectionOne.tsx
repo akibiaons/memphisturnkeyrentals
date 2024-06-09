@@ -79,10 +79,29 @@ export default function SectionOne() {
       </div>
       <div>
         <h4 className="text-center w-10/12 mx-auto tracking-wide font-medium text-muted-foreground leading-4 mb-12">
-          Whether you are new to investing or a seasoned veteran, our team will
-          give you the tools you need to succeed. We act as your boots on the
-          ground and our goal is to deliver results that affect your bottom
-          line.
+          Welcome to Memphis Turnkey Properties where we specialize in providing
+          turnkey, cash-flowing assets for buy-and-hold investors. With a
+          passion for real estate investment and a commitment to strive for
+          excellence, we offer a seamless experience for investors seeking to
+          grow their portfolios with stable, income-generating properties.   At
+        </h4>
+        <h4 className="text-center w-10/12 mx-auto tracking-wide font-medium text-muted-foreground leading-4 mb-12">
+          Memphis Turnkey Properties, we understand the unique needs of
+          buy-and-hold investors. Our dedicated team meticulously selects and
+          builds properties in prime locations with high rental demand and
+          strong appreciation potential. We handle every aspect of the
+          acquisition process, from property sourcing and renovation or
+          developing to tenant placement and property management, ensuring a
+          hassle-free investment journey for our clients.
+        </h4>
+        <h4 className="text-center w-10/12 mx-auto tracking-wide font-medium text-muted-foreground leading-4 mb-12">
+          Backed by years of industry expertise and a proven track record of
+          success, we take pride in empowering investors to achieve their
+          financial goals through real estate. Whether you're a seasoned
+          investor or new to the game, Memphis Turnkey Properties is your
+          trusted partner in building wealth through turnkey real estate
+          investments.   Experience the difference with Memphis Turnkey
+          Properties. Invest with confidence, invest for the future.
         </h4>
       </div>
     </div>
