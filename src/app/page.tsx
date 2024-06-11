@@ -43,7 +43,7 @@ export default function Home() {
                 <p className="">
                   Our turnkey business model allows you to grow your long term
                   real estate rental portfolio in the #1 rated cashflowing
-                  market in America
+                  market in America.
                 </p>
                 <p>
                   We prioritize you the client,We use a third party inspector of

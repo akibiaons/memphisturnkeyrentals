@@ -190,11 +190,15 @@ const DashboardNav = () => {
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
                     <Mail className="mr-2 h-4 w-4" />
-                    <span>Email</span>
+                    <Link href="mailto:strongerinvestmentsllc@gmail.com">
+                      <span>Email</span>
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <PhoneCall className="mr-2 h-4 w-4" />
-                    <span>Phone</span>
+                    <Link href="tel:+1(901)571-9382">
+                      <span>Phone</span>
+                    </Link>
                   </DropdownMenuItem>
                   <Link href="/contact">
                     <DropdownMenuItem>
