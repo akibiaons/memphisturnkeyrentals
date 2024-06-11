@@ -13,7 +13,7 @@ export default function ConctactPage() {
       <div>
         <Hero />
         <div className="max-w-7xl mx-auto my-16">
-          <div className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 gap-6 mx-12 md:gap-8 md:justify-around mt-10">
+          {/* <div className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 gap-6 mx-12 md:gap-8 md:justify-around mt-10">
             <div className="min-w-[170px] max-w-[300px] mx-auto h-full">
               <div className="border border-black p-4 h-full flex flex-col">
                 <div className="flex-grow">
@@ -86,18 +86,16 @@ export default function ConctactPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div>
           <Separator />
           <section className="my-20 mx-auto px-3">
             <div className="max-w-5xl mx-auto text-center mb-8">
-              <h2 className="text-4xl lg:text-6xl font-semibold">
-                Get a hold of us
-              </h2>
+              <h2 className="text-4xl lg:text-6xl font-semibold">Contact Us</h2>
               <p>
-                Select an inquiry type, leave your basic contact info, and well
-                get back to you.
+                Any questions? Concerns can be answered by our market experts
+                based in Memphis!
               </p>
             </div>
             <ContactForm />
@@ -125,32 +123,26 @@ export default function ConctactPage() {
                   loading="lazy"
                 ></iframe>
                 <div>
-                  <p className="text-white font-medium mb-4 text-xl tracking-wider border-r border-white ">
-                    Lestats on Park
+                  <p className="text-white font-medium mb-4 text-xl tracking-wider">
+                    Memphis Business Center
                   </p>
                   <p className="text-white font-light pr-3">
-                    Since we are solely remote work, we currently do not have a
-                    headquarters. However we do frequent this coffee shop. Feel
-                    free to stop by and tell them Art sent you!
+                    Feel free to drop by our office from the hours of 9am - 5pm
+                    mon - fri
                   </p>
-                  <br />
-                  <p className="text-white font-light pr-3">
+                  {/* <br /> */}
+                  {/* <p className="text-white font-light pr-3">
                     For those who we work with locally, this will typically be
                     our meet up location unless stated otherwise
-                  </p>
+                  </p> */}
                 </div>
               </div>
-              <div className="pl-10 pt-8 grid gap-20">
-                <div className="flex flex-col gap-2">
+              <div className="pl-10 grid">
+                <div className="flex flex-col gap-6">
                   <p className="text-white font-medium">
                     North America (Toll Free)
                   </p>
-                  <p className="text-white font-light">858-255-0306</p>
-                </div>
-                <div className="">
-                  <p className="text-white">
-                    We have language support for English and Spanish speakers!
-                  </p>
+                  <p className="text-white font-light">901-571-9382</p>
                 </div>
               </div>
             </div>

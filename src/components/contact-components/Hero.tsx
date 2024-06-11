@@ -48,7 +48,7 @@ export default function Hero() {
               Get in touch, learn more about what we offer.
             </Highlight>
             <div className="mt-4">
-              <DropdownMenu>
+              {/* <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button className="bg-blue-500/50">Contact</Button>
                 </DropdownMenuTrigger>
@@ -59,26 +59,26 @@ export default function Hero() {
                     <DropdownMenuItem>
                       <MessageSquareMore className="mr-2 h-4 w-4" />
                       <span>Message</span>
-                      {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                      {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> 
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <Mail className="mr-2 h-4 w-4" />
                       <span>Email</span>
-                      {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
+                      {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> 
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <PhoneCall className="mr-2 h-4 w-4" />
                       <span>Phone</span>
-                      {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
+                      {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> 
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <FaWhatsapp className="mr-2 h-4 w-4" />
                       <span>WhatsApp</span>
-                      {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> */}
+                      {/* <DropdownMenuShortcut>⌘K</DropdownMenuShortcut> 
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
-              </DropdownMenu>
+              </DropdownMenu> */}
             </div>
           </motion.h1>
         </HeroHighlight>
