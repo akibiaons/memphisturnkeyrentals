@@ -115,9 +115,9 @@ export default function ConctactPage() {
               </em>
             </div>
             <div className="mx-16 grid grid-cols-1 grid-rows-1 xl:grid-cols-2 gap-16 pb-16">
-              <div className="flex flex-col md:flex-row gap-6">
+              <div className="flex flex-col md:flex-row gap-8">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.2556724694364!2d-117.15128401448122!3d32.758949817037035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d954e1cf32b25f%3A0x19bfe09db0698b63!2sLestat&#39;s%20on%20Park!5e0!3m2!1sen!2sus!4v1685728916392!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6524.1209104403015!2d-90.05741184130859!3d35.15511299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d57fb0a736a201%3A0xd12514b55e244afc!2sBass%20Pro%20Shops%20at%20the%20Pyramid!5e0!3m2!1sen!2sus!4v1718127253450!5m2!1sen!2sus"
                   width="full"
                   height="full"
                   loading="lazy"
