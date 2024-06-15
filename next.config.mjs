@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "glorious-sparkle-1fb7e61245.strapiapp.comhttps",
+        hostname: "mtrbackend-production.up.railway.app",
       },
       {
         protocol: "https",
@@ -16,7 +16,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "glorious-sparkle-1fb7e61245.media.strapiapp.com",
+        hostname: "mtrbackend-production.up.railway.app.com",
       },
     ],
   },
