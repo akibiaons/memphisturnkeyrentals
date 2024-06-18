@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { fetchProject } from "@/data/fetchProjectId";
-import { ProjectListing } from "../components/ProjectListing";
+import ProjectListing from "../components/ProjectListing";
 import { ImagesSlider } from "@/components/ui/image-slider";
 import { motion } from "framer-motion";
 

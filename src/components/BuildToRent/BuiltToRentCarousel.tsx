@@ -31,7 +31,7 @@ interface BtrProperty {
 interface BuildToRentCarouselProps {
   activeProperty: BtrProperty | null;
   properties: BtrProperty[];
-  activePropertyId: string;
+  activePropertyId: number;
   onClose: () => void;
   onCardClick: (property: BtrProperty) => void;
 }
@@ -78,8 +78,8 @@ export default function BuildToRentCarousel({
   }, []);
 
   useEffect(() => {
-    if (activePropertyId && propertyRefs.current[activePropertyId]) {
-      propertyRefs.current[activePropertyId]?.scrollIntoView({
+    if (activePropertyId && propertyRefs.current[activePropertyId.toString()]) {
+      propertyRefs.current[activePropertyId.toString()]?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -154,7 +154,7 @@ export default function BuildToRentCarousel({
             <div
               key={property.id}
               ref={(el) => {
-                propertyRefs.current[property.id] = el;
+                propertyRefs.current[property.id.toString()] = el;
               }}
               className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] ${
                 property.id === activePropertyId
@@ -205,7 +205,7 @@ export default function BuildToRentCarousel({
           {activeProperty && (
             <div
               ref={(el) => {
-                propertyRefs.current[activeProperty.id] = el;
+                propertyRefs.current[activeProperty.id.toString()] = el;
               }}
               className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] border-4 border-blue-500`}
             >
@@ -256,7 +256,7 @@ export default function BuildToRentCarousel({
               <div
                 key={property.id}
                 ref={(el) => {
-                  propertyRefs.current[property.id] = el;
+                  propertyRefs.current[property.id.toString()] = el;
                 }}
                 className={`mb-4 flex flex-col bg-white p-4 shadow-lg rounded-lg min-h-[200px] lg:overflow-hidden ${
                   property.id === activePropertyId
@@ -288,7 +288,7 @@ export default function BuildToRentCarousel({
                   </p>
                   <p className="text-sm text-gray-600 underline">
                     <Link href={`/build-to-rent/${property.id}`}>
-                      {property.address}
+                      {property.propertyAddress}
                     </Link>
                   </p>
                   <p className="text-sm text-gray-600">

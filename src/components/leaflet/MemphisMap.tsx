@@ -39,7 +39,6 @@ const PropertyMap: React.FC = () => {
   const [activeProperty, setActiveProperty] = useState<Property | null>(null);
   const [properties, setProperties] = useState<Property[]>([]);
 
-  // UseEffect to store property data in this component
   useEffect(() => {
     const getProperties = async () => {
       const listings = await fetchListings();
@@ -48,21 +47,18 @@ const PropertyMap: React.FC = () => {
     getProperties();
   }, []);
 
-  // func 1
   const handleMarkerClick = (property: Property) => {
     setActiveProperty(property);
   };
 
-  // func 2
   const handleCardClick = (property: Property) => {
     setActiveProperty(property);
   };
 
-  // func 3
   const handleCloseCarousel = () => {
     setActiveProperty(null);
   };
-  // map options object, don't mess with pls
+
   const mapOptions = {
     center: [35.1495, -90.049] as [number, number],
     zoom: 13,
@@ -102,7 +98,7 @@ const PropertyMap: React.FC = () => {
             <PropertyCarousel
               activeProperty={activeProperty}
               properties={properties}
-              activePropertyId={activeProperty?.id || ""}
+              activePropertyId={activeProperty?.id || 0} // Ensure it's a number
               onClose={handleCloseCarousel}
               onCardClick={handleCardClick} // Pass the card click handler
             />

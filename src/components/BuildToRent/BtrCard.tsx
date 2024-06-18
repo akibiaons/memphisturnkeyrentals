@@ -1,10 +1,9 @@
-// Card for mobile devices which contains all the uploaded proeprty info on /build to rent
 import React from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 
 interface BtrProperty {
-  id: string;
+  id: number;
   images: string[];
   price: number;
   address: string;
@@ -21,18 +20,7 @@ interface BtrProperty {
   actualMonthlyRent: number;
   projectedMonthlyRent: number;
 }
-export interface BtrGridProps extends BtrProperty {
-  tags: {
-    text: string;
-    className: string;
-  }[];
-}
-
-interface BtrCardProps {
-  imageUrl: string;
-  imageAlt: string;
-  address: string;
-  price: number;
+export interface BtrCardProps extends BtrProperty {
   tags: {
     text: string;
     className: string;
@@ -40,12 +28,15 @@ interface BtrCardProps {
 }
 
 const BtrListingCard: React.FC<BtrCardProps> = ({
-  imageUrl,
-  imageAlt,
-  address,
+  images,
   price,
+  address,
+  beds,
+  baths,
+  sqft,
   tags,
 }) => {
+  const imageUrl = images.length > 0 ? images[0] : "";
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -57,7 +48,7 @@ const BtrListingCard: React.FC<BtrCardProps> = ({
         {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={imageAlt}
+            alt={`Image of ${address}`}
             layout="fill"
             className="rounded-t-md object-cover"
           />
@@ -76,19 +67,19 @@ const BtrListingCard: React.FC<BtrCardProps> = ({
           <div className="flex flex-row items-center gap-5 mb-1 text-muted-foreground">
             <div>
               <p>
-                <span className="mr-1">2</span>
+                <span className="mr-1">{beds}</span>
                 <span>Bed</span>
               </p>
             </div>
             <div>
               <p>
-                <span className="mr-1">1</span>
+                <span className="mr-1">{baths}</span>
                 <span>Bath</span>
               </p>
             </div>
             <div>
               <p>
-                <span className="mr-1">900</span>
+                <span className="mr-1">{sqft.toLocaleString()}</span>
                 <span>Sqft</span>
               </p>
             </div>

@@ -31,7 +31,7 @@ interface Property {
 interface PropertyCarouselProps {
   activeProperty: Property | null;
   properties: Property[];
-  activePropertyId: string;
+  activePropertyId: number; // Ensure it's a number
   onClose: () => void;
   onCardClick: (property: Property) => void; // Add the card click handler
 }

@@ -108,7 +108,7 @@ const PropertyMap: React.FC = () => {
             <BuildToRentCarousel
               activeProperty={activeProperty}
               properties={properties}
-              activePropertyId={activeProperty?.id || ""}
+              activePropertyId={activeProperty?.id || -1} // Ensure it's a number
               onClose={handleCloseCarousel}
               onCardClick={handleCardClick} // Pass the card click handler
             />
