@@ -23,22 +23,22 @@ import {
 import Image from "next/image";
 
 interface BtrProperty {
-  id: string;
-  images: string[];
-  price: number;
-  address: string;
+  id: number;
+  propertyAddress: string;
+  latitude: number;
+  longitude: number;
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
-  description: string;
-  propertyType: string;
+  price: number;
+  propertyDesc: string;
   yearBuilt: number;
-  occupancyStatus: string;
-  listingStatus: string;
-  actualMonthlyRent: number;
-  projectedMonthlyRent: number;
+  occupancy: string;
+  propertyStatus: string;
+  actualRent: number;
+  targetMonthlyRent: number;
+  propertyType: string;
+  images: string[];
 }
 
 interface BtrListingProps {
@@ -48,11 +48,11 @@ interface BtrListingProps {
 export function BtrListingId({ property }: BtrListingProps) {
   const getStatusClass = (status: string) => {
     switch (status.toLowerCase()) {
-      case "available":
+      case "Available":
         return "bg-green-600";
-      case "sold":
+      case "Sold":
         return "bg-red-600";
-      case "under contract":
+      case "Under contract":
         return "bg-yellow-500";
       default:
         return "bg-gray-400";
@@ -85,20 +85,20 @@ export function BtrListingId({ property }: BtrListingProps) {
           <div className="flex flex-col md:grid md:gap-4 lg:flex">
             <div className="pb-0">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                {property.address}
+                {property.propertyAddress}
               </h1>
               <p className="mt-4 text-gray-500 dark:text-gray-400">
-                {property.description}
+                {property.propertyDesc}
               </p>
             </div>
             <div className="grid space-y-4">
               <div className="flex flex-row items-center gap-2">
                 <div
                   className={`h-3 w-3 rounded-full ${getStatusClass(
-                    property.listingStatus
+                    property.propertyStatus
                   )}`}
                 ></div>
-                <p className="text-md">{property.listingStatus}</p>
+                <p className="text-md">{property.propertyStatus}</p>
               </div>
               <div className="flex flex-row">
                 <h2 className="text-xl font-bold">
@@ -155,7 +155,7 @@ export function BtrListingId({ property }: BtrListingProps) {
                   <BadgeDollarSign className="h-7 w-7" />
                   <div className="ml-2">
                     <p className="font-semibold">
-                      {property.actualMonthlyRent.toLocaleString()}
+                      {property.actualRent.toLocaleString()}
                     </p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Actual Rent
@@ -166,7 +166,7 @@ export function BtrListingId({ property }: BtrListingProps) {
                   <BadgeDollarSign className="h-7 w-7" />
                   <div className="ml-2">
                     <p className="font-semibold">
-                      {property.projectedMonthlyRent.toLocaleString()}
+                      {property.targetMonthlyRent.toLocaleString()}
                     </p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Projected Rent
@@ -215,7 +215,7 @@ export function BtrListingId({ property }: BtrListingProps) {
                 <span className="font-medium text-gray-900 dark:text-gray-50">
                   Occupancy Status
                 </span>
-                <span>{property.occupancyStatus}</span>
+                <span>{property.occupancy}</span>
               </div>
             </div>
           </div>

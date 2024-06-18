@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { fetchProperty } from "@/data/fetchProperty"; // Adjust the import path as needed
-import { ProductListing } from "@/components/product-listing";
+import { fetchProject } from "@/data/fetchProjectId";
+import { ProjectListing } from "../components/ProjectListing";
 import { ImagesSlider } from "@/components/ui/image-slider";
 import { motion } from "framer-motion";
 
-interface Property {
+interface Project {
   id: number;
   images: string[];
   price: number;
@@ -15,8 +15,8 @@ interface Property {
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
+  latitude: number | null;
+  longitude: number | null;
   description: string;
   propertyType: string;
   yearBuilt: number;
@@ -26,21 +26,24 @@ interface Property {
   projectedMonthlyRent: number;
 }
 
-const Listing = ({ params }: { params: { listingId: string } }) => {
-  const { listingId } = params;
-  const [property, setProperty] = useState<Property | null>(null);
+const Project = ({ params }: { params: { projectId: string } }) => {
+  // Hooks used for calling the state in the page based on the project data being fetched
+  const { projectId } = params;
+  const [project, setProject] = useState<Project | null>(null);
 
+  // use effect to store fetched projects
   useEffect(() => {
-    const getProperty = async () => {
-      const fetchedProperty = await fetchProperty(listingId);
-      console.log("Fetched Property:", fetchedProperty); // Log the fetched property details
-      setProperty(fetchedProperty);
+    const getProject = async () => {
+      const fetchedProject = await fetchProject(projectId);
+      console.log("Fetched project:", fetchedProject);
+      setProject(fetchedProject);
     };
-    getProperty();
-  }, [listingId]);
+    getProject();
+  }, [projectId]);
 
-  if (!property) {
-    return <div>Loading property...</div>;
+  // Conditional to throw out a "loading" screen if projects have not yet rendered
+  if (!project) {
+    return <div>Loading Projects...</div>;
   }
 
   return (
@@ -48,7 +51,7 @@ const Listing = ({ params }: { params: { listingId: string } }) => {
       <section className="w-full">
         <ImagesSlider
           className="lg:h-[40rem] h-[15rem]"
-          images={property.images}
+          images={project.images}
         >
           <motion.div
             initial={{
@@ -65,16 +68,16 @@ const Listing = ({ params }: { params: { listingId: string } }) => {
             className="z-50 flex flex-col justify-center items-center"
           >
             <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-black to-neutral-400 py-4">
-              {property.address}
+              {project.address}
             </motion.p>
           </motion.div>
         </ImagesSlider>
       </section>
       <section className="mx-auto max-w-7xl my-16">
-        <ProductListing property={property} />
+        <ProjectListing project={project} />
       </section>
     </div>
   );
 };
 
-export default Listing;
+export default Project;

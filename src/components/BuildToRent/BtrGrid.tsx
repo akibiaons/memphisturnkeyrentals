@@ -6,22 +6,22 @@ import { fetchBtrListings } from "@/data/fetchbtr";
 
 // Interface of property as this is the data type being passed down from the strapi api url
 export interface BtrProperty {
-  id: string;
-  images: string[];
-  price: number;
-  address: string;
+  id: number;
+  propertyAddress: string;
+  latitude: number;
+  longitude: number;
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
-  description: string;
-  propertyType: string;
+  price: number;
+  propertyDesc: string;
   yearBuilt: number;
-  occupancyStatus: string;
-  listingStatus: string;
-  actualMonthlyRent: number;
-  projectedMonthlyRent: number;
+  occupancy: string;
+  propertyStatus: string;
+  actualRent: number;
+  targetMonthlyRent: number;
+  propertyType: string;
+  images: string[];
 }
 
 //  Not too sure what this does and why it is a className? Is this in charge of styling??

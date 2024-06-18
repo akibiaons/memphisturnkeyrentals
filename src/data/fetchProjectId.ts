@@ -1,6 +1,6 @@
 import axios from "axios";
 
-interface Property {
+interface Project {
   id: number;
   images: string[];
   price: number;
@@ -8,8 +8,8 @@ interface Property {
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
+  latitude: number | null;
+  longitude: number | null;
   description: string;
   propertyType: string;
   yearBuilt: number;
@@ -19,40 +19,45 @@ interface Property {
   projectedMonthlyRent: number;
 }
 
-export const fetchProperty = async (id: string): Promise<Property | null> => {
+export const fetchProject = async (id: string): Promise<Project | null> => {
   try {
-    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/listings/${id}?populate=*`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects/${id}?populate=*`;
     const response = await axios.get(apiUrl);
+
     if (response.data && response.data.data) {
       const attributes = response.data.data.attributes || {};
-      const propertyImg = attributes.propertyImg?.data || [];
+      const imagesData = attributes.propertyImg?.data || [];
+
+      const images = imagesData.map((img: any) => {
+        const url = img.attributes.url;
+        return url.startsWith("http")
+          ? url
+          : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
+      });
+
       return {
         id: response.data.data.id,
         address: attributes.propertyAddress || "N/A",
-        images: propertyImg.map((img: any) =>
-          img.attributes.url.startsWith("http")
-            ? img.attributes.url
-            : `${process.env.NEXT_PUBLIC_STRAPI_URL}${img.attributes.url}`
-        ),
+        images,
         price: attributes.propertyPrice || 0,
         beds: attributes.beds || 0,
         baths: attributes.baths || 0,
         sqft: attributes.sqft || 0,
-        latitude: attributes.latitude || 0,
-        longitude: attributes.longitude || 0,
+        latitude: attributes.latitude || null,
+        longitude: attributes.longitude || null,
         description: attributes.propertyDesc || "",
         propertyType: attributes.propertyType || "",
         yearBuilt: attributes.yearBuilt || 0,
-        occupancyStatus: attributes.propertyOccupancy || "",
+        occupancyStatus: attributes.occupancy || "",
         listingStatus: attributes.listingStatus || "",
-        actualMonthlyRent: attributes.actualMonthlyRent || 0,
-        projectedMonthlyRent: attributes.projectedMonthlyRent || 0,
+        actualMonthlyRent: attributes.actualRent || 0,
+        projectedMonthlyRent: attributes.projectedRent || 0,
       };
     } else {
       throw new Error("Invalid API response structure");
     }
   } catch (error) {
-    console.error("Failed to fetch property:", error);
+    console.error("Failed to fetch project:", error);
     return null;
   }
 };

@@ -10,22 +10,22 @@ import {
 } from "@/components/ui/carousel";
 
 interface BtrProperty {
-  id: string;
-  images: string[];
-  price: number;
-  address: string;
+  id: number;
+  propertyAddress: string;
+  latitude: number;
+  longitude: number;
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
-  description: string;
-  propertyType: string;
+  price: number;
+  propertyDesc: string;
   yearBuilt: number;
-  occupancyStatus: string;
-  listingStatus: string;
-  actualMonthlyRent: number;
-  projectedMonthlyRent: number;
+  occupancy: string;
+  propertyStatus: string;
+  actualRent: number;
+  targetMonthlyRent: number;
+  propertyType: string;
+  images: string[];
 }
 
 interface BuildToRentCarouselProps {
@@ -134,7 +134,7 @@ export default function BuildToRentCarousel({
               </p>
               <p className="text-sm text-gray-600 underline">
                 <Link href={`/build-to-rent/${activeProperty.id}`}>
-                  {activeProperty?.address || "Address not available"}
+                  {activeProperty?.propertyAddress || "Address not available"}
                 </Link>
               </p>
               <p className="text-sm text-gray-600">
@@ -186,7 +186,7 @@ export default function BuildToRentCarousel({
                 </p>
                 <p className="text-sm text-gray-600 underline">
                   <Link href={`/build-to-rent/${property.id}`}>
-                    {property.address}
+                    {property.propertyAddress}
                   </Link>
                 </p>
                 <p className="text-sm text-gray-600">
@@ -236,7 +236,7 @@ export default function BuildToRentCarousel({
                 </p>
                 <p className="text-sm text-gray-600 underline">
                   <Link href={`/build-to-rent/${activeProperty.id}`}>
-                    {activeProperty?.address || "Address not available"}
+                    {activeProperty?.propertyAddress || "Address not available"}
                   </Link>
                 </p>
                 <p className="text-sm text-gray-600">

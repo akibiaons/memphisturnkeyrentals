@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 export interface Projects {
-  id: string;
+  id: number;
   images: string[];
   price: number;
   address: string;
@@ -28,6 +29,7 @@ export interface PropertyCardProperty extends Projects {
 }
 
 interface PropertyCardProps {
+  id: number; // Add the id prop here
   imageUrl: string;
   imageAlt: string;
   address: string;
@@ -36,21 +38,25 @@ interface PropertyCardProps {
     text: string;
     className: string;
   }[];
+  beds: number;
+  baths: number;
+  sqft: number;
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
+  id, // Destructure the id prop here
   imageUrl,
   imageAlt,
   address,
   price,
   tags,
+  beds,
+  baths,
+  sqft,
 }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    // These options are needed to round to whole numbers if that's what you want.
-    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
 
   return (
@@ -73,19 +79,19 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
             <div className="flex flex-row items-center gap-5 mb-1 text-muted-foreground ">
               <div>
                 <p>
-                  <span className=" mr-1">2</span>
+                  <span className=" mr-1">{beds}</span>
                   <span className="font-">Bed</span>
                 </p>
               </div>
               <div>
                 <p>
-                  <span className=" mr-1">1</span>
+                  <span className=" mr-1">{baths}</span>
                   <span className="font-">Bath</span>
                 </p>
               </div>
               <div>
                 <p>
-                  <span className=" mr-1">900</span>
+                  <span className=" mr-1">{sqft.toLocaleString()}</span>
                   <span className="font-">Sqft</span>
                 </p>
               </div>
@@ -93,10 +99,13 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </div>
         </div>
         <div className="text-muted-foreground text-left flex flex-row flex-wrap items-start gap-2 mb-2 cursor-default">
-          <p className="text-md cursor-pointer hover:underline tracking-normal">
+          <Link href={`/projects/${id}`}>
             {" "}
-            {address}
-          </p>
+            {/* Use the id prop here */}
+            <p className="text-md cursor-pointer hover:underline tracking-normal">
+              {address}
+            </p>
+          </Link>
           {tags.map((tag, index) => (
             <Badge
               key={index}

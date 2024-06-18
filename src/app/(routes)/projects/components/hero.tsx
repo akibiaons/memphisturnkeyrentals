@@ -35,7 +35,7 @@ export default function Hero() {
               Get an early view
             </Highlight>
             <div className="mt-4">
-              <Button className="bg-blue-500">Property Listings</Button>
+              {/* <Button className="bg-blue-500">Property Listings</Button> */}
             </div>
           </motion.h1>
         </HeroHighlight>

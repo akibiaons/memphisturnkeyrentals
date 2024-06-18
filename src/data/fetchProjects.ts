@@ -1,7 +1,7 @@
 import axios from "axios";
 
 interface Projects {
-  id: string;
+  id: number;
   images: string[];
   price: number;
   address: string;
@@ -44,13 +44,13 @@ export const fetchProjects = async (): Promise<Projects[]> => {
           beds: attributes.beds || 0,
           baths: attributes.baths || 0,
           sqft: attributes.sqft || 0,
-          latitude: attributes.lat || null,
+          latitude: attributes.latitude || null,
           longitude: attributes.longitude || null,
           description: attributes.propertyDesc || "",
           propertyType: attributes.propertyType || "",
           yearBuilt: attributes.yearBuilt || 0,
           occupancyStatus: attributes.occupancy || "",
-          listingStatus: attributes.ListedStatus || "",
+          listingStatus: attributes.listingStatus || "",
           actualMonthlyRent: attributes.actualRent || 0,
           projectedMonthlyRent: attributes.projectedRent || 0,
         };

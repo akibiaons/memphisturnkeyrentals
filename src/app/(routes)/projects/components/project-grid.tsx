@@ -3,7 +3,7 @@ import PropertyCard from "./project-card";
 import { fetchProjects } from "@/data/fetchProjects";
 
 interface Projects {
-  id: string;
+  id: number;
   images: string[];
   price: number;
   address: string;
@@ -28,7 +28,7 @@ interface ProjectGridProps {
 const ProjectGrid: React.FC<ProjectGridProps> = ({ className }) => {
   const [properties, setProperties] = useState<Projects[]>([]);
   const gridRef = useRef<HTMLDivElement>(null);
-  // useEffect to fetch the data
+
   useEffect(() => {
     const getProperties = async () => {
       const projects = await fetchProjects();
@@ -36,8 +36,8 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ className }) => {
       setProperties(projects);
     };
     getProperties();
-  });
-  // part of the ui component here
+  }, []);
+
   const third = Math.ceil(properties.length / 3);
   const firstPart = properties.slice(0, third);
   const secondPart = properties.slice(third, 2 * third);

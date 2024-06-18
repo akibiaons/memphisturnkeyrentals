@@ -8,22 +8,22 @@ import { ImagesSlider } from "@/components/ui/image-slider";
 import { motion } from "framer-motion";
 
 interface BtrProperty {
-  id: string;
-  images: string[];
-  price: number;
-  address: string;
+  id: number;
+  propertyAddress: string;
+  latitude: number;
+  longitude: number;
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
-  description: string;
-  propertyType: string;
+  price: number;
+  propertyDesc: string;
   yearBuilt: number;
-  occupancyStatus: string;
-  listingStatus: string;
-  actualMonthlyRent: number;
-  projectedMonthlyRent: number;
+  occupancy: string;
+  propertyStatus: string;
+  actualRent: number;
+  targetMonthlyRent: number;
+  propertyType: string;
+  images: string[];
 }
 
 const BtrListing = ({ params }: { params: { buildtorentId: string } }) => {
@@ -65,7 +65,7 @@ const BtrListing = ({ params }: { params: { buildtorentId: string } }) => {
             className="z-50 flex flex-col justify-center items-center"
           >
             <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-black to-neutral-400 py-4">
-              {property.address}
+              {property.propertyAddress}
             </motion.p>
           </motion.div>
         </ImagesSlider>

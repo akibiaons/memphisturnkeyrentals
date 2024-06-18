@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-interface Property {
+interface Project {
   id: number;
   images: string[];
   price: number;
@@ -41,19 +41,19 @@ interface Property {
   projectedMonthlyRent: number;
 }
 
-interface ProductListingProps {
-  property: Property;
+interface ProjectListingProps {
+  project: Project;
 }
 
-export function ProductListing({ property }: ProductListingProps) {
+export function ProjectListing({ project }: ProjectListingProps) {
   // Determine the class for the status dot based on listingStatus
   const getStatusClass = (status: string) => {
     switch (status.toLowerCase()) {
-      case "available":
+      case "Available":
         return "bg-green-600";
-      case "sold":
+      case "Sold":
         return "bg-red-600";
-      case "under contract":
+      case "Under contract":
         return "bg-yellow-500";
       default:
         return "bg-gray-400";
@@ -66,7 +66,7 @@ export function ProductListing({ property }: ProductListingProps) {
         <div className="md:grid md:gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
           <div className="grid gap-4">
             <div className="flex flex-row mb-12 md:grid grid-cols-3 gap-4">
-              {property.images.map((image, index) => (
+              {project.images.map((image, index) => (
                 <button
                   key={index}
                   className="rounded-lg border border-gray-200 transition-colors hover:border-gray-900 dark:border-gray-800 dark:hover:border-gray-50"
@@ -86,45 +86,45 @@ export function ProductListing({ property }: ProductListingProps) {
           <div className="flex flex-col md:grid md:gap-4 lg:flex">
             <div className="pb-0">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                {property.address}
+                {project.address}
               </h1>
               <p className="mt-4 text-gray-500 dark:text-gray-400">
-                {property.description}
+                {project.description}
               </p>
             </div>
             <div className="grid space-y-4">
               <div className="flex flex-row items-center gap-2">
                 <div
                   className={`h-3 w-3 rounded-full ${getStatusClass(
-                    property.listingStatus
+                    project.listingStatus
                   )}`}
                 ></div>
-                <p className="text-md">{property.listingStatus}</p>
+                <p className="text-md">{project.listingStatus}</p>
               </div>
               <div className="flex flex-row">
                 <h2 className="text-xl font-bold">
                   <span>$</span>
-                  <span>{property.price.toLocaleString()}</span>
+                  <span>{project.price.toLocaleString()}</span>
                 </h2>
               </div>
               <div>
                 <div className="flex flex-row items-center gap-5">
                   <div>
                     <p>
-                      <span className="font-bold mr-1">{property.beds}</span>
+                      <span className="font-bold mr-1">{project.beds}</span>
                       <span className="font-normal">Bed</span>
                     </p>
                   </div>
                   <div>
                     <p>
-                      <span className="font-bold mr-1">{property.baths}</span>
+                      <span className="font-bold mr-1">{project.baths}</span>
                       <span className="font-normal">Bath</span>
                     </p>
                   </div>
                   <div>
                     <p>
                       <span className="font-bold mr-1">
-                        {property.sqft.toLocaleString()}
+                        {project.sqft.toLocaleString()}
                       </span>
                       <span className="font-normal">Sqft</span>
                     </p>
@@ -135,7 +135,7 @@ export function ProductListing({ property }: ProductListingProps) {
                 <div className="flex flex-row items-center">
                   <Home className="h-7 w-7" />
                   <div className="ml-2">
-                    <p className="font-semibold">{property.propertyType}</p>
+                    <p className="font-semibold">{project.propertyType}</p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Home Type
                     </p>
@@ -144,7 +144,7 @@ export function ProductListing({ property }: ProductListingProps) {
                 <div className="flex flex-row items-center">
                   <CalendarClock className="h-7 w-7" />
                   <div className="ml-2">
-                    <p className="font-semibold">{property.yearBuilt}</p>
+                    <p className="font-semibold">{project.yearBuilt}</p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Year Built
                     </p>
@@ -156,7 +156,7 @@ export function ProductListing({ property }: ProductListingProps) {
                   <BadgeDollarSign className="h-7 w-7" />
                   <div className="ml-2">
                     <p className="font-semibold">
-                      {property.actualMonthlyRent.toLocaleString()}
+                      {project.actualMonthlyRent.toLocaleString()}
                     </p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Actual Rent
@@ -167,7 +167,7 @@ export function ProductListing({ property }: ProductListingProps) {
                   <BadgeDollarSign className="h-7 w-7" />
                   <div className="ml-2">
                     <p className="font-semibold">
-                      {property.projectedMonthlyRent.toLocaleString()}
+                      {project.projectedMonthlyRent.toLocaleString()}
                     </p>
                     <p className="text-gray-500 dark:text-gray-400">
                       Projected Rent
@@ -198,25 +198,25 @@ export function ProductListing({ property }: ProductListingProps) {
                 <span className="font-medium text-gray-900 dark:text-gray-50">
                   Bedrooms
                 </span>
-                <span>{property.beds}</span>
+                <span>{project.beds}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
                   Bathrooms
                 </span>
-                <span>{property.baths}</span>
+                <span>{project.baths}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
                   Property Type
                 </span>
-                <span>{property.propertyType}</span>
+                <span>{project.propertyType}</span>
               </div>
               <div className="grid grid-cols-[150px_1fr] items-start gap-4">
                 <span className="font-medium text-gray-900 dark:text-gray-50">
                   Occupancy Status
                 </span>
-                <span>{property.occupancyStatus}</span>
+                <span>{project.occupancyStatus}</span>
               </div>
             </div>
           </div>

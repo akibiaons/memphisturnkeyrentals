@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 
 interface Property {
-  id: string;
+  id: number;
   images: string[];
   price: number;
   address: string;

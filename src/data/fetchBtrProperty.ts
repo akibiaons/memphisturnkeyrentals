@@ -1,22 +1,22 @@
 import axios from "axios";
 
 interface BtrProperty {
-  id: string;
-  images: string[];
-  price: number;
-  address: string;
+  id: number;
+  propertyAddress: string;
+  latitude: number;
+  longitude: number;
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
-  description: string;
-  propertyType: string;
+  price: number;
+  propertyDesc: string;
   yearBuilt: number;
-  occupancyStatus: string;
-  listingStatus: string;
-  actualMonthlyRent: number;
-  projectedMonthlyRent: number;
+  occupancy: string;
+  propertyStatus: string;
+  actualRent: number;
+  targetMonthlyRent: number;
+  propertyType: string;
+  images: string[];
 }
 
 export const fetchBtrProperty = async (
@@ -30,25 +30,25 @@ export const fetchBtrProperty = async (
       const propertyImg = attributes.propertyImg?.data || [];
       return {
         id: response.data.data.id,
-        address: attributes.propertyAddress || "N/A",
         images: propertyImg.map((img: any) =>
           img.attributes.url.startsWith("http")
             ? img.attributes.url
             : `${process.env.NEXT_PUBLIC_STRAPI_URL}${img.attributes.url}`
         ),
+        propertyAddress: attributes.propertyAddress || "N/A",
         price: attributes.price || 0,
         beds: attributes.beds || 0,
         baths: attributes.baths || 0,
         sqft: attributes.sqft || 0,
         latitude: attributes.latitude || 0,
         longitude: attributes.longitude || 0,
-        description: attributes.propertyDesc || "",
+        propertyDesc: attributes.propertyDesc || "",
         propertyType: attributes.propertyType || "",
         yearBuilt: attributes.yearBuilt || 0,
-        occupancyStatus: attributes.occupancy || "",
-        listingStatus: attributes.propertyStatus || "",
-        actualMonthlyRent: attributes.actualRent || 0,
-        projectedMonthlyRent: attributes.targetMonthlyRent || 0,
+        occupancy: attributes.occupancy || "",
+        propertyStatus: attributes.propertyStatus || "",
+        actualRent: attributes.actualRent || 0,
+        targetMonthlyRent: attributes.targetMonthlyRent || 0,
       };
     } else {
       throw new Error("Invalid API response structure");

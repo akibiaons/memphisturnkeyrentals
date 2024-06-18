@@ -1,7 +1,7 @@
 import axios from "axios";
 
 interface Property {
-  id: string;
+  id: number;
   images: string[];
   price: number;
   address: string;
@@ -21,7 +21,7 @@ interface Property {
 
 export const fetchListings = async (): Promise<Property[]> => {
   try {
-    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/forpurchases?populate=*`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/listings?populate=*`;
     const response = await axios.get(apiUrl);
     if (response.data && response.data.data) {
       return response.data.data.map((item: any) => {
@@ -44,10 +44,10 @@ export const fetchListings = async (): Promise<Property[]> => {
           description: attributes.propertyDesc || "",
           propertyType: attributes.propertyType || "",
           yearBuilt: attributes.yearBuilt || 0,
-          occupancyStatus: attributes.propertyOccupancy || "",
+          occupancyStatus: attributes.occupancy || "",
           listingStatus: attributes.listingStatus || "",
-          actualMonthlyRent: attributes.actualMonthlyRent || 0,
-          projectedMonthlyRent: attributes.projectedMonthlyRent || 0,
+          actualMonthlyRent: attributes.actualRent || 0,
+          projectedMonthlyRent: attributes.projectedRent || 0,
         };
       });
     } else {

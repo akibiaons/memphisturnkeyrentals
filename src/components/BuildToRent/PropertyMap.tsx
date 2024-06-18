@@ -10,22 +10,22 @@ import { fetchBtrListings } from "@/data/fetchbtr";
 import BuildToRentCarousel from "../BuildToRent/BuiltToRentCarousel";
 
 interface BtrProperty {
-  id: string;
-  images: string[];
-  price: number;
-  address: string;
+  id: number;
+  propertyAddress: string;
+  latitude: number;
+  longitude: number;
   beds: number;
   baths: number;
   sqft: number;
-  latitude: number;
-  longitude: number;
-  description: string;
-  propertyType: string;
+  price: number;
+  propertyDesc: string;
   yearBuilt: number;
-  occupancyStatus: string;
-  listingStatus: string;
-  actualMonthlyRent: number;
-  projectedMonthlyRent: number;
+  occupancy: string;
+  propertyStatus: string;
+  actualRent: number;
+  targetMonthlyRent: number;
+  propertyType: string;
+  images: string[];
 }
 
 const propertyMarker = (color = "red") =>
@@ -98,7 +98,7 @@ const PropertyMap: React.FC = () => {
                   },
                 }}
               >
-                <Popup className="hidden">{property.address}</Popup>
+                <Popup className="hidden">{property.propertyAddress}</Popup>
               </Marker>
             ))}
           </MapContainer>
@@ -134,7 +134,7 @@ const PropertyMap: React.FC = () => {
                 },
               }}
             >
-              <Popup className="hidden">{property.address}</Popup>
+              <Popup className="hidden">{property.propertyAddress}</Popup>
             </Marker>
           ))}
         </MapContainer>
