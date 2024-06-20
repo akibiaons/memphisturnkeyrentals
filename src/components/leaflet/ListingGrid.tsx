@@ -5,7 +5,7 @@ import ListingCard from "./ListingCard";
 import { fetchListings } from "@/data/fetchListings";
 
 export interface Property {
-  id: number; // Change this to number
+  id: number;
   images: string[];
   price: number;
   address: string;
