@@ -21,7 +21,7 @@ export default function page() {
         </div>
       </div>
       {/* Mobile version which just has the property cards from carousel component */}
-      <div className="lg:hidden block">
+      <div className="lg:hidden block w-[90%] mx-auto">
         <BtrGrid />
       </div>
     </div>
