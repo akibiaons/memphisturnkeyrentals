@@ -16,7 +16,7 @@ const ListingPage = () => {
           <MemphisMap />
         </div>
       </div>
-      <div className="lg:hidden block overflow-y-auto h-screen">
+      <div className="lg:hidden block w-[90%]">
         <ListingGrid />
       </div>
     </div>
