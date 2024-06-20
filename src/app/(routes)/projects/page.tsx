@@ -18,9 +18,9 @@ export default function page() {
             <div className="px-1">
               <ProjectGrid />
             </div>
-            <div className="my-5 text-lg text-blue-300 cursor-pointer font-normal hover:underline ">
+            {/* <div className="my-5 text-lg text-blue-300 cursor-pointer font-normal hover:underline ">
               <p>See all 34 houses for sale</p>
-            </div>
+            </div> */}
           </div>
         </div>
         <Separator />
