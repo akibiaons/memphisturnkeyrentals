@@ -13,7 +13,7 @@ const BtrGrid = dynamic(() => import("@/components/BuildToRent/BtrGrid"), {
 
 export default function page() {
   return (
-    <div>
+    <div className="overflow-auto">
       <div className="hidden lg:block">
         {/* Map component */}
         <div className="w-[100%] lg:max-w-8xl lg:max-h-[100vh]">
