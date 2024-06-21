@@ -55,7 +55,6 @@ export default function PropertyCarousel({
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndY.current = e.targetTouches[0].clientY;
-    e.preventDefault();
   };
 
   const handleTouchEnd = () => {
@@ -65,17 +64,6 @@ export default function PropertyCarousel({
       setHeight("25%");
     }
   };
-
-  useEffect(() => {
-    const handleTouchMoveGlobal = (e: TouchEvent) => e.preventDefault();
-    document.addEventListener("touchmove", handleTouchMoveGlobal, {
-      passive: false,
-    });
-
-    return () => {
-      document.removeEventListener("touchmove", handleTouchMoveGlobal);
-    };
-  }, []);
 
   useEffect(() => {
     if (activePropertyId && propertyRefs.current[activePropertyId]) {

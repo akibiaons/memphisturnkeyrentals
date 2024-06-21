@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -97,13 +97,13 @@ const PropertyMap: React.FC = () => {
           <PropertyCarousel
             activeProperty={activeProperty}
             properties={properties}
-            activePropertyId={activeProperty?.id || 0} // Ensure it's a number
+            activePropertyId={activeProperty?.id || 0}
             onClose={handleCloseCarousel}
-            onCardClick={handleCardClick} // Pass the card click handler
+            onCardClick={handleCardClick}
           />
         </div>
       </div>
-      <div className="lg:hidden block overflow-y-auto h-screen">
+      <div className="lg:hidden block">
         <MapContainer
           style={{ height: "100vh", width: "100%", zIndex: 0 }}
           {...mapOptions}
@@ -129,10 +129,10 @@ const PropertyMap: React.FC = () => {
         {activeProperty && (
           <PropertyCarousel
             activeProperty={activeProperty}
-            properties={properties} // Pass all properties for desktop
+            properties={properties}
             activePropertyId={activeProperty.id}
             onClose={handleCloseCarousel}
-            onCardClick={handleCardClick} // Pass the card click handler
+            onCardClick={handleCardClick}
           />
         )}
       </div>

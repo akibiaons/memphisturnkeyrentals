@@ -10,7 +10,7 @@ const ListingGrid = dynamic(() => import("@/components/leaflet/ListingGrid"), {
 
 const ListingPage = () => {
   return (
-    <div>
+    <div className="overflow-auto">
       <div className="hidden lg:block">
         <div className="w-[100%] lg:max-w-8xl lg:max-h-[100vh]">
           <MemphisMap />
