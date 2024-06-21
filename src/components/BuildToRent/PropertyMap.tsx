@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 
 // Import for btr listings
 import { fetchBtrListings } from "@/data/fetchbtr";
-import BuildToRentCarousel from "../BuildToRent/BuiltToRentCarousel";
+import BuildToRentCarousel from "@/components/BuildToRent/BuiltToRentCarousel";
 
 interface BtrProperty {
   id: number;
@@ -37,44 +37,52 @@ const propertyMarker = (color = "red") =>
   });
 
 const PropertyMap: React.FC = () => {
-  // Hook declarations for setting active property and highlighting on desktop with useRef
   const [activeProperty, setActiveProperty] = useState<BtrProperty | null>(
     null
   );
   const [properties, setProperties] = useState<BtrProperty[]>([]);
 
-  // New useEffect to just store the data
   useEffect(() => {
     const getProperties = async () => {
       const btrListings = await fetchBtrListings();
-      console.log("Fetched property:", btrListings);
       setProperties(btrListings);
     };
     getProperties();
   }, []);
 
-  // func 1
   const handleMarkerClick = (property: BtrProperty) => {
     setActiveProperty(property);
   };
 
-  // func 2
   const handleCardClick = (property: BtrProperty) => {
     setActiveProperty(property);
   };
 
-  // func 3
   const handleCloseCarousel = () => {
     setActiveProperty(null);
   };
 
-  // map settings object, don't mess with pls
   const mapOptions = {
     center: [35.1495, -90.049] as [number, number],
     zoom: 13,
     maxZoom: 18,
     minZoom: 5,
   };
+
+  // Function to prevent touch move on desktop only
+  useEffect(() => {
+    const handleTouchMoveGlobal = (e: TouchEvent) => e.preventDefault();
+
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      document.addEventListener("touchmove", handleTouchMoveGlobal, {
+        passive: false,
+      });
+    }
+
+    return () => {
+      document.removeEventListener("touchmove", handleTouchMoveGlobal);
+    };
+  }, []);
 
   return (
     <div>
@@ -108,9 +116,9 @@ const PropertyMap: React.FC = () => {
             <BuildToRentCarousel
               activeProperty={activeProperty}
               properties={properties}
-              activePropertyId={activeProperty?.id || -1} // Ensure it's a number
+              activePropertyId={activeProperty?.id || -1}
               onClose={handleCloseCarousel}
-              onCardClick={handleCardClick} // Pass the card click handler
+              onCardClick={handleCardClick}
             />
           </div>
         </div>
