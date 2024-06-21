@@ -13,14 +13,14 @@ const BtrGrid = dynamic(() => import("@/components/BuildToRent/BtrGrid"), {
 
 export default function page() {
   return (
-    <div className="overflow-auto h-screen">
-      {" "}
-      {/* Ensure the parent has overflow-auto */}
+    <div className="overflow-auto min-h-screen">
       <div className="hidden lg:block">
+        {/* Map component */}
         <div className="w-[100%] lg:max-w-8xl lg:max-h-[100vh]">
           <PropertyMap />
         </div>
       </div>
+      {/* Mobile version which just has the property cards from carousel component */}
       <div className="lg:hidden block w-[90%] mx-auto">
         <BtrGrid />
       </div>

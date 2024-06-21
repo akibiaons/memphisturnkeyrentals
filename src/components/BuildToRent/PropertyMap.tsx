@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Import for btr listings
 import { fetchBtrListings } from "@/data/fetchbtr";
-import BuildToRentCarousel from "@/components/BuildToRent/BuiltToRentCarousel";
+import BuildToRentCarousel from "../BuildToRent/BuiltToRentCarousel";
 
 interface BtrProperty {
   id: number;

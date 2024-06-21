@@ -52,6 +52,7 @@ const BtrGrid: React.FC<BtrGridProps> = ({ className }) => {
     <div
       className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start max-w-7xl mx-auto gap-10 ${className}`}
       ref={gridRef}
+      style={{ minHeight: "100vh" }} // Ensuring the grid takes at least the height of the viewport
     >
       {[firstPart, secondPart, thirdPart].map((part, partIndex) => (
         <div className="grid gap-10" key={partIndex}>
@@ -88,4 +89,3 @@ const BtrGrid: React.FC<BtrGridProps> = ({ className }) => {
 };
 
 export default BtrGrid;
-``;
