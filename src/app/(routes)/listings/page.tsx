@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import withAuth from "@/hooks/auth/withAuth";
 
 const MemphisMap = dynamic(() => import("@/components/leaflet/MemphisMap"), {
   ssr: false,
@@ -23,4 +24,4 @@ const ListingPage = () => {
   );
 };
 
-export default ListingPage;
+export default withAuth(ListingPage);
