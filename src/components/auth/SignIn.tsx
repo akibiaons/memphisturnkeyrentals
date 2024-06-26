@@ -1,8 +1,7 @@
 "use client";
-
 import Link from "next/link";
 import { useFormState } from "react-dom";
-// import { loginUserAction } from "@/app/data/actions/auth-actions";
+import { loginUserAction } from "@/app/data/actions/auth-actions";
 
 import {
   CardTitle,
@@ -12,7 +11,6 @@ import {
   CardFooter,
   Card,
 } from "@/components/ui/card";
-
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { ZodErrors } from "@/components/custom-ui/ZodErrors";
@@ -27,12 +25,10 @@ const INITIAL_STATE = {
 };
 
 export function SigninForm() {
-  //   const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
+  const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
   return (
     <div className="w-full max-w-md">
-      <form>
-        {" "}
-        {/* action={formaction| */}
+      <form action={formAction}>
         <Card>
           <CardHeader className="space-y-1">
             <CardTitle className="text-3xl font-bold">Sign In</CardTitle>
@@ -47,9 +43,9 @@ export function SigninForm() {
                 id="identifier"
                 name="identifier"
                 type="text"
-                placeholder="username or email"
+                placeholder="example@example.com"
               />
-              {/* <ZodErrors error={formState?.zodErrors?.identifier} /> */}
+              <ZodErrors error={formState?.zodErrors?.identifier} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
@@ -59,7 +55,7 @@ export function SigninForm() {
                 type="password"
                 placeholder="password"
               />
-              {/* <ZodErrors error={formState.zodErrors?.password} /> */}
+              <ZodErrors error={formState.zodErrors?.password} />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
@@ -68,7 +64,7 @@ export function SigninForm() {
               text="Sign In"
               loadingText="Loading"
             />
-            {/* <StrapiErrors error={formState?.strapiErrors} /> */}
+            <StrapiErrors error={formState?.strapiErrors} />
           </CardFooter>
         </Card>
         <div className="mt-4 text-center text-sm">

@@ -78,7 +78,7 @@ const schemaLogin = z.object({
   identifier: z
     .string()
     .min(3, {
-      message: "Identifier must have at least 3 or more characters",
+      message: "Please enter a valid username or email address",
     })
     .max(20, {
       message: "Please enter a valid username or email address",
@@ -128,7 +128,7 @@ export async function loginUserAction(prevState: any, formData: FormData) {
   }
 
   cookies().set("jwt", responseData.jwt);
-  redirect("/buy");
+  redirect("/listings");
 }
 
 export async function logoutAction() {
