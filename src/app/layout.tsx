@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import { AuthProvider } from "@/hooks/auth/useAuth";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
