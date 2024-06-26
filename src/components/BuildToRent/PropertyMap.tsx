@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -45,6 +45,7 @@ const PropertyMap: React.FC = () => {
   useEffect(() => {
     const getProperties = async () => {
       const btrListings = await fetchBtrListings();
+      console.log(btrListings); // Log to check the fetched data
       setProperties(btrListings);
     };
     getProperties();
@@ -69,58 +70,41 @@ const PropertyMap: React.FC = () => {
     minZoom: 5,
   };
 
-  // Function to prevent touch move on desktop only
-  useEffect(() => {
-    const handleTouchMoveGlobal = (e: TouchEvent) => e.preventDefault();
-
-    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
-      document.addEventListener("touchmove", handleTouchMoveGlobal, {
-        passive: false,
-      });
-    }
-
-    return () => {
-      document.removeEventListener("touchmove", handleTouchMoveGlobal);
-    };
-  }, []);
-
   return (
-    <div>
-      <div className="hidden lg:relative lg:grid lg:grid-cols-12">
-        <div className="lg:col-start-1 lg:col-end-10">
-          <MapContainer
-            style={{ height: "100vh", width: "100%" }}
-            {...mapOptions}
-          >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            {properties.map((property) => (
-              <Marker
-                key={property.id}
-                position={[property.latitude, property.longitude]}
-                icon={propertyMarker(
-                  property === activeProperty ? "green" : "red"
-                )}
-                eventHandlers={{
-                  click: () => {
-                    handleMarkerClick(property);
-                  },
-                }}
-              >
-                <Popup className="hidden">{property.propertyAddress}</Popup>
-              </Marker>
-            ))}
-          </MapContainer>
-        </div>
-        <div className="lg:col-start-10 lg:col-end-13 lg:h-[95vh] lg:overflow-y-auto">
-          <div className="lg:w-[100%]">
-            <BuildToRentCarousel
-              activeProperty={activeProperty}
-              properties={properties}
-              activePropertyId={activeProperty?.id || -1}
-              onClose={handleCloseCarousel}
-              onCardClick={handleCardClick}
-            />
-          </div>
+    <div className="lg:relative lg:grid lg:grid-cols-12">
+      <div className="lg:col-start-1 lg:col-end-10">
+        <MapContainer
+          style={{ height: "100vh", width: "100%" }}
+          {...mapOptions}
+        >
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          {properties.map((property) => (
+            <Marker
+              key={property.id}
+              position={[property.latitude, property.longitude]}
+              icon={propertyMarker(
+                property === activeProperty ? "green" : "red"
+              )}
+              eventHandlers={{
+                click: () => {
+                  handleMarkerClick(property);
+                },
+              }}
+            >
+              <Popup className="hidden">{property.propertyAddress}</Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
+      <div className="lg:col-start-10 lg:col-end-13 lg:h-[95vh] lg:overflow-y-auto">
+        <div className="lg:w-[100%]">
+          <BuildToRentCarousel
+            activeProperty={activeProperty}
+            properties={properties}
+            activePropertyId={activeProperty?.id || -1}
+            onClose={handleCloseCarousel}
+            onCardClick={handleCardClick}
+          />
         </div>
       </div>
       <div className="lg:hidden block">
