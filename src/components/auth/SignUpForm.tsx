@@ -1,7 +1,10 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"; // Ensure correct import
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import axios from "axios";
 
 const signupSchema = z.object({
@@ -28,29 +31,36 @@ const SignupForm: React.FC = () => {
         data
       );
       console.log("User registered:", response.data);
+      // Place your sign-up logic here
     } catch (error) {
       console.error("Error registering user:", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
-        <label>Username</label>
-        <input type="text" {...register("username")} />
-        {errors.username && <span>{errors.username.message}</span>}
+        <Label htmlFor="username">Username</Label>
+        <Input type="text" id="username" {...register("username")} />
+        {errors.username && (
+          <span className="text-red-500">{errors.username.message}</span>
+        )}
       </div>
       <div>
-        <label>Email</label>
-        <input type="email" {...register("email")} />
-        {errors.email && <span>{errors.email.message}</span>}
+        <Label htmlFor="email">Email</Label>
+        <Input type="email" id="email" {...register("email")} />
+        {errors.email && (
+          <span className="text-red-500">{errors.email.message}</span>
+        )}
       </div>
       <div>
-        <label>Password</label>
-        <input type="password" {...register("password")} />
-        {errors.password && <span>{errors.password.message}</span>}
+        <Label htmlFor="password">Password</Label>
+        <Input type="password" id="password" {...register("password")} />
+        {errors.password && (
+          <span className="text-red-500">{errors.password.message}</span>
+        )}
       </div>
-      <button type="submit">Sign Up</button>
+      <Button type="submit">Sign Up</Button>
     </form>
   );
 };
