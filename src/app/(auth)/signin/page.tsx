@@ -1,5 +1,5 @@
 import { SigninForm } from "@/components/auth/SignIn";
 
-export default function SingInRoute() {
+export default function SignInRoute() {
   return <SigninForm />;
 }
