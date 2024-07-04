@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 interface Property {
-  id: string;
+  id: number;
   images: string[];
   price: number;
   address: string;
@@ -29,6 +30,7 @@ export interface PropertyCardProperty extends Property {
 }
 
 interface PropertyCardProps {
+  id: number;
   imageUrl: string;
   imageAlt: string;
   address: string;
@@ -40,6 +42,7 @@ interface PropertyCardProps {
 }
 
 const ListingCard: React.FC<PropertyCardProps> = ({
+  id,
   imageUrl,
   imageAlt,
   address,
@@ -54,18 +57,20 @@ const ListingCard: React.FC<PropertyCardProps> = ({
   return (
     <div className="min-h-[400px] flex flex-col shadow-md rounded-b-lg">
       <div className="relative w-full h-[250px] bg-gray-200 flex items-center justify-center">
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={imageAlt}
-            layout="fill"
-            className="rounded-t-md object-cover"
-          />
-        ) : (
-          <div className="flex items-center justify-center w-full h-full text-gray-500">
-            No Image Available
-          </div>
-        )}
+        <Link href={`/listings/${id}`}>
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={imageAlt}
+              layout="fill"
+              className="rounded-t-md object-cover"
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full text-gray-500">
+              No Image Available
+            </div>
+          )}
+        </Link>
       </div>
 
       <div className="flex flex-col p-2 px-5">
@@ -95,9 +100,11 @@ const ListingCard: React.FC<PropertyCardProps> = ({
           </div>
         </div>
         <div className="text-muted-foreground text-left flex flex-row flex-wrap items-start gap-2 mb-2 cursor-default">
-          <p className="text-md cursor-pointer hover:underline tracking-normal">
-            {address}
-          </p>
+          <Link href={`/listings/${id}`}>
+            <p className="text-md cursor-pointer hover:underline tracking-normal">
+              {address}
+            </p>
+          </Link>
           {tags.map((tag, index) => (
             <Badge
               key={index}
