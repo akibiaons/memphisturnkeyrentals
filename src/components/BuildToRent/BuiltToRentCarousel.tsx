@@ -219,11 +219,11 @@ export default function BuildToRentCarousel({
                 <p className="text-lg font-semibold">
                   ${activeProperty?.price?.toLocaleString() || "N/A"}
                 </p>
-                {/* <p className="text-sm text-gray-600 underline">
-                  <Link href={`/listings/${activeProperty.id}`}>
-                    {activeProperty?.address || "Address not available"}
+                <p className="text-sm text-gray-600 underline">
+                  <Link href={`/build-to-rent/${activeProperty.id}`}>
+                    {activeProperty?.propertyAddress || "Address not available"}
                   </Link>
-                </p> */}
+                </p>
                 <p className="text-sm text-gray-600">
                   {activeProperty?.beds || "N/A"} Beds,{" "}
                   {activeProperty?.baths || "N/A"} Baths
@@ -271,11 +271,11 @@ export default function BuildToRentCarousel({
                   <p className="text-lg font-semibold">
                     ${property.price?.toLocaleString()}
                   </p>
-                  {/* <p className="text-sm text-gray-600 underline">
-                    <Link href={`/listings/${property.id}`}>
-                      {property.address}
+                  <p className="text-sm text-gray-600 underline">
+                    <Link href={`/build-to-rent/${property.id}`}>
+                      {property.propertyAddress}
                     </Link>
-                  </p> */}
+                  </p>
                   <p className="text-sm text-gray-600">
                     {property.beds} Beds, {property.baths} Baths
                   </p>
