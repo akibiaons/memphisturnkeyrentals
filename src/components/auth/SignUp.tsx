@@ -18,7 +18,6 @@ import { Input } from "@/components/ui/input";
 import { ZodErrors } from "@/components/custom-ui/ZodErrors";
 import { SubmitButton } from "@/components/custom-ui/SubmitButton";
 import { StrapiErrors } from "@/components/custom-ui/StrapiErrors";
-// Bunch of component imports above
 
 const INITIAL_STATE = {
   data: null,
@@ -29,7 +28,6 @@ export function SignupForm() {
     registerUserAction,
     INITIAL_STATE
   );
-  console.log(formState);
   return (
     <div className="w-full max-w-md">
       <form action={formAction}>
@@ -40,14 +38,14 @@ export function SignupForm() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="username">Email</Label>
+              <Label htmlFor="email">Email</Label>
               <Input
-                id="username"
-                name="username"
-                type="username"
+                id="email"
+                name="email"
+                type="email"
                 placeholder="name@example.com"
               />
-              <ZodErrors error={formState?.zodErrors?.username} />
+              <ZodErrors error={formState?.zodErrors?.email} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Phone Number</Label>
@@ -57,7 +55,7 @@ export function SignupForm() {
                 type="phone"
                 placeholder="(619)339-0549"
               />
-              <ZodErrors error={formState?.zodErrors?.email} />
+              <ZodErrors error={formState?.zodErrors?.phone} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
