@@ -1,5 +1,8 @@
-"use client";
+"use client"; // Ensure this is at the top
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { loginUserAction } from "@/app/data/actions/auth-actions";
 
@@ -26,6 +29,17 @@ const INITIAL_STATE = {
 
 export function SigninForm() {
   const [formState, formAction] = useFormState(loginUserAction, INITIAL_STATE);
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log("Form state:", formState);
+    if (formState?.data) {
+      console.log("Form data is present, redirecting to /listings...");
+      localStorage.setItem("jwt", formState.data.jwt); // Store JWT in localStorage
+      router.push("/listings");
+    }
+  }, [formState, router]);
+
   return (
     <div className="w-full max-w-md">
       <form action={formAction}>
@@ -55,7 +69,7 @@ export function SigninForm() {
                 type="password"
                 placeholder="password"
               />
-              <ZodErrors error={formState.zodErrors?.password} />
+              <ZodErrors error={formState?.zodErrors?.password} />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
