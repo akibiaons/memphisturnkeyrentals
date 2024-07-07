@@ -1,26 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./ui/accordion";
-import {
-  BadgeDollarSign,
-  CalendarClock,
-  CalendarFold,
-  Hammer,
-  Home,
-  MoveDown,
-  MoveUp,
-  NotebookTabs,
-  Ruler,
-  Speech,
-  UsersRound,
-} from "lucide-react";
-import Image from "next/image";
+} from "@/components/ui/accordion";
+import { BadgeDollarSign, CalendarClock, Home } from "lucide-react";
+import MortgageCalculator from "@/components/mortgage";
 
 interface Property {
   id: number;
@@ -46,7 +35,8 @@ interface ProductListingProps {
 }
 
 export function ProductListing({ property }: ProductListingProps) {
-  // Determine the class for the status dot based on listingStatus
+  const [showCalculator, setShowCalculator] = useState(false);
+
   const getStatusClass = (status: string) => {
     switch (status.toLowerCase()) {
       case "available":
@@ -218,6 +208,14 @@ export function ProductListing({ property }: ProductListingProps) {
                 </span>
                 <span>{property.occupancyStatus}</span>
               </div>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Mortgage Calculator
+            </h2>
+            <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+              <MortgageCalculator price={property.price} />
             </div>
           </div>
         </div>
