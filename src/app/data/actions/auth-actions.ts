@@ -2,22 +2,13 @@
 import { z } from "zod";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-
 import {
   registerUserService,
   loginUserService,
 } from "@/app/data/services/auth-service";
 
-const config = {
-  maxAge: 60 * 60 * 24 * 7, // 1 week
-  path: "/",
-  domain: process.env.HOST ?? "localhost",
-  httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-};
-
 const schemaRegister = z.object({
-  username: z.string().email({ message: "Please enter a valid email address" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
   phone: z
     .string()
     .min(10, { message: "Phone number must be at least 10 digits" }),
@@ -27,10 +18,8 @@ const schemaRegister = z.object({
 });
 
 export async function registerUserAction(prevState: any, formData: FormData) {
-  const username = formData.get("username"); // This is the email entered by the user
-
   const validatedFields = schemaRegister.safeParse({
-    username: username,
+    email: formData.get("email"),
     phone: formData.get("phone"),
     password: formData.get("password"),
   });
@@ -44,13 +33,14 @@ export async function registerUserAction(prevState: any, formData: FormData) {
     };
   }
 
-  // Ensure both username and email fields are filled with the same value
-  const responseData = await registerUserService({
-    username: validatedFields.data.username,
-    email: validatedFields.data.username, // Use the same value for email
+  const userData = {
+    email: validatedFields.data.email,
+    username: validatedFields.data.email, // Use the same value for email and username
     phone: validatedFields.data.phone,
     password: validatedFields.data.password,
-  });
+  };
+
+  const responseData = await registerUserService(userData);
 
   if (!responseData) {
     return {
@@ -70,27 +60,17 @@ export async function registerUserAction(prevState: any, formData: FormData) {
     };
   }
 
-  cookies().set("jwt", responseData.jwt, config);
+  cookies().set("jwt", responseData.jwt);
   redirect("/listings");
 }
 
 const schemaLogin = z.object({
   identifier: z
     .string()
-    .min(3, {
-      message: "Please enter a valid username or email address",
-    })
-    .max(20, {
-      message: "Please enter a valid username or email address",
-    }),
+    .min(3, { message: "Please enter a valid username or email address" }),
   password: z
     .string()
-    .min(6, {
-      message: "Password must have at least 6 or more characters",
-    })
-    .max(100, {
-      message: "Password must be between 6 and 100 characters",
-    }),
+    .min(6, { message: "Password must have at least 6 or more characters" }),
 });
 
 export async function loginUserAction(prevState: any, formData: FormData) {
@@ -128,10 +108,13 @@ export async function loginUserAction(prevState: any, formData: FormData) {
   }
 
   cookies().set("jwt", responseData.jwt);
-  redirect("/listings");
+  return {
+    ...prevState,
+    data: responseData,
+  };
 }
 
 export async function logoutAction() {
-  cookies().set("jwt", "", { ...config, maxAge: 0 });
+  cookies().set("jwt", "", { maxAge: 0 });
   redirect("/");
 }
