@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { BadgeDollarSign, CalendarClock, Home } from "lucide-react";
 import Image from "next/image";
+import MortgageCalculator from "@/components/mortgage";
 
 interface Project {
   id: number;
@@ -207,6 +208,9 @@ export function ProjectListing({ project }: ProjectListingProps) {
                 <span>{project.occupancyStatus}</span>
               </div>
             </div>
+          </div>
+          <div>
+            <MortgageCalculator price={project.price} />
           </div>
         </div>
       </section>
