@@ -111,12 +111,8 @@ export default function Home() {
         </div>
 
         {/* Start of section two */}
-        <div className=" flex flex-col my-32 px-4">
-          <SectionTwo />
-        </div>
-        <div className=" flex flex-col my-32 px-4 ">
-          {/* <SectionFour /> */}
-        </div>
+        <div className=" flex flex-col px-4">{/* <SectionTwo /> */}</div>
+        <div className=" flex flex-col px-4 ">{/* <SectionFour /> */}</div>
       </div>
     </div>
   );
