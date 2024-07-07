@@ -56,7 +56,7 @@ const DashboardNav = () => {
             <nav className="grid gap-4 text-lg font-medium text-left justify-start">
               <SheetClose asChild>
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
+                  {/* <DropdownMenuTrigger asChild>
                     <Button
                       variant="secondary"
                       size="icon"
@@ -65,15 +65,15 @@ const DashboardNav = () => {
                       <CircleUser className="h-5 w-5" />
                       <span className="sr-only">Toggle user menu</span>
                     </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent side="right" className="mt-5">
+                  </DropdownMenuTrigger> */}
+                  {/* <DropdownMenuContent side="right" className="mt-5">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>Settings</DropdownMenuItem>
                     <DropdownMenuItem>Support</DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>Logout</DropdownMenuItem>
-                  </DropdownMenuContent>
+                  </DropdownMenuContent> */}
                 </DropdownMenu>
               </SheetClose>
               <SheetClose asChild>
@@ -210,7 +210,7 @@ const DashboardNav = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              {/* <DropdownMenuTrigger asChild>
                 <Button
                   variant="secondary"
                   size="icon"
@@ -219,15 +219,15 @@ const DashboardNav = () => {
                   <CircleUser className="h-5 w-5" />
                   <span className="sr-only">Toggle user menu</span>
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              </DropdownMenuTrigger> */}
+              {/* <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Logout</DropdownMenuItem>
-              </DropdownMenuContent>
+              </DropdownMenuContent> */}
             </DropdownMenu>
           </div>
         </div>
