@@ -100,7 +100,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
         </div>
         <div className="text-muted-foreground text-left flex flex-row flex-wrap items-start gap-2 mb-2 cursor-default">
           <Link href={`/projects/${id}`}>
-            {" "}
             {/* Use the id prop here */}
             <p className="text-md cursor-pointer hover:underline tracking-normal">
               {address}

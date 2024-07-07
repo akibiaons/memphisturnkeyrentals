@@ -1,11 +1,9 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import { fetchProject } from "@/data/fetchProjectId";
-import ProjectListing from "../components/ProjectListing";
 import { ImagesSlider } from "@/components/ui/image-slider";
 import { motion } from "framer-motion";
+import ProjectListing from "@/app/(routes)/projects/components/ProjectListing";
 
 interface Project {
   id: number;
@@ -27,11 +25,9 @@ interface Project {
 }
 
 const Project = ({ params }: { params: { projectId: string } }) => {
-  // Hooks used for calling the state in the page based on the project data being fetched
   const { projectId } = params;
   const [project, setProject] = useState<Project | null>(null);
 
-  // use effect to store fetched projects
   useEffect(() => {
     const getProject = async () => {
       const fetchedProject = await fetchProject(projectId);
@@ -41,7 +37,6 @@ const Project = ({ params }: { params: { projectId: string } }) => {
     getProject();
   }, [projectId]);
 
-  // Conditional to throw out a "loading" screen if projects have not yet rendered
   if (!project) {
     return <div>Loading Projects...</div>;
   }
