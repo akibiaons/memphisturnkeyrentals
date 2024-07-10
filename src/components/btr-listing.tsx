@@ -6,21 +6,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./ui/accordion";
-import {
-  BadgeDollarSign,
-  CalendarClock,
-  CalendarFold,
-  Hammer,
-  Home,
-  MoveDown,
-  MoveUp,
-  NotebookTabs,
-  Ruler,
-  Speech,
-  UsersRound,
-} from "lucide-react";
+} from "@/components/ui/accordion";
+import { BadgeDollarSign, CalendarClock, Home } from "lucide-react";
 import Image from "next/image";
+import MortgageCalculator from "@/components/mortgage";
 
 interface BtrProperty {
   id: number;
@@ -48,11 +37,11 @@ interface BtrListingProps {
 export function BtrListingId({ property }: BtrListingProps) {
   const getStatusClass = (status: string) => {
     switch (status.toLowerCase()) {
-      case "Available":
+      case "available":
         return "bg-green-600";
-      case "Sold":
+      case "sold":
         return "bg-red-600";
-      case "Under contract":
+      case "under contract":
         return "bg-yellow-500";
       default:
         return "bg-gray-400";
@@ -218,6 +207,9 @@ export function BtrListingId({ property }: BtrListingProps) {
                 <span>{property.occupancy}</span>
               </div>
             </div>
+          </div>
+          <div>
+            <MortgageCalculator price={property.price} />
           </div>
         </div>
       </section>
