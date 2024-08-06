@@ -1,5 +1,9 @@
-import { SignupForm } from "@/components/auth/SignUp";
+import { SignupForm } from "@/components/forms/SignupForm";
 
 export default function SignUpRoute() {
-  return <SignupForm />;
+  return (
+    <div>
+      <SignupForm />
+    </div>
+  );
 }

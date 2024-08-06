@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -23,8 +23,9 @@ const formSchema = z.object({
 });
 
 export function SellForm() {
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
+  const [message, setMessage] = useState("");
+
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -33,12 +34,23 @@ export function SellForm() {
     },
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+  const onSubmit = async (values: any) => {
+    setMessage("");
+    try {
+      const response = await fetch("/api/sellForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const result = await response.json();
+      setMessage(result.message);
+    } catch (error) {
+      setMessage("An error occurred. Please try again.");
+    }
+  };
 
   return (
     <Form {...form}>
@@ -53,7 +65,6 @@ export function SellForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormDescription>First and last name</FormDescription>
-
               <FormControl>
                 <Input placeholder="Arcadius son of Francis" {...field} />
               </FormControl>
@@ -75,7 +86,6 @@ export function SellForm() {
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="email"
@@ -83,7 +93,6 @@ export function SellForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormDescription>Your main email address.</FormDescription>
-
               <FormControl>
                 <Input placeholder="arcadius@gmail.com" {...field} />
               </FormControl>
@@ -91,10 +100,10 @@ export function SellForm() {
             </FormItem>
           )}
         />
-
         <Button type="submit" size="lg" className="w-full">
           Submit
         </Button>
+        {message && <p>{message}</p>}
       </form>
     </Form>
   );

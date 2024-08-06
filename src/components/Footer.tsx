@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { Github, Instagram, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
@@ -29,14 +31,33 @@ const FooterSection = ({ title, links }: FooterSectionProps) => (
 );
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async (e: any) => {
+    e.preventDefault();
+    setMessage("");
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+      setMessage(result.message);
+    } catch (error) {
+      setMessage("An error occurred. Please try again.");
+    }
+  };
+
   return (
     <footer className="border-t space-y-8 w-full">
       <main className="w-full max-w-7xl justify-center mx-auto flex flex-col md:flex-col px-6 py-9 gap-8 ">
         <section className="flex flex-col md:flex-row gap-8 justify-between">
           <div className="flex flex-row md:flex-col justify-between items-center">
-            {/* <h3 className="font-display font-black text-4xl text-left ">
-              Turnkey Memphis
-            </h3> */}
             <Image
               width={150}
               height={150}
@@ -80,7 +101,6 @@ const Footer = () => {
             links={[
               { name: "Terms of Service", url: "/terms" },
               { name: "Privacy Policy", url: "/privacypolicy" },
-              // { name: "Meet the Team", url: "/team" },
             ]}
           />
           <section className="flex flex-col items-start">
@@ -93,22 +113,25 @@ const Footer = () => {
                   Stay updated on new releases and features, guides, and case
                   studies.
                 </p>
-                <div className="relative w-full">
+                <form onSubmit={handleSubscribe} className="relative w-full">
                   <Input
                     type="email"
                     id="footer-input"
                     className="w-full pl-4 pr-20 py-5 border rounded-md text-gray-700 focus:outline-none focus:ring focus:border-none"
                     placeholder="you@domain.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <Button
                     type="submit"
-                    className="absolute right-1 top-1 bottom-1  font-semibold  rounded-md"
+                    className="absolute right-1 top-1 bottom-1 font-semibold rounded-md"
                     size="sm"
                     variant="outline"
                   >
                     Subscribe
                   </Button>
-                </div>
+                </form>
+                {message && <p>{message}</p>}
               </div>
             </div>
           </section>
@@ -116,7 +139,7 @@ const Footer = () => {
 
         <div className="flex flex-row mt-6 items-center justify-between">
           <div>
-            <p className="text-neutral-400">Copright © MTH Turnkey LLC</p>
+            <p className="text-neutral-400">Copyright © MTH Turnkey LLC</p>
           </div>
           <div>
             <div>{/* <ModeToggle /> */}</div>

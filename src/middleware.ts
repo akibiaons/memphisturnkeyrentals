@@ -1,11 +1,24 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getUserMeLoader } from "@/data/services/get-user-me-loader";
 
-export function middleware(req: NextRequest) {
-  // For debugging purposes, skip token verification
+export async function middleware(request: NextRequest) {
+  const user = await getUserMeLoader();
+  const currentPath = request.nextUrl.pathname;
+
+  //
+  console.log("############## MIDDLEWARE ##############");
+  console.log(user);
+  console.log(currentPath);
+  console.log("############## MIDDLEWARE ##############");
+
+  if (
+    (currentPath.startsWith("/listings") ||
+      currentPath.startsWith("/build-to-rent")) &&
+    user.ok === false
+  ) {
+    return NextResponse.redirect(new URL("/signin", request.url));
+  }
+
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/listings/:path*"],
-};

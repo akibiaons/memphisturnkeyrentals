@@ -1,10 +1,11 @@
+// All logic nessicary to handle Strapi logins
+
 import { getStrapiURL } from "@/lib/utils";
 
 interface RegisterUserProps {
   username: string;
-  email: string;
-  phone: string;
   password: string;
+  email: string;
 }
 
 interface LoginUserProps {

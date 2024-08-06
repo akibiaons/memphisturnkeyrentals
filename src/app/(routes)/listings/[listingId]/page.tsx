@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import { fetchProperty } from "@/data/fetchProperty"; // Adjust the import path as needed
 import { ProductListing } from "@/components/product-listing";
 import { ImagesSlider } from "@/components/ui/image-slider";
