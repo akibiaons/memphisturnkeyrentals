@@ -11,7 +11,7 @@ const BtrGrid = dynamic(() => import("@/components/BuildToRent/BtrGrid"), {
   ssr: false,
 });
 
-export default function page() {
+export default function Page() {
   return (
     <div className="overflow-auto">
       <div className="hidden lg:block">

@@ -1,8 +1,6 @@
 import Hero from "@/components/HomeComponents/Hero";
 import SectionOne from "@/components/HomeComponents/SectionOne";
-import SectionTwo from "@/components/HomeComponents/SectionTwo";
 import SectionThree from "@/components/HomeComponents/SectionThree";
-import SectionFour from "@/components/HomeComponents/SectionFour";
 import { AnimatedTooltipPreview } from "@/components/HomeComponents/team";
 import { CardStackDemo } from "@/components/HomeComponents/card-stack";
 import {
@@ -13,7 +11,6 @@ import {
 } from "@/components/ui/accordion";
 
 // Other component import
-import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
