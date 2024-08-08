@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-
+import { isValidPhoneNumber } from "react-phone-number-input";
 import {
   registerUserService,
   loginUserService,
@@ -21,6 +21,10 @@ const schemaRegister = z.object({
   username: z.string().min(3).max(20, {
     message: "Username must be between 3 and 20 characters",
   }),
+  phone: z.string().min(10).max(11, {
+    message: "Enter a valid phone number",
+  }),
+
   password: z.string().min(6).max(100, {
     message: "Password must be between 6 and 100 characters",
   }),
@@ -32,6 +36,7 @@ const schemaRegister = z.object({
 export async function registerUserAction(prevState: any, formData: FormData) {
   const validatedFields = schemaRegister.safeParse({
     username: formData.get("username"),
+    phone: formData.get("phone"),
     password: formData.get("password"),
     email: formData.get("email"),
   });
