@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { ZodErrors } from "../custom/ZodErrors";
 import { StrapiErrors } from "../custom/StrapiErrors";
 import { SubmitButton } from "../custom/SubmitButton";
+import { PhoneInput } from "../custom/PhoneInput";
 
 // varible to store initial state
 const INITIAL_STATE = {
@@ -55,6 +56,18 @@ export function SignupForm() {
               />
               <ZodErrors error={formState?.zodErrors?.username} />
             </div>
+            {/* New phone input I did it solo */}
+            <div className="space-y-2">
+              <Label htmlFor="phone">Phone</Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="6198667776"
+              />
+              <ZodErrors error={formState?.zodErrors?.phone} />
+            </div>
+            {/* End of solo phone input */}
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
